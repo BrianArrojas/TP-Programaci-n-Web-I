@@ -59,14 +59,22 @@
 }
 
 .header_noti{
-    height: 1em;
-    width: 1em;
+    height: 1.2em;
+    width: 1.2em;
     background-color: gray;
-    border: 1px solid black;
     border-radius: 8px;
     position: absolute;
     top: 10px;
     right: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.header_noti p{
+    color: white;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-top: 1px;
 }
 
 .header_menu{
@@ -80,11 +88,13 @@
     display: inline-flex;
     gap:1em;
     list-style: none;
-    
+    font-size: 1.5em;
 }
 
 .header_menu nav ul li a{
     color:black;
+    text-decoration: none;
+    color: white;
 }
 
 .footer{
