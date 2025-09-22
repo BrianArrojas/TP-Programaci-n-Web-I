@@ -115,3 +115,33 @@
     padding: 2em;
 }
 
+.img_home{
+  width: 100%;      
+  height: auto;    
+  display: block;   
+}
+
+.sect_med_pagos {
+  display: flex;
+  justify-content: center;   
+  align-items: center;      
+  flex-wrap: wrap;           
+  gap: 1.25em;                 
+  padding: 1.25em;
+  max-width: 100%;           
+  box-sizing: border-box;
+}
+
+.div_logos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.div_med_pagos img {
+  max-width: 9.375em;   
+  width: 100%;        
+  height: auto;       
+  display: block;
+}
