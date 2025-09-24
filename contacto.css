@@ -260,6 +260,155 @@ body {
     border-radius: 8px;
 }
 
+/* CURSOS EMPRESAS */
+
+.cursos_empresas {
+    color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 2em 16em;
+    border-radius: 8px;
+    gap: 2em;
+}
+
+.cursos_empresas h4 {
+    color: #666666;
+}
+
+.personas_inscriptas {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 4em;
+}
+
+.personas_inscriptas li {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+}
+
+.personas_inscriptas li form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 5em;
+}
+
+.formulario_persona_campo {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+
+.formulario_persona_campo label {
+    background-color: #13161c;
+    color: #666666;
+    position: absolute;
+    top: -0.7em;
+    left: 0.7em;
+    font-size: 0.9em;
+    padding: 0 0.5em;
+}
+
+.formulario_persona_campo input {
+    font-size: 1em;
+    height: 2.5em;
+    border-radius: 8px;
+    border: 1px solid #383838;
+    padding-left: 0.7em;
+    background-color: #13161c;
+    color: #f1f1f1;
+}
+
+.formulario_persona_campo input:focus,
+.formulario_persona_campo input:hover {
+    border-color: #09e989;
+    outline: none;
+}
+
+.formulario_persona button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8em;
+    border-radius: 100%;
+    background-color: #1f2228;
+    border: none;
+    cursor: pointer;
+}
+
+.formulario_persona button img {
+    height: 2.5em;
+}
+
+.agregar_persona {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    margin: 1em 0;
+}
+
+.agregar_persona button {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1em;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0.5em 1em;
+}
+
+.agregar_persona button:hover {
+    background-color: #1f2228;
+    border-radius: 8px;
+}
+
+.agregar_persona button img {
+    height: 2em;
+    background-color: #1f2228;
+    padding: 0.7em;
+    border-radius: 100%;
+}
+
+.agregar_persona button p {
+    color: #f1f1f1;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.precio_inscripcion {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.precio_inscripcion h3 {
+    font-size: 1.5em;
+    background-color: #0f1116;
+    padding: 0.5em 1em;
+    font-weight: lighter;
+}
+
+.precio_inscripcion button {
+    background-color: #09e989;
+    color: #13161c;
+    border: none;
+    height: 2.5em;
+    width: 10em;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
 /* FOOTER */
 
 .footer {
