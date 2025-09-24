@@ -1,82 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inicio - Platzi</title>
 </head>
+
 <body>
     <header class="header">
-
         <div class="header_superior">
-        <div class="header_logo">
-            <img src="imagenes/logo.jpg" alt="Logo">
-        </div>
-        <div class="header_busqueda"> 
-            <input list="browsers">
-            <datalist id="browsers" name="myBrowser">
-                <option value="Chrome"></option>
-                <option value="Firefox"></option>
-                <option value="Internet Explorer"></option>
-                <option value="Opera"></option>
-                <option value="Safari"></option>
-                <option value="Microsoft Edge"></option>
-            </datalist>
-            <img src="imagenes/lupa.png" alt="Lupa" class="lupa-icon">
-        </div>
-        <div class="header_carrito">
-            <img src="imagenes/carrito.png" alt="Carrito de compras">
-            <div class="header_noti">
-                <p>5</p>
+            <a class="header_logo" href="./index.html">
+                <img src="imagenes/platzi.png" alt="Logo">
+            </a>
+
+            <div class="header_busqueda">
+                <img src="./imagenes/lupa-blanca.svg" alt="Lupa" class="lupa-icon">
+                <input list="browsers" placeholder="Buscar cursos...">
+                <datalist id="browsers" name="myBrowser">
+                    <option value="Chrome"></option>
+                    <option value="Firefox"></option>
+                    <option value="Internet Explorer"></option>
+                    <option value="Opera"></option>
+                    <option value="Safari"></option>
+                    <option value="Microsoft Edge"></option>
+                </datalist>
+            </div>
+
+            <div class="header_carrito">
+                <img src="imagenes/carrito-blanco.svg" alt="Carrito de compras">
+                <div>
+                    <p>5</p>
+                </div>
             </div>
         </div>
-        </div>
-        
+
         <div class="header_menu">
             <nav>
                 <ul>
-                    <li><a href="#">MENU</a></li>
-
+                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="./calendario.html">Calendario</a></li>
+                    <li><a href="./regala-curso.html">Regalá un curso</a></li>
+                    <li><a href="./cursos-empresas.html">Cursos para empresas</a></li>
+                    <li><a href="./contacto.html">Contactanos</a></li>
                 </ul>
             </nav>
-
         </div>
     </header>
-    <div>
-        <img src="./imagenes/home.png" alt="img-home" class="img_home">
-    </div>
-    
-    <section class="sect_med_pagos">
-        <h3>MEDIOS DE PAGO</h3>
-        <div class="div_logos">
-        <div class="div_med_pagos">
-            <img src="./imagenes/mastercard.png" alt="mastercard">
-        </div>
-        <div class="div_med_pagos">
-            <img src="./imagenes/visa.png" alt="visa">
-        </div>
-        <div class="div_med_pagos">
-            <img src="./imagenes/mercado-pago.png" alt="mercado-pago">
-        </div>
-        <div class="div_med_pagos">
-            <img src="./imagenes/paypal.png" alt="paypal">
-        </div>
+
+    <section class="hero">
+        <img src="./imagenes/hero.jpg" alt="Tecnología">
+        <div>
+            <img src="./imagenes/flecha-izquierda.svg" alt="Izquierda">
+            <img src="./imagenes/flecha-derecha.svg" alt="Derecha">
         </div>
     </section>
 
+    <section class="pasos">
+        <div>
+            <img src="./imagenes/logo-codigo.svg" alt="Seleccioná un curso">
+            <p>Seleccioná un curso</p>
+        </div>
+        <div>
+            <img src="./imagenes/logo-tarjeta.svg" alt="Realizá el pago">
+            <p>Realizá el pago</p>
+        </div>
+        <div>
+            <img src="./imagenes/emoji.svg" alt="Disfrutá las clases">
+            <p>¡Disfrutá las clases!</p>
+        </div>
+    </section>
+
+    <section class="cursos_destacados">
+        <h2>CURSOS DESTACADOS</h2>
+
+        <div class="cursos_destacados_album">
+            <div class="cursos_destacados_card">
+                <img src="./imagenes/codigo.jpg" alt="Curso 2">
+                <div>
+                    <p>12hs</p>
+                    <h3>Introducción a HTML5, CSS y JavaScript</h3>
+                </div>
+                <a href="./detalle-curso.html">Ver detalle</a>
+                <button>Comprar</button>
+            </div>
+
+            <div class="cursos_destacados_card">
+                <img src="./imagenes/codigo.jpg" alt="Curso 2">
+                <div>
+                    <p>60hs</p>
+                    <h3>Curso de JavaScript para Principiantes</h3>
+                </div>
+                <a href="./detalle-curso.html">Ver detalle</a>
+                <button>Comprar</button>
+            </div>
+
+            <div class="cursos_destacados_card">
+                <img src="./imagenes/codigo.jpg" alt="Curso 2">
+                <div>
+                    <p>46hs</p>
+                    <h3>Curso de Python Nivel Avanzado</h3>
+                </div>
+                <a href="./detalle-curso.html">Ver detalle</a>
+                <button>Comprar</button>
+            </div>
+
+            <div class="cursos_destacados_card">
+                <img src="./imagenes/codigo.jpg" alt="Curso 2">
+                <div>
+                    <p>33hs</p>
+                    <h3>Curso de Python Nivel Intermedio</h3>
+                </div>
+                <a href="./detalle-curso.html">Ver detalle</a>
+                <button>Comprar</button>
+            </div>
+
+            <div class="cursos_destacados_card">
+                <img src="./imagenes/codigo.jpg" alt="Curso 2">
+                <div>
+                    <p>120hs</p>
+                    <h3>Introducción a Machine Learning</h3>
+                </div>
+                <a href="./detalle-curso.html">Ver detalle</a>
+                <button>Comprar</button>
+            </div>
+
+            <div class="cursos_destacados_card">
+                <img src="./imagenes/codigo.jpg" alt="Curso 2">
+                <div>
+                    <p>360hs</p>
+                    <h3>Conceptos de Amazon Web Services</h3>
+                </div>
+                <a href="./detalle-curso.html">Ver detalle</a>
+                <button>Comprar</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="medios_pago">
+        <h2>MEDIOS DE PAGO</h2>
+        <div class="carrusel_medios_pago">
+            <div class="medios_pago_flechas">
+                <img src="./imagenes/flecha-izquierda.svg" alt="Flecha izquierda">
+                <img src="./imagenes/flecha-derecha.svg" alt="Flecha derecha">
+            </div>
+            <div class="medios_pago_logos">
+                <img src="./imagenes/visa.png" alt="Visa">
+                <img src="./imagenes/paypal.png" alt="PayPal">
+                <img src="./imagenes/mercado-pago.png" alt="Mercado Pago">
+                <img src="./imagenes/mastercard.png" alt="MasterCard">
+            </div>
+        </div>
+    </div>
+
     <footer class="footer">
-        <div class="footer_main">
-            <div class="footer_datos">
-                <p>Datos del grupo</p>
-            </div>
-            <div class="footer_datos">
-                <p>Menu inferior</p>
-            </div>
-            <div class="footer_datos">
-                <p>Redes sociales</p>
-            </div>
+        <a href="./index.html"><img src="./imagenes/platzi.png" alt="Logo de la empresa"></a>
+
+        <div class="footer_dato">
+            <h4>INTEGRANTES DEL GRUPO</h4>
+            <ul>
+                <li>
+                    <img src="./imagenes/persona.svg" alt="Persona">
+                    <p>Arrojas, Brian</p>
+                </li>
+                <li>
+                    <img src="./imagenes/persona.svg" alt="Persona">
+                    <p>Barrios Villagra, Enzo Guillermo</p>
+                </li>
+                <li>
+                    <img src="./imagenes/persona.svg" alt="Persona">
+                    <p>Caltana, Martin</p>
+                </li>
+                <li>
+                    <img src="./imagenes/persona.svg" alt="Persona">
+                    <p>Estevez, Blas Ivan</p>
+                </li>
+                <li>
+                    <img src="./imagenes/persona.svg" alt="Persona">
+                    <p>Apellido, Uriel</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer_dato">
+            <h4>MENÚ</h4>
+            <ul>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./calendario.html">Calendario</a></li>
+                <li><a href="./regala-curso.html">Regalá un curso</a></li>
+                <li><a href="./cursos-empresas.html">Cursos para empresas</a></li>
+                <li><a href="./contacto.html">Contactanos</a></li>
+            </ul>
+        </div>
+
+        <div class="footer_dato">
+            <h4>REDES SOCIALES</h4>
+            <ul>
+                <li>
+                    <img src="./imagenes/instagram.svg" alt="Instagram">
+                    <a target="_blank" href="https://www.instagram.com/platzi/">@platzi</a>
+                </li>
+                <li>
+                    <img src="./imagenes/linkedin.svg" alt="LinkedIn">
+                    <a target="_blank" href="https://www.linkedin.com/school/platzi-inc/">Platzi Inc.</a>
+                </li>
+                <li>
+                    <img src="./imagenes/facebook.svg" alt="Facebook">
+                    <a target="_blank" href="https://www.facebook.com/platzi/?locale=es_LA">Platzi en Facebook</a>
+                </li>
+                <li>
+                    <img src="./imagenes/youtube.svg" alt="YouTube">
+                    <a target="_blank" href="https://www.youtube.com/@Platzi">Platzi en YouTube</a>
+                </li>
+                <li>
+                    <img src="./imagenes/x.svg" alt="X">
+                    <a target="_blank" href="https://x.com/platzi/">Platzi en X</a>
+                </li>
+            </ul>
         </div>
     </footer>
 </body>
+
 </html>
