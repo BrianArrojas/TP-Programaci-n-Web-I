@@ -192,15 +192,20 @@ body {
 }
 
 .contacto_medios form button {
-    background-color: #09e989;
-    color: #13161c;
-    border: none;
+    background-color: transparent;
+    color: #f1f1f1;
+    border: 1px solid #09e989;
     height: 2em;
     width: 8em;
     border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
     font-size: 1.2em;
+}
+
+.contacto_medios form button:hover {
+    background-color: #09e989;
+    color: #13161c;
+    border: none;
 }
 
 .contacto_datos {
@@ -398,15 +403,197 @@ body {
 }
 
 .precio_inscripcion button {
-    background-color: #09e989;
-    color: #13161c;
-    border: none;
+    background-color: transparent;
+    color: #f1f1f1;
+    border: 1px solid #09e989;
     height: 2.5em;
     width: 10em;
     border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
     font-size: 1.2em;
+}
+
+.precio_inscripcion button:hover {
+    background-color: #09e989;
+    color: #13161c;
+    border: none;
+}
+
+/* GIFT CARD */
+
+.gift_card {
+    background-color: #13161c;
+    color: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+    padding: 2em 16em;
+    border-radius: 8px;
+    gap: 7em;
+}
+
+.vista_previa {
+    background-color: #383838;
+    width: 100%;
+    height: 38em;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vista_previa_monto {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5em 1em;
+    background-color: #1f2228;
+    border-radius: 0 8px 0 0;
+    font-size: 1.5em;
+}
+
+.vista_previa_destinatario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.vista_previa_destinatario h3 {
+    font-size: 3em;
+}
+
+.gift_card_datos {
+    width: 100%;
+}
+
+.gift_card_datos h2 {
+    margin-bottom: 1em;
+    font-weight: lighter;
+}
+
+.gift_card_datos form {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.gift_card_datos form button {
+    background-color: transparent;
+    border: 1px solid #09e989;
+    color: #f1f1f1;
+    height: 2em;
+    width: 8em;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.gift_card_datos form button:hover {
+    background-color: #09e989;
+    color: #13161c;
+    border: none;
+}
+
+.datos_formulario_campo {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 50%;
+}
+
+.datos_formulario_campo label {
+    background-color: #13161c;
+    color: #666666;
+    position: absolute;
+    top: -0.7em;
+    left: 0.7em;
+    font-size: 0.9em;
+    padding: 0 0.5em;
+}
+
+.datos_formulario_campo input {
+    font-size: 1em;
+    height: 2.5em;
+    border-radius: 8px;
+    border: 1px solid #383838;
+    padding-left: 0.7em;
+    background-color: #13161c;
+    color: #f1f1f1;
+}
+
+.datos_formulario_campo input:focus,
+.datos_formulario_campo input:hover {
+    border-color: #09e989;
+    outline: none;
+}
+
+.datos_formulario_seleccionar {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 50%;
+    gap: 0.5em;
+}
+
+.datos_formulario_seleccionar label {
+    color: #666666;
+    font-size: 0.9em;
+}
+
+.datos_formulario_seleccionar ul {
+    list-style: none;
+    display: flex;
+    align-items: end;
+    gap: 3em;
+}
+
+.datos_formulario_seleccionar ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.colores_opciones li div {
+    height: 2em;
+    width: 2em;
+    border-radius: 100%;
+    border: 1px solid #383838;
+    cursor: pointer;
+}
+
+.ubicacion_opciones li div {
+    height: 3em;
+    width: 6em;
+    border: 1px solid #383838;
+    position: relative;
+}
+
+.ubicacion_opciones li div div {
+    position: absolute;
+    height: 1em;
+    width: 1.5em;
+    background-color: #383838;
+}
+
+.ubicacion_opcion_br div {
+    bottom: 0;
+    right: 0;
+}
+
+.ubicacion_opcion_tr div {
+    top: 0;
+    right: 0;
+}
+
+.fondo_opciones li div {
+    height: 3em;
+    width: 3em;
+    border: 1px solid #383838;
+    border-radius: 8px
 }
 
 /* FOOTER */
