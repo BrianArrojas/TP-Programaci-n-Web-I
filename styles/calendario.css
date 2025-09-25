@@ -1,0 +1,73 @@
+/* CALENDARIO */
+
+.calendario {
+    color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 2em 16em;
+    border-radius: 8px;
+    gap: 2em;
+}
+
+.calendario h4 {
+    color: #666666;
+}
+
+.calendario-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    align-items: center;
+    text-align: center;
+}
+
+.calendario-grid div{
+    border: #666666 1px solid;
+    height: 8em;
+    padding: 1em;
+}
+
+.fecha-actual{
+    display: flex;
+    justify-content: center;
+
+}
+
+.fecha-actual p{
+    background-color: #09e989;
+    color: #13161c;
+    border: #09e989 2px solid;
+    border-radius: 2em;
+    width: 1.2em;
+    height: 1.2em;
+    text-align: center;
+}
+
+
+details:last-of-type summary {
+  list-style: none;
+  margin-top: 0.5em;
+    padding: 0.5em;
+  &::after {
+    content: "+";
+    color: #13161c;
+    border-radius: 1em;
+    font-weight: bold;
+    margin-inline-start: 5px;
+  }
+  [open] &::after {
+    content: "−";
+  }
+}
+
+summary {
+  cursor: pointer;
+  outline: none;
+  background-color: #09e989;
+  color: #13161c;
+  border-radius: 4px;
+}
