@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../styles/misc.css">
-    <link rel="stylesheet" href="../styles/cursos-empresas.css">
+    <link rel="stylesheet" href="../styles/inicio.css">
+    <link rel="stylesheet" href="../styles/form-contacto.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursos para empresas - Platzi</title>
+    <title>Inicio - Platzi</title>
 </head>
 
 <body>
@@ -20,12 +21,12 @@
                 <img src="../imagenes/lupa-blanca.svg" alt="Lupa" class="lupa-icon">
                 <input list="browsers" placeholder="Buscar cursos...">
                 <datalist id="browsers" name="myBrowser">
-                    <option value="Chrome"></option>
-                    <option value="Firefox"></option>
-                    <option value="Internet Explorer"></option>
-                    <option value="Opera"></option>
-                    <option value="Safari"></option>
-                    <option value="Microsoft Edge"></option>
+                    <option value="Introducción a HTML5, CSS y JavaScript"></option>
+                    <option value="Curso de JavaScript para Principiantes"></option>
+                    <option value="Curso de Python Nivel Avanzado"></option>
+                    <option value="Curso de Python Nivel Intermedio"></option>
+                    <option value="Introducción a Machine Learning"></option>
+                    <option value="Conceptos de Amazon Web Services"></option>
                 </datalist>
             </div>
 
@@ -49,80 +50,14 @@
             </nav>
         </div>
     </header>
-
-    <section class="cursos_empresas">
-        <h2>ASP.NET Core 7 WebApis Restful, React, Redis, SQL Server</h2>
-        <h4>EMPLEADOS INSCRIPTOS</h4>
-
-        <ul class="personas_inscriptas">
-            <li>
-                <form action="#" method="post" class="formulario_persona">
-                    <div class="formulario_persona_campo">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" required>
-                    </div>
-                    <div class="formulario_persona_campo">
-                        <label for="apellido">Apellido:</label>
-                        <input type="text" id="apellido" name="apellido" required>
-                    </div>
-                    <div class="formulario_persona_campo">
-                        <label for="dni">DNI:</label>
-                        <input type="text" id="dni" name="dni" required>
-                    </div>
-                    <button><img src="../imagenes/basura.svg" alt="Basura"></button>
-                </form>
-            </li>
-
-            <li>
-                <form action="#" method="post" class="formulario_persona">
-                    <div class="formulario_persona_campo">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" required>
-                    </div>
-                    <div class="formulario_persona_campo">
-                        <label for="apellido">Apellido:</label>
-                        <input type="text" id="apellido" name="apellido" required>
-                    </div>
-                    <div class="formulario_persona_campo">
-                        <label for="dni">DNI:</label>
-                        <input type="text" id="dni" name="dni" required>
-                    </div>
-                    <button><img src="../imagenes/basura.svg" alt="Basura"></button>
-                </form>
-            </li>
-
-            <li>
-                <form action="#" method="post" class="formulario_persona">
-                    <div class="formulario_persona_campo">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" required>
-                    </div>
-                    <div class="formulario_persona_campo">
-                        <label for="apellido">Apellido:</label>
-                        <input type="text" id="apellido" name="apellido" required>
-                    </div>
-                    <div class="formulario_persona_campo">
-                        <label for="dni">DNI:</label>
-                        <input type="text" id="dni" name="dni" required>
-                    </div>
-                    <button><img src="../imagenes/basura.svg" alt="Basura"></button>
-                </form>
-            </li>
-        </ul>
-
-        <div class="agregar_persona">
-            <button>
-                <img src="../imagenes/cruz.svg" alt="Agregar">
-                <p>Agregar persona</p>
-            </button>
-        </div>
-
-        <div class="precio_inscripcion">
-            <h3>$45.000</h3>
-            <button>INSCRIBIRSE</button>
-        </div>
-    </section>
-
+    <main class="main_section">
+        <section class="section-div">
+            <div class="div_p">
+                <p class="p_main">Los datos fueron enviados correctamente</p>
+            </div>
+            <button type="reset" class="button_main"><a href="./index.html">Volver</a></button>
+        </section>
+    </main>
     <footer class="footer">
         <a href="./index.html"><img src="../imagenes/platzi.png" alt="Logo de la empresa"></a>
 

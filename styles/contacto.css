@@ -136,3 +136,8 @@
     border: 1px solid #383838;
     border-radius: 8px;
 }
+
+.contacto_medios a{
+    text-decoration: none;
+    color: white;
+}
