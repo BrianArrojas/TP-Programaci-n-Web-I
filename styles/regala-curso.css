@@ -174,3 +174,76 @@
     border: 1px solid #383838;
     border-radius: 8px
 }
+
+@media (max-width: 1200px) {
+    .gift_card {
+        padding: 2em 5em;
+        gap: 3em;
+    }
+
+    .datos_formulario_campo,
+    .datos_formulario_seleccionar {
+        width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .gift_card {
+        flex-direction: column;
+        padding: 2em;
+        gap: 2em;
+    }
+
+    .vista_previa {
+        height: 25em;
+    }
+
+    .vista_previa_destinatario h3 {
+        font-size: 2em;
+    }
+
+    .vista_previa_destinatario p {
+        font-size: 0.9em;
+    }
+
+    .vista_previa_monto {
+        font-size: 1.2em;
+    }
+
+    .datos_formulario_seleccionar p {
+        font-size: 0.2em; 
+    }
+
+     .datos_formulario_seleccionar ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: space-between; 
+        gap: 1em 0.5em;
+        padding: 0; 
+        width: 100%; 
+    }
+
+    .datos_formulario_seleccionar ul li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5em;
+        margin-right: 0;
+    }
+
+    .datos_formulario_campo,
+    .datos_formulario_seleccionar {
+        width: 100%;
+    }
+
+    .datos_formulario_seleccionar ul {
+        justify-content: space-around;
+        gap: 1.5em 0.5em;
+    }
+
+    .gift_card_datos form button {
+        width: 100%;
+    }
+}
