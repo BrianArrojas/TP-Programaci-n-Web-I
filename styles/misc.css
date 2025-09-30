@@ -184,3 +184,101 @@ body {
     color: #09e989;
     cursor: pointer;
 }
+
+@media (max-width: 1024px) {
+    .header_superior {
+        padding: 0.6em 2em; 
+    }
+    
+    .header_busqueda input[list="browsers"] {
+        width: 18em; 
+    }
+
+    .header_menu {
+        padding: 0 2em; 
+    }
+    .footer {
+        padding: 2em 16em; 
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .header_superior {
+        padding: 0.6em 1em; 
+        flex-wrap: wrap; 
+    }
+
+    .header_busqueda {
+        width: 100%;
+        order: 4; 
+        margin-top: 0.5em;
+    }
+
+    .header_busqueda input[list="browsers"] {
+        width: 100%; 
+        height: 2em; 
+        font-size: 0.8em;
+    }
+
+    .lupa-icon {
+        right: 1.5em; 
+        height: 0.8em;
+    }
+
+    .header_menu {
+        display: flex;
+        padding: 0 1em;
+        justify-content: space-around;
+    }
+
+    .header_menu nav ul {
+        justify-content: flex-start; 
+        font-size: 0.9em; 
+    }
+
+    .header_menu nav ul li {
+        margin-right: 0.8em; 
+        margin-bottom: 0.2em;
+    }
+    
+    .header_menu nav ul li a {
+        padding: 0.3em 0.5em;
+        font-size: 0.6em;
+    }
+
+    .header_logo {
+        height: 1.5em;
+    }
+    .header_carrito img {
+        height: 1.8em;
+    }
+    .header_carrito div {
+        height: 1.1em;
+        width: 1.1em;
+        font-size: 0.8em;
+    }
+
+   .medios_pago {
+    display: none; /* No se por que no funciona :( */
+}
+
+.footer {
+    flex-direction: column; 
+    padding: 2em 1em; 
+    gap: 2em; 
+    align-items: center; 
+}
+
+.footer_dato {
+    width: 100%; 
+    height: auto; 
+    align-items: flex-start; 
+}
+
+.footer_dato ul {
+    padding-left: 0;
+}
+
+}
