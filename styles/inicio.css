@@ -185,7 +185,7 @@
     height: 5em;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 64em) {
     .pasos,
     .cursos_destacados,
     .medios_pago {
@@ -193,7 +193,7 @@
     }
 
     .cursos_destacados_card {
-        width: 48%; 
+        width: 40%; 
     }
     
     .pasos div {
@@ -206,7 +206,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48em) {
     .pasos,
     .cursos_destacados,
     .medios_pago {
