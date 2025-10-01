@@ -75,6 +75,11 @@
     border: none;
 }
 
+.button-form a {
+    text-decoration: none;
+    color: white;
+}
+
 .datos_formulario_campo {
     display: flex;
     flex-direction: column;

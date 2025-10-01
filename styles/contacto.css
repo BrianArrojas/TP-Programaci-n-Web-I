@@ -51,6 +51,7 @@
     border: 1px solid #383838;
     padding-left: 0.7em;
     background-color: #13161c;
+    color: white;
 }
 
 .contacto_formulario_campo textarea {
@@ -140,4 +141,69 @@
 .contacto_medios a{
     text-decoration: none;
     color: white;
+}
+
+@media screen and (max-width: 1200px) {
+    .contacto {
+        padding: 2em 8em 0 8em;
+    }
+
+    .ubicacion {
+        padding: 2em 8em 4em 8em;
+    }
+
+    .contacto_medios {
+        gap: 4em;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .contacto {
+        padding: 2em 4em 0 4em;
+        align-items: center;
+    }
+
+    .contacto_medios {
+        flex-direction: column;
+        gap: 3em;
+    }
+
+    .contacto_medios form {
+        align-items: center; 
+    }
+
+    .contacto_datos {
+        width: 100%;
+        max-width: 25em;
+        margin: 0 auto;
+    }
+    
+    .ubicacion {
+        padding: 2em 4em 4em 4em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .contacto {
+        padding: 2em 1.5em 0 1.5em;
+    }
+
+    .ubicacion {
+        padding: 2em 1.5em 4em 1.5em;
+    }
+
+    .separador {
+        margin: 2em 2em;
+    }
+
+    .contacto h2, .ubicacion h2 {
+        font-size: 1.5em; 
+    }
+    
+    .contacto_datos {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+        margin: 0 auto;
+    }
 }

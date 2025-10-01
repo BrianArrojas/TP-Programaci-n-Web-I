@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../styles/misc.css">
-    <link rel="stylesheet" href="../styles/contacto.css">
+    <link rel="stylesheet" href="../styles/inicio.css">
+    <link rel="stylesheet" href="../styles/confirmacion-regalo.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Platzi</title>
+    <title>Inicio - Platzi</title>
 </head>
 
 <body>
     <header class="header">
         <div class="header_superior">
-            <a class="header_logo" href="../pages/index.html">
+            <a class="header_logo" href="./index.html">
                 <img src="../imagenes/platzi.png" alt="Logo">
             </a>
 
@@ -20,12 +21,12 @@
                 <img src="../imagenes/lupa-blanca.svg" alt="Lupa" class="lupa-icon">
                 <input list="browsers" placeholder="Buscar cursos...">
                 <datalist id="browsers" name="myBrowser">
-                    <option value="Chrome"></option>
-                    <option value="Firefox"></option>
-                    <option value="Internet Explorer"></option>
-                    <option value="Opera"></option>
-                    <option value="Safari"></option>
-                    <option value="Microsoft Edge"></option>
+                    <option value="Introducción a HTML5, CSS y JavaScript"></option>
+                    <option value="Curso de JavaScript para Principiantes"></option>
+                    <option value="Curso de Python Nivel Avanzado"></option>
+                    <option value="Curso de Python Nivel Intermedio"></option>
+                    <option value="Introducción a Machine Learning"></option>
+                    <option value="Conceptos de Amazon Web Services"></option>
                 </datalist>
             </div>
 
@@ -49,71 +50,14 @@
             </nav>
         </div>
     </header>
-
-    <section class="contacto">
-        <h2>CONTACTO</h2>
-
-        <div class="contacto_medios">
-            <form action="#" method="get" class="formulario">
-                <div class="contacto_formulario_campo">
-                    <label for="nombre">Nombre completo:</label>
-                    <input type="text" id="nombre" name="nombre" required>
-                </div>
-
-                <div class="contacto_formulario_campo">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="contacto_formulario_campo">
-                    <label for="telefono">Número de teléfono:</label>
-                    <input type="number" id="telefono" name="telefono">
-                </div>
-
-                <div class="contacto_formulario_campo">
-                    <label for="mensaje">Mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-                </div>
-
-                <button type="submit"><a href="./formulario-contato.html">ENVIAR</a></button>
-            </form>
-
-            <div class="contacto_datos">
-                <h3>Contactanos en:</h3>
-                <div class="contacto_datos_item">
-                    <span>Teléfono</span>
-                    <p>+14 15 3419 9051</p>
-                </div>
-                <div class="contacto_datos_item">
-                    <span>Email</span>
-                    <p>contacto@platzi.com</p>
-                </div>
-                <div class="contacto_datos_item">
-                    <span>Dirección</span>
-                    <p>795 Folsom St, San Francisco, California</p>
-                </div>
-                <div class="contacto_datos_item">
-                    <span>Instagram</span>
-                    <p><a target="blank" href="https://www.instagram.com/platzi/">@platzi</a></p>
-                </div>
-                <div class="contacto_datos_item">
-                    <span>LinkedIn</span>
-                    <p><a target="_blank" href="https://www.linkedin.com/school/platzi-inc/">Platzi Inc.</a></p>
-                </div>
+    <main class="main_section">
+        <section class="section-div">
+            <div class="div_p">
+                <p class="p_main">Los datos fueron enviados correctamente</p>
             </div>
-        </div>
-    </section>
-
-    <div class="separador"></div>
-
-    <section class="ubicacion">
-        <h2>UBICACIÓN</h2>
-        <a target="_blank"
-            href="https://www.google.com/maps/place/795+Folsom+St,+San+Francisco,+CA+94107,+EE.+UU./@37.7820558,-122.4030649,17z/data=!3m1!4b1!4m6!3m5!1s0x8085807e0e3b97b5:0x890f970065001c21!8m2!3d37.7820516!4d-122.40049!16s%2Fg%2F11bytnhdk8?entry=ttu&g_ep=EgoyMDI1MDkyMS4wIKXMDSoASAFQAw%3D%3D">
-            <img src="../imagenes/mapa.png" alt="Ubicación en Google Maps">
-        </a>
-    </section>
-
+            <button type="reset" class="button_main"><a href="./index.html">Volver</a></button>
+        </section>
+    </main>
     <footer class="footer">
         <a href="./index.html"><img src="../imagenes/platzi.png" alt="Logo de la empresa"></a>
 
