@@ -1,17 +1,20 @@
-body {
-    justify-content: center;
-    align-items: center;
+html,body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
     font-family: Arial, sans-serif;
 }
 
-.main_section{
+.main_section {
+    flex: 1;
     width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 2em;
     margin-bottom: 2em;
 }
-
 
 .section-div {
     display: flex;
@@ -38,12 +41,18 @@ body {
 }
 
 .button_main {
-    background-color: #1d2bad;
-    color: white;
-    padding: 0.62em 0.93em;
-    border: none;
-    border-radius: 5px;
+    background-color: transparent;
+    color: #f1f1f1;
+    border: 1px solid #09e989;
+    height: 2em;
+    width: 8em;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 1.2em;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button_main a {
@@ -54,4 +63,5 @@ body {
 
 .button_main:hover {
     background-color: #09e989;
+    color: #13161c;
 }

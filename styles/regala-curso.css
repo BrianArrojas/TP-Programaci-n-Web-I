@@ -58,7 +58,7 @@
     gap: 2em;
 }
 
-.gift_card_datos form a {
+.gift_card_datos form button {
     background-color: transparent;
     border: 1px solid #09e989;
     color: #f1f1f1;
@@ -73,7 +73,7 @@
     align-items: center;
 }
 
-.gift_card_datos form a:hover {
+.gift_card_datos form button:hover {
     background-color: #09e989;
     color: #13161c;
     border: none;

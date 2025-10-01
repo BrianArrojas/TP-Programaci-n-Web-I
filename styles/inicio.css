@@ -196,6 +196,10 @@
         width: 40%; 
     }
     
+    .hero {
+            height: fit-content;
+        }
+
     .pasos div {
         height: 10em;
         width: 10em;
@@ -233,7 +237,7 @@
     }
 
     .hero {
-        height: 50vh;
+       height: fit-content;
     }
 
     .hero img{
