@@ -178,7 +178,26 @@
     border: 1px solid #383838;
     border-radius: 8px
 }
-
+.fondo_opcion_uno,
+.color_opcion_uno{
+    background-color: red;
+}
+.fondo_opcion_dos,
+.color_opcion_dos{
+    background-color: green;
+}
+.fondo_opcion_tres,
+.color_opcion_tres{
+    background-color: blue;
+}
+.fondo_opcion_cuatro,
+.color_opcion_cuatro{
+    background-color: yellow;
+}
+.fondo_opcion_cinco,
+.color_opcion_cinco{
+    background-color: purple;
+}
 @media (max-width: 1200px) {
     .gift_card {
         padding: 2em 5em;
