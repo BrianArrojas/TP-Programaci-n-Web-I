@@ -68,7 +68,7 @@
     outline: none;
 }
 
-.contacto_medios form button {
+.contacto_medios form a {
     background-color: transparent;
     color: #f1f1f1;
     border: 1px solid #09e989;
@@ -77,12 +77,15 @@
     border-radius: 8px;
     cursor: pointer;
     font-size: 1.2em;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.contacto_medios form button:hover {
+.contacto_medios form a:hover {
     background-color: #09e989;
     color: #13161c;
-    border: none;
 }
 
 .contacto_datos {
