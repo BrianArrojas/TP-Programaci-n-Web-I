@@ -1,5 +1,24 @@
 body{
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0;
     padding: 0;
+    height: 100vh;
+}
+.formulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+    margin: 0;
+    
+}
+.full_name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
 }

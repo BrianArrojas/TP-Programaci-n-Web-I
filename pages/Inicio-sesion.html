@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="../styles/misc.css" />
@@ -27,10 +26,9 @@
           <option value="Conceptos de Amazon Web Services"></option>
         </datalist>
       </div>
-
-      <article class="boton_login_register">
-        <a href="./Inicio-sesion.html"><button class="login-btn">Ingresar</button></a>
-         <a href="./registro.html"><button class="register-btn">Registrar</button></a>
+<article class="boton_login_register">
+      <button class="login-btn">Ingresar</button>
+         <a href="#"><button class="register-btn">Registrar</button></a>
  </article>
 
       <div class="header_carrito">
@@ -56,13 +54,8 @@
       </nav>
     </div>
   </header>
-<section class="form-registro">
-  <form action="./datos-enviados.html" method="get" class="formulario">
-
-          <article class="full_name">
-            <label for="nombre"></label>
-            <input type="text" id="nombre" name="nombre" placeholder="Nombre Completo:" required />
-          </article>
+<section class="form-sesion">
+  <form action="./datos-enviados.html" method="get" class="sesion">
 
           <article class="usuario">
             <label for="usuario"></label>
@@ -71,20 +64,10 @@
 
           <article class="contrasenia">
             <label for="Contraseña"></label>
-            <input type="password" id="password" name="password" placeholder="Contraseña:" />
+            <input type="password" id="password" name="password" placeholder="Contraseña:" required />
           </article>
 
-          <article class="email">
-            <label for="email"></label>
-            <input type="email" id="email" name="email" placeholder="Email:" required />
-          </article>
-
-          <article class="telefono">
-            <label for="telefono"></label>
-            <input type="tel" id="telefono" name="telefono" placeholder="Numero de telefono:" />
-          </article>
-
-          <button type="submit">REGISTRAR</button>
+          <button type="submit">Iniciar Sesion</button>
         </form>
 </section>
 
@@ -121,11 +104,11 @@
     <div class="footer_dato">
       <h4>MENÚ</h4>
       <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="pages/calendario.html">Calendario</a></li>
-        <li><a href="pages/regala-curso.html">Regalá un curso</a></li>
-        <li><a href="pages/cursos-empresas.html">Cursos para empresas</a></li>
-        <li><a href="pages/contacto.html">Contactanos</a></li>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="./pages/calendario.html">Calendario</a></li>
+        <li><a href="./pages/regala-curso.html">Regalá un curso</a></li>
+        <li><a href="./pages/cursos-empresas.html">Cursos para empresas</a></li>
+        <li><a href="./pages/contacto.html">Contactanos</a></li>
       </ul>
     </div>
 
