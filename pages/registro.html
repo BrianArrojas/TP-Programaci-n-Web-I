@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="stylesheet" href="./styles/misc.css" />
-  <link rel="stylesheet" href="./styles/inicio.css" />
+  <link rel="stylesheet" href="../styles/misc.css" />
+  <link rel="stylesheet" href="../styles/inicio.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registro</title>
 </head>
@@ -12,11 +12,11 @@
     <header class="header">
     <div class="header_superior">
       <a class="header_logo" href="./index.html">
-        <img src="./imagenes/platzi.png" alt="Logo" />
+        <img src="../imagenes/platzi.png" alt="Logo" />
       </a>
 
       <div class="header_busqueda">
-        <img src="./imagenes/lupa-blanca.svg" alt="Lupa" class="lupa-icon" />
+        <img src="../imagenes/lupa-blanca.svg" alt="Lupa" class="lupa-icon" />
         <input list="browsers" placeholder="Buscar cursos..." />
         <datalist id="browsers" name="myBrowser">
           <option value="Introducción a HTML5, CSS y JavaScript"></option>
@@ -33,7 +33,7 @@
  </article>
 
       <div class="header_carrito">
-        <img src="./imagenes/carrito-blanco.svg" alt="Carrito de compras" />
+        <img src="../imagenes/carrito-blanco.svg" alt="Carrito de compras" />
         <div>
           <p>5</p>
         </div>
@@ -55,8 +55,41 @@
       </nav>
     </div>
   </header>
+<section class="form-registro">
+  <form action="./datos-enviados.html" method="get" class="formulario">
+
+          <div class="full_name">
+            <label for="nombre">Nombre completo:</label>
+            <input type="text" id="nombre" name="nombre" required />
+          </div>
+
+          <div class="usuario">
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="usuario" required />
+          </div>
+
+          <div class="contrasenia">
+            <label for="Contraseña">Contraseña:</label>
+            <input type="password" id="password" name="password" />
+          </div>
+
+          <div class="email">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="telefono">
+            <label for="telefono">Número de teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" />
+          </div>
+
+          <button type="submit">REGISTRAR</button>
+        </form>
+</section>
+
+
   <footer class="footer">
-    <a href="index.html"><img src="./imagenes/platzi.png" alt="Logo de la empresa" /></a>
+    <a href="index.html"><img src="../imagenes/platzi.png" alt="Logo de la empresa" /></a>
 
     <div class="footer_dato">
       <h4>INTEGRANTES DEL GRUPO</h4>
@@ -99,23 +132,23 @@
       <h4>REDES SOCIALES</h4>
       <ul>
         <li>
-          <img src="./imagenes/instagram.svg" alt="Instagram" />
+          <img src="../imagenes/instagram.svg" alt="Instagram" />
           <a target="_blank" href="https://www.instagram.com/platzi/">@platzi</a>
         </li>
         <li>
-          <img src="./imagenes/linkedin.svg" alt="LinkedIn" />
+          <img src="../imagenes/linkedin.svg" alt="LinkedIn" />
           <a target="_blank" href="https://www.linkedin.com/school/platzi-inc/">Platzi Inc.</a>
         </li>
         <li>
-          <img src="./imagenes/facebook.svg" alt="Facebook" />
+          <img src="../imagenes/facebook.svg" alt="Facebook" />
           <a target="_blank" href="https://www.facebook.com/platzi/?locale=es_LA">Platzi en Facebook</a>
         </li>
         <li>
-          <img src="./imagenes/youtube.svg" alt="YouTube" />
+          <img src="../imagenes/youtube.svg" alt="YouTube" />
           <a target="_blank" href="https://www.youtube.com/@Platzi">Platzi en YouTube</a>
         </li>
         <li>
-          <img src="./imagenes/x.svg" alt="X" />
+          <img src="../imagenes/x.svg" alt="X" />
           <a target="_blank" href="https://x.com/platzi/">Platzi en X</a>
         </li>
       </ul>
