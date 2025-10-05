@@ -80,6 +80,42 @@ body {
     display: flex;
     align-items: center;
 }
+.boton_login_register{
+    border-radius: 5px;
+    font-size: 1em;
+    display: inline-block;
+    justify-content: right;
+    align-items: start;
+    border: none;
+    margin: 0;
+}
+.login-btn{
+background-color: #09e989;
+border-radius: 16px;    
+width: 5em;
+height: 1.5em;
+font-size: 1.3em;
+margin-left: 0.5em;
+margin-right: 1em;
+
+}
+.register-btn{
+background-color: #09e989;
+border-radius: 16px;
+width: 5em;
+height: 1.5em;
+font-size: 1.3em;
+margin-left: 1em;
+margin-right: 0.2em;
+
+}
+.login-btn:hover {
+      background-color: #2980b9;
+    }
+.register-btn:hover {
+      background-color: #2980b9;
+    }
+
 
 .header_carrito img {
     height: 2.3em;
