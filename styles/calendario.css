@@ -24,7 +24,7 @@
   text-align: center;
 }
 
-.calendario-grid div {
+.calendario-grid article {
   border: #666666 1px solid;
   height: 8em;
   padding: 1em;
@@ -54,6 +54,7 @@ summary {
   border-radius: 4px;
   padding: 0.3em;
   margin-top: 0.2em;
+  font-size: 0.65em;
 }
 
 summary::after {

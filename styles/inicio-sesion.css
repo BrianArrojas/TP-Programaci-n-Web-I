@@ -1,11 +1,11 @@
-.form-registro {
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-  gap: 9em;
+.form-sesion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9em;
 }
 
-.formulario {
+.sesion{
   width: 50%;
   padding: 30px;
   background-color: #1f2228;
@@ -17,15 +17,13 @@
   margin: 2em;
 }
 
-.formulario article {
+.sesion article {
   width: 100%; 
   margin-bottom: 15px;
 }
 
-.formulario input[type="text"],
-.formulario input[type="password"],
-.formulario input[type="email"],
-.formulario input[type="tel"] {
+.sesion input[type="text"],
+.sesion input[type="password"] {
   width: 100%; 
   padding: 12px;
   border: 1px solid #ccc;
@@ -34,7 +32,7 @@
   font-size: 16px;
 }
 
-.formulario button[type="submit"] {
+.sesion button[type="submit"] {
   width: 100%;
   padding: 15px;
   background-color: #09e989;
@@ -46,6 +44,6 @@
   margin-top: 10px;
 }
 
-.formulario button[type="submit"]:hover {
+.sesion button[type="submit"]:hover {
   background-color: #0056b3; 
 }
