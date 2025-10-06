@@ -298,6 +298,26 @@ margin-right: 0.2em;
         width: 1.1em;
         font-size: 0.8em;
     }
+    .boton_login_register {
+        width: auto; 
+        display: inline-flex; 
+        margin: 0;
+    }
+
+    .login-btn,
+    .register-btn {
+        width: 4.5em;
+        height: 1.8em; 
+        font-size: 0.8em; 
+    }
+    
+    .login-btn {
+        margin-right: 0;
+    }
+    
+    .register-btn {
+        margin-right: 0; 
+    }
 
 }
 
