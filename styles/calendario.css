@@ -30,6 +30,10 @@
   padding: 1em;
 }
 
+.calendario-grid .art_prox_mes{
+  color: gray;
+}
+
 .fecha-actual {
   display: flex;
   justify-content: center;
@@ -54,7 +58,11 @@ summary {
   border-radius: 4px;
   padding: 0.3em;
   margin-top: 0.2em;
-  font-size: 0.65em;
+  font-size: 0.80em;
+}
+
+details p {
+  font-size: 0.90em;
 }
 
 summary::after {
