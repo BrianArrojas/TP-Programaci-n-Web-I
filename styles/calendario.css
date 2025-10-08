@@ -22,9 +22,10 @@
   grid-row-gap: 0px;
   align-items: center;
   text-align: center;
+  list-style: none;
 }
 
-.calendario-grid article {
+.calendario-grid li {
   border: #666666 1px solid;
   height: 8em;
   padding: 1em;
@@ -89,7 +90,7 @@ details[open] summary {
     grid-template-columns: repeat(7, 1fr);
   }
 
-  .calendario-grid div {
+  .calendario-grid li {
     height: auto;
     min-height: 6em;
     padding: 0.2em;
@@ -109,7 +110,7 @@ details[open] summary {
     gap: 0.5em;
   }
 
-  .calendario-grid div {
+  .calendario-grid li {
     height: auto;
     min-height: 4em;
     padding: 0.2em;
