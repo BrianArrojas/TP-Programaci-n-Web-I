@@ -162,7 +162,7 @@ html,body{
     border: none;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 64em) {
     .cursos_empresas {
         padding: 2em 8em;
         gap: 1.5em;
@@ -173,7 +173,7 @@ html,body{
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 48em) {
     .cursos_empresas {
         padding: 2em 3em;
         align-items: center;

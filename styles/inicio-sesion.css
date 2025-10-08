@@ -47,3 +47,49 @@
 .sesion button[type="submit"]:hover {
   background-color: #0056b3; 
 }
+
+@media (max-width: 64em) { 
+    .form-sesion {
+        gap: 4em;
+    }
+
+    .sesion {
+        width: 70%;
+        padding: 25px;
+    }
+
+    .sesion input[type="text"],
+    .sesion input[type="password"] {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    .sesion button[type="submit"] {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 48em) { 
+    .form-sesion {
+        flex-direction: column; 
+        gap: 2em;
+        padding: 1em;
+    }
+
+    .sesion {
+        width: 90%; 
+        padding: 20px;
+    }
+
+    .sesion input[type="text"],
+    .sesion input[type="password"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .sesion button[type="submit"] {
+        font-size: 16px;
+        padding: 12px;
+    }
+}

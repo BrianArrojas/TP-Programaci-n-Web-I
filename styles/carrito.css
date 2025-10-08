@@ -1,0 +1,179 @@
+.carrito_cursos {
+    background-color: #13161c;
+    padding: 2em 16em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    color: #f1f1f1;
+}
+
+.carrito_cursos_album {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+    align-items: flex-start;
+    gap: 2em;             
+    width: 100%;
+}
+
+.carrito_cursos_card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 300px;
+    background-color: #1f2228;
+    border: 1px solid #666666;
+    border-radius: 8px;
+    gap: 0.5em;
+    padding: 1em;
+    position: relative;
+}
+
+.carrito_cursos_card span {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    background-color: #09e989;
+    color: #13161c;
+    font-weight: bold;
+    padding: 0.3em 0.6em;
+    border-radius: 4px;
+    font-size: 1.1em;
+}
+
+.carrito_cursos_card img {
+    width: 100%;
+    height: 60%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.carrito_cursos_card div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+    text-align: end;
+}
+
+.carrito_cursos_card div p {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #999999;
+}
+
+.carrito_cursos_card a {
+    margin-top: -0.7em;
+    color: #d7d7d7;
+    text-decoration: none;
+}
+
+.carrito_cursos_card a:hover {
+    color: #09e989;
+}
+
+.carrito_cursos_card button {
+    background-color: transparent;
+    border: 1px solid #09e989;
+    color: #f1f1f1;
+    height: 2em;
+    width: 8em;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.carrito_cursos_card button:hover {
+    background-color: #09e989;
+    color: #13161c;
+    border: none;
+}
+
+.carrito_cursos button {
+    background-color: transparent;
+    border: 1px solid #09e989;
+    color: #f1f1f1;
+    height: 4em;
+    width: 8em;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.4em;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrito_cursos button:hover {
+    background-color: #09e989;
+    color: #13161c;
+    border: none;
+}
+
+
+@media (max-width: 64em) {
+    .carrito_cursos {
+        padding: 2em 8em;
+        gap: 1.5em;
+        align-items: flex-start;
+    }
+
+    .carrito_cursos_album {
+        gap: 1.5em;
+        justify-content: flex-start;
+    }
+
+    .carrito_cursos_card {
+        width: 220px;
+        height: auto;
+    }
+
+    .carrito_cursos_card div p {
+        font-size: 1.4em; 
+    }
+
+    .carrito_cursos button {
+        width: 7em;
+        height: 3.5em;
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 48em) {
+    .carrito_cursos {
+        padding: 2em 3em;
+        align-items: center;
+        text-align: center;
+    }
+
+    .carrito_cursos h2 {
+        font-size: 1.8em;
+    }
+
+    .carrito_cursos_album {
+        flex-direction: column;
+        gap: 1.5em;
+        align-items: center;
+    }
+
+    .carrito_cursos_card {
+        width: 90%; 
+        height: auto;
+    }
+
+    .carrito_cursos_card div p {
+        font-size: 1.2em;
+    }
+
+    .carrito_cursos_card button {
+        width: 100%;
+        font-size: 1.2em;
+    }
+
+    .carrito_cursos > a button {
+        width: 80%;
+    }
+}
