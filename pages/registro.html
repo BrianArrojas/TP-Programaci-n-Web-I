@@ -7,10 +7,11 @@
   <link rel="stylesheet" href="../styles/inicio.css" />
   <link rel="stylesheet" href="../styles/registro.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registro</title>
+  <title>Registro</title>
 </head>
+
 <body>
-    <header class="header">
+  <header class="header">
     <div class="header_superior">
       <a class="header_logo" href="../index.html">
         <img src="../imagenes/platzi.png" alt="Logo" />
@@ -30,9 +31,9 @@
       </div>
 
       <article class="boton_login_register">
-        <a href="./Inicio-sesion.html"><button class="login-btn">Ingresar</button></a>
-         <a href="./registro.html"><button class="register-btn">Registrar</button></a>
- </article>
+        <a href="./Inicio-sesion.html" class="boton_estandar">Ingresar</a>
+        <a href="./registro.html" class="boton_estandar">Registrarse</a>
+      </article>
 
       <div class="header_carrito">
         <a href="./carrito.html"><img src="../imagenes/carrito-blanco.svg" alt="Carrito de compras" /></a>
@@ -41,7 +42,7 @@
         </div>
       </div>
     </div>
-      
+
 
     <div class="header_menu">
       <nav>
@@ -57,38 +58,38 @@
       </nav>
     </div>
   </header>
-<section class="form-registro">
-  <form action="./datos-enviados.html" method="get" class="formulario">
 
-          <article class="full_name">
-            <label for="nombre"></label>
-            <input type="text" id="nombre" name="nombre" placeholder="Nombre Completo:" required />
-          </article>
+  <section class="form-registro">
+    <form action="./index-logueado.html" method="get" class="formulario">
 
-          <article class="usuario">
-            <label for="usuario"></label>
-            <input type="text" id="usuario" name="usuario" placeholder="Nombre Usuario:" required />
-          </article>
+      <div class="contacto_formulario_campo">
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" required />
+      </div>
 
-          <article class="contrasenia">
-            <label for="Contraseña"></label>
-            <input type="password" id="password" name="password" placeholder="Contraseña:" />
-          </article>
+      <div class="contacto_formulario_campo">
+        <label for="usuario">Nombre de usuario:</label>
+        <input type="text" id="usuario" name="usuario" required />
+      </div>
 
-          <article class="email">
-            <label for="email"></label>
-            <input type="email" id="email" name="email" placeholder="Email:" required />
-          </article>
+      <div class="contacto_formulario_campo">
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required />
+      </div>
 
-          <article class="telefono">
-            <label for="telefono"></label>
-            <input type="tel" id="telefono" name="telefono" placeholder="Numero de telefono:" />
-          </article>
+      <div class="contacto_formulario_campo">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+      </div>
 
-          <button type="submit">REGISTRAR</button>
-        </form>
-</section>
+      <div class="contacto_formulario_campo">
+        <label for="telefono">Número de teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required />
+      </div>
 
+      <button type="submit">REGISTRAR</button>
+    </form>
+  </section>
 
   <footer class="footer">
     <a href="../index.html"><img src="../imagenes/platzi.png" alt="Logo de la empresa" /></a>
@@ -158,4 +159,5 @@
   </footer>
 
 </body>
+
 </html>

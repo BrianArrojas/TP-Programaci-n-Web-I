@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="../styles/misc.css" />
   <link rel="stylesheet" href="../styles/inicio.css" />
   <link rel="stylesheet" href="../styles/inicio-sesion.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registro</title>
+  <title>Registro</title>
 </head>
+
 <body>
-    <header class="header">
+  <header class="header">
     <div class="header_superior">
       <a class="header_logo" href="../index.html">
         <img src="../imagenes/platzi.png" alt="Logo" />
@@ -27,10 +29,11 @@
           <option value="Conceptos de Amazon Web Services"></option>
         </datalist>
       </div>
-<article class="boton_login_register">
-      <a href="./Inicio-sesion.html"><button class="login-btn">Ingresar</button></a>
-         <a href="./registro.html"><button class="register-btn">Registrar</button></a>
- </article>
+
+      <article class="boton_login_register">
+        <a href="./Inicio-sesion.html" class="boton_estandar">Ingresar</a>
+        <a href="./registro.html" class="boton_estandar">Registrarse</a>
+      </article>
 
       <div class="header_carrito">
         <a href="./carrito.html"><img src="../imagenes/carrito-blanco.svg" alt="Carrito de compras" /></a>
@@ -39,7 +42,7 @@
         </div>
       </div>
     </div>
-      
+
 
     <div class="header_menu">
       <nav>
@@ -55,23 +58,23 @@
       </nav>
     </div>
   </header>
-<section class="form-sesion">
-  <form action="./datos-enviados.html" method="get" class="sesion">
 
-          <article class="usuario">
-            <label for="usuario"></label>
-            <input type="text" id="usuario" name="usuario" placeholder="Nombre Usuario:" required />
-          </article>
+  <section class="form-sesion">
+    <form action="./index-logueado.html" method="get" class="sesion">
 
-          <article class="contrasenia">
-            <label for="Contraseña"></label>
-            <input type="password" id="password" name="password" placeholder="Contraseña:" required />
-          </article>
+      <div class="contacto_formulario_campo">
+        <label for="usuario">Nombre de usuario:</label>
+        <input type="text" id="usuario" name="usuario" required />
+      </div>
 
-          <button type="submit">Iniciar Sesion</button>
-        </form>
-</section>
+      <div class="contacto_formulario_campo">
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required />
+      </div>
 
+      <button type="submit">INICIAR SESIÓN</button>
+    </form>
+  </section>
 
   <footer class="footer">
     <a href="index.html"><img src="../imagenes/platzi.png" alt="Logo de la empresa" /></a>
@@ -141,4 +144,5 @@
   </footer>
 
 </body>
+
 </html>

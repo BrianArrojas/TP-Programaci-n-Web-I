@@ -162,6 +162,51 @@ html,body{
     border: none;
 }
 
+.formulario_general {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  width: 100%;
+}
+
+/* Ahora los estilos aplican al div interno en lugar del form */
+.formulario_persona {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 5em;
+}
+
+.formulario_persona button.btn-eliminar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8em;
+  border-radius: 100%;
+  background-color: #1f2228;
+  border: none;
+  cursor: pointer;
+}
+
+.formulario_persona button.btn-eliminar img {
+  height: 2.5em;
+}
+
+@media (max-width: 48em) {
+  .formulario_persona {
+    flex-direction: column;
+    width: 100%;
+    gap: 1.5em;
+    align-items: flex-start;
+  }
+
+  .formulario_persona button.btn-eliminar {
+    align-self: flex-end;
+    margin-top: 0.5em;
+  }
+}
+
 @media (max-width: 64em) {
     .cursos_empresas {
         padding: 2em 8em;

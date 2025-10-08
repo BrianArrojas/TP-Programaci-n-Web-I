@@ -1,95 +1,87 @@
-.form-sesion{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 9em;
+.form-sesion {
+  background-color: #13161c;
+  color: #f1f1f1;
+  padding: 2em 16em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.sesion{
-  width: 50%;
-  padding: 30px;
-  background-color: #1f2228;
-  border-radius: 8px ;
-  border: 2px solid #09e989;
+.sesion {
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  margin: 2em;
+  align-items: end;
+  gap: 2em;
+  width: 100%;
+  max-width: 500px;
 }
 
-.sesion article {
-  width: 100%; 
-  margin-bottom: 15px;
+.contacto_formulario_campo {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
 }
 
-.sesion input[type="text"],
-.sesion input[type="password"] {
-  width: 100%; 
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box; 
-  font-size: 16px;
+.contacto_formulario_campo label {
+  background-color: #13161c;
+  color: #666666;
+  position: absolute;
+  top: -0.7em;
+  left: 0.5em;
+  font-size: 0.9em;
+  padding: 0 0.5em;
+}
+
+.contacto_formulario_campo input {
+  font-size: 1em;
+  height: 2.5em;
+  border-radius: 8px;
+  border: 1px solid #383838;
+  padding-left: 0.7em;
+  background-color: #13161c;
+  color: white;
+}
+
+.contacto_formulario_campo input:focus,
+.contacto_formulario_campo input:hover {
+  border-color: #09e989;
+  outline: none;
 }
 
 .sesion button[type="submit"] {
-  width: 100%;
-  padding: 15px;
-  background-color: #09e989;
-  color: rgb(0, 0, 0);
-  border: none;
-  border-radius: 5px;
+  background-color: transparent;
+  color: #f1f1f1;
+  border: 1px solid #09e989;
+  height: 2em;
+  width: 10em;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 18px;
-  margin-top: 10px;
+  font-size: 1.2em;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sesion button[type="submit"]:hover {
-  background-color: #0056b3; 
+  background-color: #09e989;
+  color: #13161c;
 }
 
-@media (max-width: 64em) { 
-    .form-sesion {
-        gap: 4em;
-    }
-
-    .sesion {
-        width: 70%;
-        padding: 25px;
-    }
-
-    .sesion input[type="text"],
-    .sesion input[type="password"] {
-        font-size: 15px;
-        padding: 10px;
-    }
-
-    .sesion button[type="submit"] {
-        font-size: 16px;
-        padding: 12px;
-    }
+@media (max-width: 64em) {
+  .form-sesion {
+    padding: 2em 6em;
+  }
 }
 
-@media (max-width: 48em) { 
-    .form-sesion {
-        flex-direction: column; 
-        gap: 2em;
-        padding: 1em;
-    }
+@media (max-width: 48em) {
+  .form-sesion {
+    padding: 1em;
+  }
 
-    .sesion {
-        width: 90%; 
-        padding: 20px;
-    }
-
-    .sesion input[type="text"],
-    .sesion input[type="password"] {
-        font-size: 14px;
-        padding: 8px;
-    }
-
-    .sesion button[type="submit"] {
-        font-size: 16px;
-        padding: 12px;
-    }
+  .sesion {
+    width: 100%;
+    max-width: 100%;
+  }
 }

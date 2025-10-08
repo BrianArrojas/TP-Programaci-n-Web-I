@@ -62,8 +62,10 @@ summary {
   font-size: 0.80em;
 }
 
-details p {
+details a {
   font-size: 0.90em;
+  color: #f1f1f1;
+  text-decoration: none;
 }
 
 summary::after {

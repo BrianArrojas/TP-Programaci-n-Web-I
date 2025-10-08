@@ -80,42 +80,41 @@ body {
     display: flex;
     align-items: center;
 }
-.boton_login_register{
-    border-radius: 5px;
-    font-size: 1em;
-    display: inline-block;
-    justify-content: right;
-    align-items: start;
-    border: none;
-    margin: 0;
-}
-.login-btn{
-background-color: #09e989;
-border-radius: 16px;    
-width: 5em;
-height: 1.5em;
-font-size: 1.3em;
-margin-left: 0.5em;
-margin-right: 1em;
 
+.boton_login_register {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 1em;
+  flex-wrap: wrap; /* ✅ permite que bajen de línea en pantallas pequeñas */
 }
-.register-btn{
-background-color: #09e989;
-border-radius: 16px;
-width: 5em;
-height: 1.5em;
-font-size: 1.3em;
-margin-left: 1em;
-margin-right: 0.2em;
 
+.boton_estandar,
+.login-btn,
+.register-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.6em 1.2em;
+  border: 1px solid #09e989;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #f1f1f1;
+  font-size: 1.1em;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 6em;
 }
-.login-btn:hover {
-      background-color: #2980b9;
-    }
+
+.boton_estandar:hover,
+.login-btn:hover,
 .register-btn:hover {
-      background-color: #2980b9;
-    }
-
+  background-color: #09e989;
+  color: #13161c;
+  border: none;
+}
 
 .header_carrito img {
     height: 2.3em;
@@ -222,6 +221,17 @@ margin-right: 0.2em;
 }
 
 @media (max-width: 64em) {
+    .footer {
+        padding: 2em 4em;
+        flex-wrap: wrap;
+        gap: 2em;
+    }
+
+    .footer_dato {
+        width: 45%;
+        height: auto;
+    }
+
     .header_superior {
         padding: 0.6em 2em;
     }
@@ -238,11 +248,31 @@ margin-right: 0.2em;
         padding: 2em 16em;
     }
 
+    .boton_login_register {
+    justify-content: center;
+    gap: 0.8em;
+  }
+
+  .login-btn,
+  .register-btn {
+    font-size: 1em;
+    padding: 0.5em 1em;
+  }
 }
 
 @media (max-width: 48em) {
+    .footer {
+        padding: 2em 1em;
+        flex-direction: column;
+        align-items: center;
+    }
 
-    .header_superior {
+    .footer_dato {
+        align-items: center;
+        width: 80%;
+    }
+
+        .header_superior {
         padding: 0.6em 1em;
         flex-wrap: wrap;
     }
@@ -298,52 +328,18 @@ margin-right: 0.2em;
         width: 1.1em;
         font-size: 0.8em;
     }
+
     .boton_login_register {
-        width: auto; 
-        display: inline-flex; 
-        margin: 0;
-    }
+    width: 100%;
+    justify-content: center;
+    gap: 0.6em;
+    margin-top: 0.5em;
+  }
 
-    .login-btn,
-    .register-btn {
-        width: 4.5em;
-        height: 1.8em; 
-        font-size: 0.8em; 
-    }
-    
-    .login-btn {
-        margin-right: 0;
-    }
-    
-    .register-btn {
-        margin-right: 0; 
-    }
-
-}
-
-@media (max-width: 64em) {
-    .footer {
-        padding: 2em 4em;
-        flex-wrap: wrap;
-        gap: 2em;
-    }
-
-    .footer_dato {
-        width: 45%;
-        height: auto;
-    }
-}
-
-@media (max-width: 48em) {
-    .footer {
-        padding: 2em 1em;
-        flex-direction: column;
-        align-items:center;
-    }
-
-    .footer_dato {
-        align-items: center;
-        width: 80%;
-    }
-
+  .login-btn,
+  .register-btn {
+    font-size: 0.85em;
+    padding: 0.4em 0.9em;
+    width: 6em;
+  }
 }
