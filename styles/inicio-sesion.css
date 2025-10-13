@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 2em;
 }
 
 .sesion {
@@ -13,7 +14,8 @@
   align-items: end;
   gap: 2em;
   width: 100%;
-  max-width: 500px;
+  max-width: 80%;
+
 }
 
 .contacto_formulario_campo {
