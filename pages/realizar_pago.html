@@ -5,9 +5,9 @@
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="../styles/misc.css" />
   <link rel="stylesheet" href="../styles/inicio.css" />
-  <link rel="stylesheet" href="../styles/registro.css" />
+  <link rel="stylesheet" href="../styles/realizar_pago.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pago con Tarjeta</title>
+  <title>Realizar pago</title>
 </head>
 
 <body>
@@ -59,30 +59,37 @@
     </div>
   </header>
 
-  <section class="form-registro">
+  <section class="form-pago">
     <form action="../index.html" method="get" class="formulario">
 
-      <div class="contacto_formulario_campo">
+      <div class="formulario_campo">
         <label for="nombre">Numero de tarjeta:</label>
         <input type="tel" id="number" name="number" required />
       </div>
 
-      <div class="contacto_formulario_campo">
+      <div class="formulario_campo">
         <label for="usuario">Nombre del titular:</label>
         <input type="text" id="titular" name="titular" required />
       </div>
 
-      <div class="contacto_formulario_campo">
+      <div class="formulario_campo">
         <label for="password">Fecha de vencimiento:</label>
         <input type="month" id="date" name="date" required />
       </div>
 
-       <div class="contacto_formulario_campo">
+       <div class="formulario_campo">
         <label for="password">Cod.Seguridad:</label>
         <input type="password" id="password" name="password" required />
       </div>
-      
-      <button type="submit">PAGAR</button>
+      <section class="opcion_pagar">
+        <article class="img_pagos">
+        <img src="../imagenes/mastercard.png" alt="mastercard">
+         <img src="../imagenes/visa.png" alt="visa">
+         <img src="../imagenes/mercado-pago.png" alt="mercado-pago">
+          <img src="../imagenes/paypal.png" alt="paypal">
+         </article>
+        <button type="submit">PAGAR</button>
+      </section>
     </form>
   </section>
 
