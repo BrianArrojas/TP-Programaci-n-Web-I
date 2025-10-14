@@ -65,11 +65,8 @@ body {
 }
 
 .lupa-icon {
-    height: 1em;
-    margin: 0.5em;
-    position: absolute;
-    right: 28px;
-    height: 1em;
+    height: 1.2em;
+    margin-right: 1em;
     pointer-events: none;
     /* para que no bloquee el click en el input */
 }
