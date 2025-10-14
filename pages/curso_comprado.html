@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="stylesheet" href="../styles/misc.css" />
-  <link rel="stylesheet" href="../styles/contacto.css" />
-  <link rel="stylesheet" href="../styles/index_logueado.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contacto - Platzi</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../styles/misc.css" />
+    <link rel="stylesheet" href="../styles/datos-enviados.css" />
+    <link rel="stylesheet" href="../styles/index_logueado.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario enviado - Platzi</title>
 </head>
 
 <body>
@@ -35,10 +35,6 @@
        <img src="../imagenes/logueado.png" alt="usuario_logueado">
        <p>Usuario</p>
        </a>
-       <a href="../index.html">
-        <img src="../imagenes/cerrar_sesion.png" alt="cerrar_sesion">
-        <p>Cerrar sesion</p>
-       </a>
       </article>
 
       <div class="header_carrito">
@@ -54,87 +50,28 @@
       <nav>
         <ul>
           <li><a href="index-logueado.html">Inicio</a></li>
-          <li><a href="calendario-logueado.html">Calendario</a></li>
-          <li><a href="regala-curso-logueado.html">Regalá un curso</a></li>
+          <li><a href="./calendario-logueado.html">Calendario</a></li>
+          <li><a href="./regala-curso-logueado.html">Regalá un curso</a></li>
           <li>
-            <a href="cursos-empresas-logueado.html">Cursos para empresas</a>
+            <a href="./cursos-empresas-logueado.html">Cursos para empresas</a>
           </li>
-          <li><a href="contacto-logueado.html">Contactanos</a></li>
+          <li><a href="./contacto-logueado.html">Contactanos</a></li>
         </ul>
       </nav>
     </div>
   </header>
-
- <section class="contacto">
-    <h2>CONTACTO</h2>
-
-    <div class="contacto_medios">
-      <form action="./datos-enviados.html" method="get" class="formulario">
-        <div class="contacto_formulario_campo">
-          <label for="nombre">Nombre completo:</label>
-          <input type="text" id="nombre" name="nombre" required />
-        </div>
-
-        <div class="contacto_formulario_campo">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-
-        <div class="contacto_formulario_campo">
-          <label for="telefono">Número de teléfono:</label>
-          <input type="tel" id="telefono" name="telefono" />
-        </div>
-
-        <div class="contacto_formulario_campo">
-          <label for="mensaje">Mensaje:</label>
-          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-        </div>
-
-        <button type="submit">ENVIAR</button>
-      </form>
-
-      <div class="contacto_datos">
-        <h3>Contactanos en:</h3>
-        <div class="contacto_datos_item">
-          <span>Teléfono</span>
-          <p>+14 15 3419 9051</p>
-        </div>
-        <div class="contacto_datos_item">
-          <span>Email</span>
-          <p>contacto@platzi.com</p>
-        </div>
-        <div class="contacto_datos_item">
-          <span>Dirección</span>
-          <p>795 Folsom St, San Francisco, California</p>
-        </div>
-        <div class="contacto_datos_item">
-          <span>Instagram</span>
-          <p>
-            <a target="blank" href="https://www.instagram.com/platzi/">@platzi</a>
-          </p>
-        </div>
-        <div class="contacto_datos_item">
-          <span>LinkedIn</span>
-          <p>
-            <a target="_blank" href="https://www.linkedin.com/school/platzi-inc/">Platzi Inc.</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="separador"></div>
-
-  <section class="ubicacion">
-    <h2>UBICACIÓN</h2>
-    <a target="_blank"
-      href="https://www.google.com/maps/place/795+Folsom+St,+San+Francisco,+CA+94107,+EE.+UU./@37.7820558,-122.4030649,17z/data=!3m1!4b1!4m6!3m5!1s0x8085807e0e3b97b5:0x890f970065001c21!8m2!3d37.7820516!4d-122.40049!16s%2Fg%2F11bytnhdk8?entry=ttu&g_ep=EgoyMDI1MDkyMS4wIKXMDSoASAFQAw%3D%3D">
-      <img src="../imagenes/mapa.png" alt="Ubicación en Google Maps" />
-    </a>
-  </section>
-
- <footer class="footer">
-    <a href="./index-logueado.html"><img src="../imagenes/platzi.png" alt="Logo de la empresa" /></a>
+    <main class="main_section">
+        <section class="section-div">
+            <div class="div_p">
+                <p class="p_main">La compra se realizo correctamente.</p>
+            </div>
+            <button type="reset" class="button_main">
+                <a href="../pages/index-logueado.html">Aceptar</a>
+            </button>
+        </section>
+    </main>
+    <footer class="footer">
+    <a href="index-logueado.html"><img src="../imagenes/platzi.png" alt="Logo de la empresa" /></a>
 
     <div class="footer_dato">
       <h4>INTEGRANTES DEL GRUPO</h4>
@@ -198,6 +135,7 @@
         </li>
       </ul>
     </div>
- 
+  </footer>
 </body>
+
 </html>
