@@ -34,6 +34,12 @@
   width: 30em;
 }
 
+.botones_curso{
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+}
+
 .curso_datos button {
   width: 10em;
   height: 3em;
