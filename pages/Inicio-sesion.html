@@ -58,28 +58,27 @@
       </nav>
     </div>
   </header>
-<main class="main_inicio_sesion">
-  <section class="form-sesion">
-    <form action="./index-logueado.html" method="get" class="sesion">
+  <main>
+    <section class="iniciar-sesion">
+      <h1>INGRESAR</h1>
+      <form action="./index-logueado.html" method="get" class="formulario">
+        <div class="formulario_campo">
+          <label for="usuario">Nombre de usuario:</label>
+          <input type="text" id="usuario" name="usuario" required />
+        </div>
 
-      <div class="contacto_formulario_campo">
-        <label for="usuario">Nombre de usuario:</label>
-        <input type="text" id="usuario" name="usuario" required />
-      </div>
+        <div class="formulario_campo">
+          <label for="password">Contraseña:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
 
-      <div class="contacto_formulario_campo">
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" required />
-      </div>
-
-      <button type="submit">INICIAR SESIÓN</button>
-    </form>
-  </section>
-</main>
- <article class="recomienda">
-      <p>¿ No tenes cuenta ? </p>
-     <a href="./registro.html"> <button class="recomienda_boton"> Registrate</button></a>
-    </article>
+        <div class="formulario_opciones">
+          <p>¿Aún no tienes cuenta? <a href="./registro.html">Regístrate</a></p>
+          <button type="submit">INICIAR SESIÓN</button>
+        </div>
+      </form>
+    </section>
+  </main>
 
   <footer class="footer">
     <a href="index.html"><img src="../imagenes/platzi.png" alt="Logo de la empresa" /></a>
