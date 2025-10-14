@@ -1,0 +1,29 @@
+.usuario_logueado {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+
+}
+
+.usuario_logueado img{
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
+}
+
+.usuario_logueado p {
+    display: flex;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.usuario_logueado a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    gap: 1em;
+}
