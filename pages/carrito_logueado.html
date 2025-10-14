@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="stylesheet" href="../styles/misc.css" />
-  <link rel="stylesheet" href="../styles/contacto.css" />
-  <link rel="stylesheet" href="../styles/index_logueado.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contacto - Platzi</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../styles/misc.css" />
+    <link rel="stylesheet" href="../styles/carrito.css" />
+    <link rel="stylesheet" href="../styles/index_logueado.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario enviado - Platzi</title>
 </head>
 
 <body>
@@ -54,87 +54,70 @@
       <nav>
         <ul>
           <li><a href="index-logueado.html">Inicio</a></li>
-          <li><a href="calendario-logueado.html">Calendario</a></li>
-          <li><a href="regala-curso-logueado.html">Regalá un curso</a></li>
+          <li><a href="./calendario-logueado.html">Calendario</a></li>
+          <li><a href="./regala-curso-logueado.html">Regalá un curso</a></li>
           <li>
-            <a href="cursos-empresas-logueado.html">Cursos para empresas</a>
+            <a href="./cursos-empresas-logueado.html">Cursos para empresas</a>
           </li>
-          <li><a href="contacto-logueado.html">Contactanos</a></li>
+          <li><a href="./contacto-logueado.html">Contactanos</a></li>
         </ul>
       </nav>
     </div>
   </header>
+    <main class="main_section">
+        <section class="carrito_cursos">
+            <h2>Carrito de cursos</h2>
 
- <section class="contacto">
-    <h2>CONTACTO</h2>
+            <div class="carrito_cursos_album">
 
-    <div class="contacto_medios">
-      <form action="./datos-enviados.html" method="get" class="formulario">
-        <div class="contacto_formulario_campo">
-          <label for="nombre">Nombre completo:</label>
-          <input type="text" id="nombre" name="nombre" required />
-        </div>
 
-        <div class="contacto_formulario_campo">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-        </div>
+                <div class="carrito_cursos_card">
+                    <span>AR$ 46.000,00</span>
+                    <img src="../imagenes/Python-Avanzado.png" alt="Curso 2" />
+                    <div>
+                        <p>46hs</p>
+                        <h3>Curso de Python Nivel Avanzado</h3>
+                    </div>
+                    <a href="../pages/detalle-curso-python-avanzado.html">Ver detalle</a>
+                </div>
 
-        <div class="contacto_formulario_campo">
-          <label for="telefono">Número de teléfono:</label>
-          <input type="tel" id="telefono" name="telefono" />
-        </div>
+                <div class="carrito_cursos_card">
+                    <span>AR$ 15.000,00</span>
+                    <img src="../imagenes/Python-Intermedio.png" alt="Curso 2" />
+                    <div>
+                        <p>33hs</p>
+                        <h3>Curso de Python Nivel Intermedio</h3>
+                    </div>
+                    <a href="../pages/detalle-curso-python-intermedio.html">Ver detalle</a>
+                </div>
 
-        <div class="contacto_formulario_campo">
-          <label for="mensaje">Mensaje:</label>
-          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-        </div>
+                <div class="carrito_cursos_card">
+                    <span>AR$ 25.000,00</span>
+                    <img src="../imagenes/codigo.jpg" alt="Curso 2" />
+                    <div>
+                        <p>120hs</p>
+                        <h3>Introducción a Machine Learning</h3>
+                    </div>
+                    <a href="../pages/detalle-curso-ml.html">Ver detalle</a>
+                </div>
 
-        <button type="submit">ENVIAR</button>
-      </form>
+                <div class="carrito_cursos_card">
+                    <span>AR$ 20.000,00</span>
+                    <img src="../imagenes/codigo.jpg" alt="Curso 2" />
+                    <div>
+                        <p>360hs</p>
+                        <h3>Conceptos de Amazon Web Services</h3>
+                    </div>
+                    <a href="../pages/detalle-curso-aws.html">Ver detalle</a>
+                </div>
+            </div>
 
-      <div class="contacto_datos">
-        <h3>Contactanos en:</h3>
-        <div class="contacto_datos_item">
-          <span>Teléfono</span>
-          <p>+14 15 3419 9051</p>
-        </div>
-        <div class="contacto_datos_item">
-          <span>Email</span>
-          <p>contacto@platzi.com</p>
-        </div>
-        <div class="contacto_datos_item">
-          <span>Dirección</span>
-          <p>795 Folsom St, San Francisco, California</p>
-        </div>
-        <div class="contacto_datos_item">
-          <span>Instagram</span>
-          <p>
-            <a target="blank" href="https://www.instagram.com/platzi/">@platzi</a>
-          </p>
-        </div>
-        <div class="contacto_datos_item">
-          <span>LinkedIn</span>
-          <p>
-            <a target="_blank" href="https://www.linkedin.com/school/platzi-inc/">Platzi Inc.</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <div class="separador"></div>
-
-  <section class="ubicacion">
-    <h2>UBICACIÓN</h2>
-    <a target="_blank"
-      href="https://www.google.com/maps/place/795+Folsom+St,+San+Francisco,+CA+94107,+EE.+UU./@37.7820558,-122.4030649,17z/data=!3m1!4b1!4m6!3m5!1s0x8085807e0e3b97b5:0x890f970065001c21!8m2!3d37.7820516!4d-122.40049!16s%2Fg%2F11bytnhdk8?entry=ttu&g_ep=EgoyMDI1MDkyMS4wIKXMDSoASAFQAw%3D%3D">
-      <img src="../imagenes/mapa.png" alt="Ubicación en Google Maps" />
-    </a>
-  </section>
-
- <footer class="footer">
-    <a href="./index-logueado.html"><img src="../imagenes/platzi.png" alt="Logo de la empresa" /></a>
+            <button><a href="../pages/realizar_pago.html">Comprar cursos</a></button>
+        </section>
+    </main>
+   <footer class="footer">
+    <a href="index-logueado.html"><img src="../imagenes/platzi.png" alt="Logo de la empresa" /></a>
 
     <div class="footer_dato">
       <h4>INTEGRANTES DEL GRUPO</h4>
@@ -198,6 +181,7 @@
         </li>
       </ul>
     </div>
- 
+  </footer>
 </body>
+
 </html>
