@@ -1,3 +1,8 @@
+.main_inicio_sesion{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .form-sesion {
   background-color: #13161c;
@@ -7,14 +12,16 @@
   justify-content: center;
   align-items: center;
   height: auto;
+  margin: 2em;
+  width: 80%;
 }
 .recomienda{
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1em;
-  margin-bottom: 32em;
-  margin-top: 0.5em; 
+  margin: 1em;
+ 
 }
 .recomienda p{
   display: flex;
@@ -41,7 +48,7 @@ font-size: 1em;
 .sesion {
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: center;
   gap: 2em;
   width: 100%;
   max-width: 80%;
@@ -51,6 +58,7 @@ font-size: 1em;
 .contacto_formulario_campo {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   position: relative;
   width: 100%;
 }
