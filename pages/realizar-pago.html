@@ -6,13 +6,13 @@
   <link rel="stylesheet" href="../styles/misc.css" />
   <link rel="stylesheet" href="../styles/inicio.css" />
   <link rel="stylesheet" href="../styles/index_logueado.css">
-  <link rel="stylesheet" href="../styles/realizar_pago.css">
+  <link rel="stylesheet" href="../styles/realizar-pago.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Realizar pago</title>
+  <title>Realizar pago - Platzi</title>
 </head>
 
 <body>
-   <header class="header">
+  <header class="header">
     <div class="header_superior">
       <a class="header_logo" href="../index.html">
         <img src="../imagenes/platzi.png" alt="Logo" />
@@ -33,17 +33,18 @@
 
       <article class="usuario_logueado">
         <a href="../index.html">
-       <img src="../imagenes/logueado.png" alt="usuario_logueado">
-       <p>Usuario</p>
-       </a>
-       <a href="../index.html">
-        <img src="../imagenes/cerrar_sesion.png" alt="cerrar_sesion">
-        <p>Cerrar sesion</p>
-       </a>
+          <img src="../imagenes/logueado.png" alt="usuario_logueado">
+          <p>Usuario</p>
+        </a>
+        <a href="../index.html">
+          <img src="../imagenes/cerrar_sesion.png" alt="cerrar_sesion">
+          <p>Cerrar sesion</p>
+        </a>
       </article>
 
       <div class="header_carrito">
-        <a href="../pages/carrito_logueado.html"><img src="../imagenes/carrito-blanco.svg" alt="Carrito de compras" /></a>
+        <a href="../pages/carrito_logueado.html"><img src="../imagenes/carrito-blanco.svg"
+            alt="Carrito de compras" /></a>
         <div>
           <p>4</p>
         </div>
@@ -66,9 +67,10 @@
     </div>
   </header>
 
-  <section class="form-pago">
-    <form action="../pages/curso_comprado.html" method="get" class="formulario">
+  <section>
+    <h1>REALIZAR PAGO</h1>
 
+    <form action="../pages/curso_comprado.html" method="get" class="formulario">
       <div class="formulario_campo">
         <label for="nombre">Numero de tarjeta:</label>
         <input type="tel" id="number" name="number" required />
@@ -84,19 +86,12 @@
         <input type="month" id="date" name="date" required />
       </div>
 
-       <div class="formulario_campo">
+      <div class="formulario_campo">
         <label for="password">Cod.Seguridad:</label>
         <input type="password" id="password" name="password" required />
       </div>
-      <section class="opcion_pagar">
-        <article class="img_pagos">
-        <img src="../imagenes/mastercard.png" alt="mastercard">
-         <img src="../imagenes/visa.png" alt="visa">
-         <img src="../imagenes/mercado-pago.png" alt="mercado-pago">
-          <img src="../imagenes/paypal.png" alt="paypal">
-         </article>
-        <button type="submit">PAGAR</button>
-      </section>
+        
+      <button type="submit">PAGAR</button>
     </form>
   </section>
 
@@ -168,5 +163,4 @@
   </footer>
 
 </body>
-
 </html>
