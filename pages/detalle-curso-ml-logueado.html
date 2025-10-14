@@ -6,15 +6,16 @@
   <link rel="stylesheet" href="../styles/misc.css" />
   <link rel="stylesheet" href="../styles/inicio.css" />
   <link rel="stylesheet" href="../styles/detalle-curso.css" />
+  <link rel="stylesheet" href="../styles/index_logueado.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Curso de JavaScript</title>
+  <title>Inicio - Platzi</title>
 </head>
 
 <body>
   <header class="header">
     <div class="header_superior">
-      <a class="header_logo" href="../index.html">
-        <img class="logo-grande" src="../imagenes/platzi.png" alt="Logo" />
+      <a class="header_logo" href="./index-logueado.html">
+        <img src="../imagenes/platzi.png" alt="Logo" />
       </a>
 
       <div class="header_busqueda">
@@ -30,48 +31,56 @@
         </datalist>
       </div>
 
-      <article class="boton_login_register">
-        <a href="./Inicio-sesion.html" class="boton_estandar">Ingresar</a>
-        <a href="./registro.html" class="boton_estandar">Registrarse</a>
+      <article class="usuario_logueado">
+        <a href="./index-logueado.html">
+       <img src="../imagenes/logueado.png" alt="usuario_logueado">
+       <p>Usuario</p>
+       </a>
+       <a href="../index.html">
+        <img src="../imagenes/cerrar_sesion.png" alt="cerrar_sesion">
+        <p>Cerrar sesion</p>
+       </a>
       </article>
 
       <div class="header_carrito">
-        <a href="./carrito.html"><img src="../imagenes/carrito-blanco.svg" alt="Carrito de compras" /></a>
+        <a href="../pages/carrito_logueado.html"><img src="../imagenes/carrito-blanco.svg" alt="Carrito de compras" /></a>
         <div>
           <p>4</p>
         </div>
       </div>
     </div>
 
+
     <div class="header_menu">
       <nav>
         <ul>
-          <li><a href="../index.html">Inicio</a></li>
-          <li><a href="./calendario.html">Calendario</a></li>
-          <li><a href="./regala-curso.html">Regalá un curso</a></li>
-          <li><a href="./cursos-empresas.html">Cursos para empresas</a></li>
-          <li><a href="./contacto.html">Contactanos</a></li>
+          <li><a href="index-logueado.html">Inicio</a></li>
+          <li><a href="./calendario-logueado.html">Calendario</a></li>
+          <li><a href="./regala-curso-logueado.html">Regalá un curso</a></li>
+          <li>
+            <a href="./cursos-empresas-logueado.html">Cursos para empresas</a>
+          </li>
+          <li><a href="./contacto-logueado.html">Contactanos</a></li>
         </ul>
       </nav>
     </div>
   </header>
   <main>
     <section class="curso">
-      <img src="../imagenes/JavaScript-logo.png" alt="Imagen del curso" />
+      <img src="../imagenes/codigo.jpg" alt="Imagen del curso" />
 
       <div class="curso_datos">
-        <h2>Curso de JavaScript para Principiantes</h2>
+        <h2>Curso de Machine Learning</h2>
         <ul>
-          <li>Valor: $22.000,00</li>
+          <li>Valor: $25.000,00</li>
           <li>Tiempo de dedicación necesario: 60hs</li>
           <li>
-            Descripción del curso: Aprenderás las bases de la programación con JavaScript (variables, funciones y
-            control de flujo) para hacer que sitios web HTML/CSS estáticos sean interactivos y dinámicos.
+            Descripción del curso: Aprenderás los fundamentos de Machine Learning.
           </li>
-          <li>Requisitos previos: Conocimientos basicos de HTML y CSS.</li>
+          <li>Requisitos previos: Conocimientos básicos de programación.</li>
         </ul>
-        <section class="botones_curso" >
-        <a href="./Inicio-sesion.html"><button>COMPRAR</button></a>
+       <section class="botones_curso" >
+        <a href="./realizar_pago.html"><button>COMPRAR</button></a>
         <a href="./carrito.html"><button>Agregar al carrito</button></a>
       </section>
 
@@ -259,15 +268,15 @@
     <section class="cursos_destacados">
       <h2>CURSOS DESTACADOS</h2>
 
-      <div class="cursos_destacados_album">
+     <div class="cursos_destacados_album">
         <div class="cursos_destacados_card">
           <img src="../imagenes/HTML5-and-CSS3.png" alt="Curso 2" />
           <div>
             <p>16hs</p>
             <p>Introducción a HTML5 y CSS</p>
           </div>
-          <a href="./detalle-curso-html-css.html">Ver detalle</a>
-          <a href="./Inicio-sesion.html"><button>Comprar</button></a>
+          <a href="./detalle-curso-html-css-logueado.html">Ver detalle</a>
+          <a href="./realizar_pago.html"><button>Comprar</button></a>
         </div>
 
         <div class="cursos_destacados_card">
@@ -276,8 +285,8 @@
             <p>60hs</p>
             <p>Curso de JavaScript para Principiantes</p>
           </div>
-          <a href="./detalle-curso-javascript.html">Ver detalle</a>
-          <a href="./Inicio-sesion.html"><button>Comprar</button></a>
+          <a href="./detalle-curso-javascript-logueado.html">Ver detalle</a>
+          <a href="./realizar_pago.html"><button>Comprar</button></a>
         </div>
 
         <div class="cursos_destacados_card">
@@ -286,8 +295,8 @@
             <p>46hs</p>
             <p>Curso de Python Nivel Avanzado</p>
           </div>
-          <a href="./detalle-curso-python-avanzado.html">Ver detalle</a>
-          <a href="./Inicio-sesion.html"><button>Comprar</button></a>
+          <a href="./detalle-curso-python-avanzado-logueado.html">Ver detalle</a>
+          <a href="./realizar_pago.html"><button>Comprar</button></a>
         </div>
 
         <div class="cursos_destacados_card">
@@ -296,14 +305,14 @@
             <p>33hs</p>
             <p>Curso de Python Nivel Intermedio</p>
           </div>
-          <a href="./detalle-curso-python-intermedio.html">Ver detalle</a>
-          <a href="./Inicio-sesion.html"><button>Comprar</button></a>
+          <a href="./detalle-curso-python-intermedio-logueado.html">Ver detalle</a>
+          <a href="./realizar_pago.html"><button>Comprar</button></a>
         </div>
       </div>
     </section>
   </main>
-  <footer class="footer">
-    <a href="../index.html"><img src="../imagenes/platzi.png" alt="Logo de la empresa" /></a>
+    <footer class="footer">
+    <a href="index-logueado.html"><img src="../imagenes/platzi.png" alt="Logo de la empresa" /></a>
 
     <div class="footer_dato">
       <h4>INTEGRANTES DEL GRUPO</h4>
@@ -334,11 +343,11 @@
     <div class="footer_dato">
       <h4>MENÚ</h4>
       <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="./calendario.html">Calendario</a></li>
-        <li><a href="./regala-curso.html">Regalá un curso</a></li>
-        <li><a href="./cursos-empresas.html">Cursos para empresas</a></li>
-        <li><a href="./contacto.html">Contactanos</a></li>
+        <li><a href="./index-logueado.html">Inicio</a></li>
+        <li><a href="./calendario-logueado.html">Calendario</a></li>
+        <li><a href="./regala-curso-logueado.html">Regalá un curso</a></li>
+        <li><a href="./cursos-empresas-logueado.html">Cursos para empresas</a></li>
+        <li><a href="./contacto-logueado.html">Contactanos</a></li>
       </ul>
     </div>
 
