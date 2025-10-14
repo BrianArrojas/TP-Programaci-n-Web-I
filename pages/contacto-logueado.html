@@ -4,17 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="../styles/misc.css" />
-  <link rel="stylesheet" href="../styles/inicio.css" />
+  <link rel="stylesheet" href="../styles/contacto.css" />
   <link rel="stylesheet" href="../styles/index_logueado.css">
-  <link rel="stylesheet" href="../styles/realizar_pago.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Realizar pago</title>
+  <title>Contacto - Platzi</title>
 </head>
 
 <body>
-   <header class="header">
+     <header class="header">
     <div class="header_superior">
-      <a class="header_logo" href="../index.html">
+      <a class="header_logo" href="./index-logueado.html">
         <img src="../imagenes/platzi.png" alt="Logo" />
       </a>
 
@@ -32,7 +31,7 @@
       </div>
 
       <article class="usuario_logueado">
-        <a href="../index.html">
+        <a href="./index-logueado.html">
        <img src="../imagenes/logueado.png" alt="usuario_logueado">
        <p>Usuario</p>
        </a>
@@ -50,54 +49,88 @@
     <div class="header_menu">
       <nav>
         <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="./calendario.html">Calendario</a></li>
+          <li><a href="index-logueado.html">Inicio</a></li>
+          <li><a href="./calendario-logueado.html">Calendario</a></li>
           <li><a href="./regala-curso.html">Regalá un curso</a></li>
           <li>
-            <a href="./cursos-empresas.html">Cursos para empresas</a>
+            <a href="./cursos-empresas-logueado.html">Cursos para empresas</a>
           </li>
-          <li><a href="./contacto.html">Contactanos</a></li>
+          <li><a href="./contacto-logueado.html">Contactanos</a></li>
         </ul>
       </nav>
     </div>
   </header>
+  
+ <section class="contacto">
+    <h2>CONTACTO</h2>
 
-  <section class="form-pago">
-    <form action="../index.html" method="get" class="formulario">
+    <div class="contacto_medios">
+      <form action="./datos-enviados.html" method="get" class="formulario">
+        <div class="contacto_formulario_campo">
+          <label for="nombre">Nombre completo:</label>
+          <input type="text" id="nombre" name="nombre" required />
+        </div>
 
-      <div class="formulario_campo">
-        <label for="nombre">Numero de tarjeta:</label>
-        <input type="tel" id="number" name="number" required />
+        <div class="contacto_formulario_campo">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="contacto_formulario_campo">
+          <label for="telefono">Número de teléfono:</label>
+          <input type="tel" id="telefono" name="telefono" />
+        </div>
+
+        <div class="contacto_formulario_campo">
+          <label for="mensaje">Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        </div>
+
+        <button type="submit">ENVIAR</button>
+      </form>
+
+      <div class="contacto_datos">
+        <h3>Contactanos en:</h3>
+        <div class="contacto_datos_item">
+          <span>Teléfono</span>
+          <p>+14 15 3419 9051</p>
+        </div>
+        <div class="contacto_datos_item">
+          <span>Email</span>
+          <p>contacto@platzi.com</p>
+        </div>
+        <div class="contacto_datos_item">
+          <span>Dirección</span>
+          <p>795 Folsom St, San Francisco, California</p>
+        </div>
+        <div class="contacto_datos_item">
+          <span>Instagram</span>
+          <p>
+            <a target="blank" href="https://www.instagram.com/platzi/">@platzi</a>
+          </p>
+        </div>
+        <div class="contacto_datos_item">
+          <span>LinkedIn</span>
+          <p>
+            <a target="_blank" href="https://www.linkedin.com/school/platzi-inc/">Platzi Inc.</a>
+          </p>
+        </div>
       </div>
-
-      <div class="formulario_campo">
-        <label for="usuario">Nombre del titular:</label>
-        <input type="text" id="titular" name="titular" required />
-      </div>
-
-      <div class="formulario_campo">
-        <label for="password">Fecha de vencimiento:</label>
-        <input type="month" id="date" name="date" required />
-      </div>
-
-       <div class="formulario_campo">
-        <label for="password">Cod.Seguridad:</label>
-        <input type="password" id="password" name="password" required />
-      </div>
-      <section class="opcion_pagar">
-        <article class="img_pagos">
-        <img src="../imagenes/mastercard.png" alt="mastercard">
-         <img src="../imagenes/visa.png" alt="visa">
-         <img src="../imagenes/mercado-pago.png" alt="mercado-pago">
-          <img src="../imagenes/paypal.png" alt="paypal">
-         </article>
-        <button type="submit">PAGAR</button>
-      </section>
-    </form>
+    </div>
   </section>
 
-  <footer class="footer">
-    <a href="../index.html"><img src="../imagenes/platzi.png" alt="Logo de la empresa" /></a>
+  <div class="separador"></div>
+
+  <section class="ubicacion">
+    <h2>UBICACIÓN</h2>
+    <a target="_blank"
+      href="https://www.google.com/maps/place/795+Folsom+St,+San+Francisco,+CA+94107,+EE.+UU./@37.7820558,-122.4030649,17z/data=!3m1!4b1!4m6!3m5!1s0x8085807e0e3b97b5:0x890f970065001c21!8m2!3d37.7820516!4d-122.40049!16s%2Fg%2F11bytnhdk8?entry=ttu&g_ep=EgoyMDI1MDkyMS4wIKXMDSoASAFQAw%3D%3D">
+      <img src="../imagenes/mapa.png" alt="Ubicación en Google Maps" />
+    </a>
+  </section>
+
+ <footer class="footer">
+    <a href="./index-logueado.html"><img src="../imagenes/platzi.png" alt="Logo de la empresa" /></a>
 
     <div class="footer_dato">
       <h4>INTEGRANTES DEL GRUPO</h4>
@@ -128,11 +161,11 @@
     <div class="footer_dato">
       <h4>MENÚ</h4>
       <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="pages/calendario.html">Calendario</a></li>
-        <li><a href="pages/regala-curso.html">Regalá un curso</a></li>
-        <li><a href="pages/cursos-empresas.html">Cursos para empresas</a></li>
-        <li><a href="pages/contacto.html">Contactanos</a></li>
+        <li><a href="./index-logueado.html">Inicio</a></li>
+        <li><a href="./calendario-logueado.html">Calendario</a></li>
+        <li><a href="./regala-curso-logueado.html">Regalá un curso</a></li>
+        <li><a href="./cursos-empresas-logueado.html">Cursos para empresas</a></li>
+        <li><a href="./contacto-logueado.html">Contactanos</a></li>
       </ul>
     </div>
 
@@ -161,8 +194,6 @@
         </li>
       </ul>
     </div>
-  </footer>
-
+ 
 </body>
-
 </html>

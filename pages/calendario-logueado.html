@@ -4,17 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="../styles/misc.css" />
-  <link rel="stylesheet" href="../styles/inicio.css" />
+  <link rel="stylesheet" href="../styles/calendario.css" />
   <link rel="stylesheet" href="../styles/index_logueado.css">
-  <link rel="stylesheet" href="../styles/realizar_pago.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Realizar pago</title>
+  <title>Cursos para empresas - Platzi</title>
 </head>
-
 <body>
-   <header class="header">
+  <header class="header">
     <div class="header_superior">
-      <a class="header_logo" href="../index.html">
+      <a class="header_logo" href="./index-logueado.html">
         <img src="../imagenes/platzi.png" alt="Logo" />
       </a>
 
@@ -32,7 +30,7 @@
       </div>
 
       <article class="usuario_logueado">
-        <a href="../index.html">
+        <a href="./index-logueado.html">
        <img src="../imagenes/logueado.png" alt="usuario_logueado">
        <p>Usuario</p>
        </a>
@@ -50,9 +48,9 @@
     <div class="header_menu">
       <nav>
         <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="./calendario.html">Calendario</a></li>
-          <li><a href="./regala-curso.html">Regalá un curso</a></li>
+          <li><a href="index-logueado.html">Inicio</a></li>
+          <li><a href="./calendario-logueado.html">Calendario</a></li>
+          <li><a href="./regala-curso-logueado.html">Regalá un curso</a></li>
           <li>
             <a href="./cursos-empresas.html">Cursos para empresas</a>
           </li>
@@ -62,42 +60,151 @@
     </div>
   </header>
 
-  <section class="form-pago">
-    <form action="../index.html" method="get" class="formulario">
+  <main>
+    <section class="calendario">
+      <h2>Calendario de próximos cursos de Octubre 2025</h2>
+      <h3>Cursos disponibles</h3>
 
-      <div class="formulario_campo">
-        <label for="nombre">Numero de tarjeta:</label>
-        <input type="tel" id="number" name="number" required />
-      </div>
+      <ul class="calendario-grid">
+        <li>
+          <p>DOM</p>
+          <p>1 de oct.</p>
+        </li>
+        <li>
+          <p>LUN</p>
+          <p>2</p>
+        </li>
+        <li>
+          <p>MAR</p>
+          <p>3</p>
+        </li>
+        <li>
+          <p>MIÉ</p>
+          <p>4</p>
+        </li>
+        <li>
+          <p>JUE</p>
+          <p>5</p>
+        </li>
+        <li>
+          <p>VIE</p>
+          <p>6</p>
+        </li>
+        <li>
+          <p>SÁB</p>
+          <p>7</p>
+        </li>
 
-      <div class="formulario_campo">
-        <label for="usuario">Nombre del titular:</label>
-        <input type="text" id="titular" name="titular" required />
-      </div>
+        <li>
+          <p>8</p>
+          <details>
+            <summary>Curso de HTML</summary>
+            <a href="./detalle-curso-html-css.html">Curso introductorio a HTML.</a>
+          </details>
+        </li>
 
-      <div class="formulario_campo">
-        <label for="password">Fecha de vencimiento:</label>
-        <input type="month" id="date" name="date" required />
-      </div>
+        <li>
+          <p>9</p>
+        </li>
+        <li>
+          <p>10</p>
+        </li>
+        <li>
+          <p>11</p>
+        </li>
+        <li>
+          <p>12</p>
+        </li>
 
-       <div class="formulario_campo">
-        <label for="password">Cod.Seguridad:</label>
-        <input type="password" id="password" name="password" required />
-      </div>
-      <section class="opcion_pagar">
-        <article class="img_pagos">
-        <img src="../imagenes/mastercard.png" alt="mastercard">
-         <img src="../imagenes/visa.png" alt="visa">
-         <img src="../imagenes/mercado-pago.png" alt="mercado-pago">
-          <img src="../imagenes/paypal.png" alt="paypal">
-         </article>
-        <button type="submit">PAGAR</button>
-      </section>
-    </form>
-  </section>
+        <li class="fecha-actual">
+          <p>13</p>
+        </li>
+
+        <li>
+          <p>14</p>
+        </li>
+        <li>
+          <p>15</p>
+        </li>
+        <li>
+          <p>15</p>
+        </li>
+        <li>
+          <p>16</p>
+        </li>
+        <li>
+          <p>17</p>
+        </li>
+        <li>
+          <p>18</p>
+        </li>
+        <li>
+          <p>19</p>
+        </li>
+
+        <li>
+          <p>20</p>
+          <details>
+            <summary>Curso de Python</summary>
+            <a href="./detalle-curso-python-intermedio.html">Curso intermedio de Python.</a>
+          </details>
+        </li>
+
+        <li>
+          <p>21</p>
+        </li>
+        <li>
+          <p>22</p>
+        </li>
+
+        <li>
+          <p>23</p>
+          <details>
+            <summary>Curso de JS</summary>
+            <a href="./detalle-curso-javascript.html">Este es un curso introductorio a JavaScript.</a>
+          </details>
+        </li>
+
+        <li>
+          <p>24</p>
+        </li>
+        <li>
+          <p>25</p>
+        </li>
+        <li>
+          <p>26</p>
+        </li>
+        <li>
+          <p>27</p>
+        </li>
+        <li>
+          <p>28</p>
+        </li>
+        <li>
+          <p>29</p>
+        </li>
+        <li>
+          <p>30</p>
+        </li>
+        <li>
+          <p>31</p>
+        </li>
+
+        <li class="art_prox_mes">
+          <p>1</p>
+        </li>
+        <li class="art_prox_mes">
+          <p>2</p>
+        </li>
+        <li class="art_prox_mes">
+          <p>3</p>
+        </li>
+      </ul>
+    </section>
+  </main>
 
   <footer class="footer">
-    <a href="../index.html"><img src="../imagenes/platzi.png" alt="Logo de la empresa" /></a>
+    <a href="./index-logueado.html"><img src="../imagenes/platzi.png" alt="Logo de la empresa" /></a>
 
     <div class="footer_dato">
       <h4>INTEGRANTES DEL GRUPO</h4>
@@ -128,11 +235,11 @@
     <div class="footer_dato">
       <h4>MENÚ</h4>
       <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="pages/calendario.html">Calendario</a></li>
-        <li><a href="pages/regala-curso.html">Regalá un curso</a></li>
-        <li><a href="pages/cursos-empresas.html">Cursos para empresas</a></li>
-        <li><a href="pages/contacto.html">Contactanos</a></li>
+        <li><a href="./index-logueado.html">Inicio</a></li>
+        <li><a href="./calendario-logueado.html">Calendario</a></li>
+        <li><a href="./regala-curso-logueado.html">Regalá un curso</a></li>
+        <li><a href="./cursos-empresas.html">Cursos para empresas</a></li>
+        <li><a href="./contacto.html">Contactanos</a></li>
       </ul>
     </div>
 
@@ -162,7 +269,6 @@
       </ul>
     </div>
   </footer>
-
 </body>
 
 </html>
