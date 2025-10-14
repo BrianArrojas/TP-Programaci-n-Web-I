@@ -5,8 +5,17 @@
 
 }
 
-body {
-    background-color: #13161c;
+html,body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #13161c;
+}
+
+main {
+  flex: 1;
+  padding-top: 2em;
+  padding-bottom: 3em;
 }
 
 /* HEADER */
@@ -68,7 +77,36 @@ body {
     height: 1.2em;
     margin-right: 1em;
     pointer-events: none;
-    /* para que no bloquee el click en el input */
+}
+
+.usuario_logueado {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+
+}
+
+.usuario_logueado img{
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
+}
+
+.usuario_logueado p {
+    display: flex;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.usuario_logueado a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    gap: 1em;
 }
 
 .header_carrito {
@@ -145,10 +183,10 @@ body {
     list-style: none;
     font-size: 1.3em;
     padding: 0.8em 0;
+    text-align: center;
 }
 
 .header_menu nav ul li a {
-    color: black;
     text-decoration: none;
     color: white;
 }
@@ -347,11 +385,10 @@ body {
         margin-top: 0.5em;
     }
 
-
     .boton_estandar {
         display: flex;
         width: auto;
-        font-size: 0.4em;
+        font-size: 0.6em;
     }
 
     .login-btn,

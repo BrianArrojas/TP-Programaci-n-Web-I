@@ -92,3 +92,36 @@
     color: #13161c;
     border: none;
 }
+
+@media (max-width: 64em) {
+  .cursos {
+    padding: 3em 5em;
+  }
+
+  .cursos_card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 48em) {
+  .cursos {
+    padding: 2em;
+  }
+
+  .cursos_album {
+    justify-content: center;
+  }
+
+  .cursos_card {
+    width: 100%;
+    height: auto;
+  }
+
+  .cursos_card img {
+    height: 200px;
+  }
+
+  .cursos_card div p {
+    font-size: 1.2em;
+  }
+}

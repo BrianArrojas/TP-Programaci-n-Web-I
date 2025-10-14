@@ -6,6 +6,7 @@
     align-items: center;
     height: 51em;
     overflow: hidden;
+    margin-top: -2em;
 }
 
 .hero img {

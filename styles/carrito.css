@@ -1,6 +1,6 @@
 .cursos {
     background-color: #13161c;
-    padding: 5em 16em;
+    padding: 1em 16em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -112,4 +112,39 @@
     background-color: #09e989;
     color: #13161c;
     border: none;
+}
+
+@media (max-width: 64em) {
+  .cursos {
+    padding: 4em 6em;
+  }
+
+  .cursos_album {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
+  }
+
+  .cursos_card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 48em) {
+  .cursos {
+    padding: 3em 2em;
+  }
+
+  .cursos_album {
+    grid-template-columns: 1fr;
+    gap: 2em;
+  }
+
+  .cursos_card {
+    width: 100%;
+  }
+
+  .cursos h2 {
+    font-size: 1.6rem;
+  }
+
 }
