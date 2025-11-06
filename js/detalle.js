@@ -17,6 +17,11 @@ export class CursoDetalle {
         return CURSOS.find(c => c.id === this.obtenerIdCurso()); // find the course with the matching id
     }
 
+    obtenerCursosDestacadosMenosActual() {
+        // get 3 random courses excluding the current one
+        return CURSOS.filter(c => c.id !== this.obtenerIdCurso()).sort(() => 0.5 - Math.random()).slice(0, 3); 
+    }
+
     render() {
         if (this.obtenerDatosCurso()) {
             const datosContainer = document.querySelector('#curso-datos');
@@ -89,7 +94,7 @@ export class CursoDetalle {
                 </details>
 
                 <details>
-                    <summary>Introducción</summary>
+                    <summary>Unidad 1</summary>
                     <ul>
                         <li class="item_clase">
                         <div>
@@ -134,7 +139,7 @@ export class CursoDetalle {
                 </details>
 
                 <details>
-                    <summary>Introducción</summary>
+                    <summary>Unidad 2</summary>
                     <ul>
                         <li class="item_clase">
                         <div>
@@ -204,6 +209,48 @@ export class CursoDetalle {
             </div >`;
 
             docenteContainer.innerHTML = docenteTemplate;
+
+            const cursosDestacadosContainer = document.querySelector('#cursos-destacados');
+
+            const cursosDestacados = this.obtenerCursosDestacadosMenosActual();
+
+            cursosDestacados.forEach(curso => {
+                const cursoCard = document.createElement('div');
+                cursoCard.classList.add('cursos_destacados_card');
+            
+                const precio = document.createElement('span');
+                precio.textContent = 'AR$ ' + curso.precio.toFixed(2).replace('.', ',');
+            
+                const imagen = document.createElement('img');
+                imagen.src = curso.imagen;
+                imagen.alt = curso.titulo;
+            
+                const infoDiv = document.createElement('div');
+                const duracion = document.createElement('p');
+                duracion.textContent = curso.duracion;
+                infoDiv.appendChild(duracion);
+                const titulo = document.createElement('h3');
+                titulo.textContent = curso.titulo;
+                infoDiv.appendChild(titulo);
+            
+                const detalleLink = document.createElement('a');
+                detalleLink.href = `./detalle-curso.html?id=${curso.id}`;
+                detalleLink.textContent = 'Ver detalle';
+            
+                const comprarLink = document.createElement('a');
+                comprarLink.href = './pages/Inicio-sesion.html';
+                const comprarButton = document.createElement('button');
+                comprarButton.textContent = 'Comprar';
+                comprarLink.appendChild(comprarButton);
+            
+                cursoCard.appendChild(precio);
+                cursoCard.appendChild(imagen);
+                cursoCard.appendChild(infoDiv);
+                cursoCard.appendChild(detalleLink);
+                cursoCard.appendChild(comprarLink);
+            
+                cursosDestacadosContainer.appendChild(cursoCard);
+            });
         }
     }
 }

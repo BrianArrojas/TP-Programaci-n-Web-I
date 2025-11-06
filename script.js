@@ -1,5 +1,5 @@
 import { CursoDetalle } from './js/detalle.js';
-import { GiftCard } from './scripts/giftcard.js';
+import { GiftCard } from './js/giftcard.js';
 
 const cursoDetalle = new CursoDetalle();
 const giftcard = new GiftCard();
