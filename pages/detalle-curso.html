@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="../styles/misc.css" />
+  <link rel="stylesheet" href="../styles/inicio.css" />
+  <link rel="stylesheet" href="../styles/detalle-curso.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio - Platzi</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header_superior">
+      <a class="header_logo" href="../index.html">
+        <img class="logo-grande" src="../imagenes/platzi.png" alt="Logo" />
+      </a>
+
+      <div class="header_busqueda">
+        <a href="./cursos.html"><img src="../imagenes/lupa-blanca.svg" alt="Lupa" class="lupa-icon" /></a>
+        <input list="browsers" placeholder="Buscar cursos..." />
+        <datalist id="browsers" name="myBrowser">
+          <option value="Introducción a HTML5, CSS y JavaScript"></option>
+          <option value="Curso de JavaScript para Principiantes"></option>
+          <option value="Curso de Python Nivel Avanzado"></option>
+          <option value="Curso de Python Nivel Intermedio"></option>
+          <option value="Introducción a Machine Learning"></option>
+          <option value="Conceptos de Amazon Web Services"></option>
+        </datalist>
+      </div>
+
+      <article class="boton_login_register">
+        <a href="./Inicio-sesion.html" class="boton_estandar">Ingresar</a>
+        <a href="./registro.html" class="boton_estandar">Registrarse</a>
+      </article>
+
+      <div class="header_carrito">
+        <a href="./carrito.html"><img src="../imagenes/carrito-blanco.svg" alt="Carrito de compras" /></a>
+        <div>
+          <p>4</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="header_menu">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="./calendario.html">Calendario</a></li>
+          <li><a href="./regala-curso.html">Regalá un curso</a></li>
+          <li><a href="./cursos-empresas.html">Cursos para empresas</a></li>
+          <li><a href="./contacto.html">Contactanos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="curso">
+      <img src="../imagenes/amazon-web-services.png" alt="Imagen del curso" id="curso-imagen" />
+
+      <div class="curso_datos">
+        <div id="curso-datos"></div>
+        <section class="botones_curso">
+          <a href="./Inicio-sesion.html"><button>COMPRAR</button></a>
+          <a href="./carrito.html"><button>Agregar al carrito</button></a>
+        </section>
+
+        <div class="curso_contenidos">
+          <h3>CONTENIDOS POR CLASE</h3>
+
+          <div id="contenidos-curso">
+            <!-- los contenidos se cargan dinámicamente en javascript -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="docente">
+      <h2>DOCENTE</h2>
+
+      <div class="docente_datos" id="docente-datos">
+        
+      </div>
+    </section>
+
+    <section class="cursos_destacados">
+      <h2>CURSOS DESTACADOS</h2>
+
+      <div class="cursos_destacados_album">
+        <div class="cursos_destacados_card">
+          <img src="../imagenes/HTML5-and-CSS3.png" alt="Curso 2" />
+          <div>
+            <p>16hs</p>
+            <p>Introducción a HTML5 y CSS</p>
+          </div>
+          <a href="./detalle-curso-html-css.html">Ver detalle</a>
+          <a href="./Inicio-sesion.html"><button>Comprar</button></a>
+        </div>
+
+        <div class="cursos_destacados_card">
+          <img src="../imagenes/JavaScript-logo.png" alt="Curso 2" />
+          <div>
+            <p>60hs</p>
+            <p>Curso de JavaScript para Principiantes</p>
+          </div>
+          <a href="./detalle-curso-javascript.html">Ver detalle</a>
+          <a href="./Inicio-sesion.html"><button>Comprar</button></a>
+        </div>
+
+        <div class="cursos_destacados_card">
+          <img src="../imagenes/Python-Avanzado.png" alt="Curso 2" />
+          <div>
+            <p>46hs</p>
+            <p>Curso de Python Nivel Avanzado</p>
+          </div>
+          <a href="./detalle-curso-python-avanzado.html">Ver detalle</a>
+          <a href="./Inicio-sesion.html"><button>Comprar</button></a>
+        </div>
+
+        <div class="cursos_destacados_card">
+          <img src="../imagenes/Python-Intermedio.png" alt="Curso 2" />
+          <div>
+            <p>33hs</p>
+            <p>Curso de Python Nivel Intermedio</p>
+          </div>
+          <a href="./detalle-curso-python-intermedio.html">Ver detalle</a>
+          <a href="./Inicio-sesion.html"><button>Comprar</button></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="../index.html"><img src="../imagenes/platzi.png" alt="Logo de la empresa" /></a>
+
+    <div class="footer_dato">
+      <h4>INTEGRANTES DEL GRUPO</h4>
+      <ul>
+        <li>
+          <img src="../imagenes/persona.svg" alt="Persona" />
+          <p>Arrojas, Brian Arian - 41808122</p>
+        </li>
+        <li>
+          <img src="../imagenes/persona.svg" alt="Persona" />
+          <p>Barrios Villagra, Enzo Guillermo - 47102833</p>
+        </li>
+        <li>
+          <img src="../imagenes/persona.svg" alt="Persona" />
+          <p>Caltana, Martin - 47094092</p>
+        </li>
+        <li>
+          <img src="../imagenes/persona.svg" alt="Persona" />
+          <p>Estevez, Blas Ivan - 46703993</p>
+        </li>
+        <li>
+          <img src="../imagenes/persona.svg" alt="Persona" />
+          <p>Frias, Uriel Eduardo - 45996034</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer_dato">
+      <h4>MENÚ</h4>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="./calendario.html">Calendario</a></li>
+        <li><a href="./regala-curso.html">Regalá un curso</a></li>
+        <li><a href="./cursos-empresas.html">Cursos para empresas</a></li>
+        <li><a href="./contacto.html">Contactanos</a></li>
+      </ul>
+    </div>
+
+    <div class="footer_dato">
+      <h4>REDES SOCIALES</h4>
+      <ul>
+        <li>
+          <img src="../imagenes/instagram.svg" alt="Instagram" />
+          <a target="_blank" href="https://www.instagram.com/platzi/">@platzi</a>
+        </li>
+        <li>
+          <img src="../imagenes/linkedin.svg" alt="LinkedIn" />
+          <a target="_blank" href="https://www.linkedin.com/school/platzi-inc/">Platzi Inc.</a>
+        </li>
+        <li>
+          <img src="../imagenes/facebook.svg" alt="Facebook" />
+          <a target="_blank" href="https://www.facebook.com/platzi/?locale=es_LA">Platzi en Facebook</a>
+        </li>
+        <li>
+          <img src="../imagenes/youtube.svg" alt="YouTube" />
+          <a target="_blank" href="https://www.youtube.com/@Platzi">Platzi en YouTube</a>
+        </li>
+        <li>
+          <img src="../imagenes/x.svg" alt="X" />
+          <a target="_blank" href="https://x.com/platzi/">Platzi en X</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="../script.js" type="module"></script>
+</body>
+
+</html>
