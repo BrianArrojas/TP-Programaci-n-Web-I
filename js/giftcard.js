@@ -1,4 +1,10 @@
 export class GiftCard {
+    constructor() { }
+
+    init() {
+        this.render();
+    }
+
     actualizarNombre(input, vistaNombre) {
         input.addEventListener("input", () => {
             if (input.value.length > 20) {
@@ -57,5 +63,23 @@ export class GiftCard {
                 vistaPrevia.style.backgroundColor = fondos[radio.value];
             });
         });
+    }
+
+    render() {
+        const inputNombre = document.querySelector('input[name="nombre"]');
+        const radiosColor = document.querySelectorAll('input[name="color"]');
+        const radiosFuente = document.querySelectorAll('input[name="tamanio_fuente"]');
+        const inputMonto = document.querySelector('input[name="monto"]');
+        const radiosFondo = document.querySelectorAll('input[name="fondo"]');
+
+        const vistaNombre = document.querySelector(".vista_previa_destinatario h3");
+        const vistaMonto = document.querySelector(".vista_previa_monto");
+        const vistaPrevia = document.querySelector(".vista_previa");
+
+        this.actualizarNombre(inputNombre, vistaNombre);
+        this.actualizarColor(radiosColor, vistaNombre);
+        this.actualizarTamanio(radiosFuente, vistaNombre);
+        this.actualizarMonto(inputMonto, vistaMonto);
+        this.actualizarFondo(radiosFondo, vistaPrevia);
     }
 }
