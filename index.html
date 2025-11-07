@@ -29,9 +29,20 @@
         </datalist>
       </div>
 
-      <article class="boton_login_register">
+      <article class="boton_login_register" id="botones-ingreso">
         <a href="./pages/Inicio-sesion.html" class="boton_estandar">Ingresar</a>
         <a href="./pages/registro.html" class="boton_estandar">Registrarse</a>
+      </article>
+
+      <article class="usuario_logueado" id="opciones-usuario">
+        <div>
+          <img src="../imagenes/logueado.png" alt="usuario_logueado">
+          <p id="nombre-usuario"></p>
+        </div>
+        <a href="../index.html" id="cerrar-sesion">
+          <img src="../imagenes/cerrar_sesion.png" alt="cerrar_sesion">
+          <p>Cerrar sesion</p>
+        </a>
       </article>
 
       <div class="header_carrito">
@@ -41,7 +52,6 @@
         </div>
       </div>
     </div>
-
 
     <div class="header_menu">
       <nav>
@@ -179,7 +189,7 @@
     </div>
   </footer>
 
-  <script src="./js/index.js" type="module"></script>
+  <script src="./script.js" type="module"></script>
 </body>
 
 </html>
