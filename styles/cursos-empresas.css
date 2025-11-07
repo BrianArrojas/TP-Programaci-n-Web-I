@@ -1,6 +1,6 @@
 /* CURSOS EMPRESAS */
-
-html,body{
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -51,7 +51,7 @@ html,body{
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 100%;
+    width: auto;
 }
 
 .formulario_persona_campo label {
@@ -78,21 +78,6 @@ html,body{
 .formulario_persona_campo input:hover {
     border-color: #09e989;
     outline: none;
-}
-
-.formulario_persona button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.8em;
-    border-radius: 100%;
-    background-color: #1f2228;
-    border: none;
-    cursor: pointer;
-}
-
-.formulario_persona button img {
-    height: 2.5em;
 }
 
 .agregar_persona {
@@ -163,48 +148,107 @@ html,body{
 }
 
 .formulario_general {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    width: 100%;
 }
 
-/* Ahora los estilos aplican al div interno en lugar del form */
 .formulario_persona {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  gap: 5em;
-}
-
-.formulario_persona button.btn-eliminar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.8em;
-  border-radius: 100%;
-  background-color: #1f2228;
-  border: none;
-  cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: 1.5em;
 }
 
 .formulario_persona button.btn-eliminar img {
-  height: 2.5em;
+    height: 2.5em;
 }
 
-@media (max-width: 48em) {
-  .formulario_persona {
-    flex-direction: column;
-    width: 100%;
-    gap: 1.5em;
-    align-items: flex-start;
-  }
+.btn-eliminar{
+    background-color: transparent;
+    color: #f1f1f1;
+    border: 1px solid #09e989;
+    height: 2.5em;
+    width: 10em;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
 
-  .formulario_persona button.btn-eliminar {
-    align-self: flex-end;
-    margin-top: 0.5em;
-  }
+.btn-eliminar:hover {
+    background-color: #09e989;
+    color: #13161c;
+    border: none;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #13161c;
+    padding: 1.3em;
+    border-radius: 0.6em;
+    max-width: 25em;
+    color:#f1f1f1
+}
+
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-content ul li {
+    margin-bottom: 1em;
+}
+
+.cerrar-modal {
+    background-color: transparent;
+    color: #f1f1f1;
+    border: 1px solid #09e989;
+    height: 2.5em;
+    width: 10em;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.cerrar-modal:hover {
+    background-color: #09e989;
+    color: #13161c;
+    border: none;
+}
+
+.boton-centro {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5em;
+}
+
+
+@media (max-width: 48em) {
+    .formulario_persona {
+        flex-direction: column;
+        width: 100%;
+        gap: 1.5em;
+        align-items: flex-start;
+    }
+
+    .formulario_persona button.btn-eliminar {
+        align-self: flex-end;
+        margin-top: 0.5em;
+    }
 }
 
 @media (max-width: 64em) {
@@ -212,7 +256,7 @@ html,body{
         padding: 2em 8em;
         gap: 1.5em;
     }
-    
+
     .personas_inscriptas li form {
         gap: 3em;
     }
@@ -224,32 +268,32 @@ html,body{
         align-items: center;
         text-align: center;
     }
-    
+
     .cursos_empresas h2 {
         font-size: 1.8em;
     }
 
     .personas_inscriptas li form {
-        flex-direction: column; 
+        flex-direction: column;
         width: 100%;
-        gap: 1.5em; 
-        align-items: flex-start; 
+        gap: 1.5em;
+        align-items: flex-start;
     }
 
     .formulario_persona_campo {
-        width: 100%; 
+        width: 100%;
     }
 
     .personas_inscriptas li form button {
-        align-self: flex-end; 
+        align-self: flex-end;
         margin-top: 0.5em;
     }
-    
+
     .agregar_persona,
     .precio_inscripcion {
         justify-content: center;
     }
-    
+
     .agregar_persona {
         width: 80%;
     }
@@ -265,7 +309,7 @@ html,body{
     .cursos_empresas h2 {
         font-size: 1.4em;
     }
-    
+
     .personas_inscriptas {
         gap: 1.5em;
     }
@@ -273,13 +317,13 @@ html,body{
     .personas_inscriptas li form {
         gap: 1em;
     }
-    
+
     .personas_inscriptas li form button img {
         height: 2em;
     }
 
     .precio_inscripcion {
-        flex-direction: column; 
+        flex-direction: column;
         gap: 1em;
     }
 
@@ -288,7 +332,7 @@ html,body{
         height: 3em;
         font-size: 1em;
     }
-    
+
     .precio_inscripcion h3 {
         font-size: 1.3em;
     }
