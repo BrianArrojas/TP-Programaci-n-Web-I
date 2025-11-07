@@ -146,6 +146,56 @@
     color: white;
 }
 
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+}
+
+.popup-content {
+    background: #13161c;
+    padding: 2em;
+    border-radius: 0.6em;
+    max-width: 25em;
+    width: 90%;
+    text-align: center;
+    color: #f1f1f1;
+}
+
+.boton-centro {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5em;
+}
+
+.boton-centro button {
+    display: block;
+    margin: 0 auto;
+    background-color: transparent;
+    color: #f1f1f1;
+    border: 1px solid #09e989;
+    padding: 0.8em 2em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.boton-centro button:hover {
+    background-color: #09e989;
+    color: #13161c;
+}
+
+.contador {
+    margin-top: 0.3em;
+}
+
 @media screen and (max-width: 1200px) {
     .contacto {
         padding: 2em 8em 0 8em;

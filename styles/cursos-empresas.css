@@ -184,7 +184,7 @@ body {
     border: none;
 }
 
-.modal {
+.popup {
     position: fixed;
     top: 0;
     left: 0;
@@ -196,7 +196,7 @@ body {
     align-items: center;
 }
 
-.modal-content {
+.popup-content {
     background: #13161c;
     padding: 1.3em;
     border-radius: 0.6em;
@@ -204,16 +204,16 @@ body {
     color:#f1f1f1
 }
 
-.modal-content ul {
+.popup-content ul {
     list-style: none;
     padding: 0;
 }
 
-.modal-content ul li {
+.popup-content ul li {
     margin-bottom: 1em;
 }
 
-.cerrar-modal {
+.cerrar-popup {
     background-color: transparent;
     color: #f1f1f1;
     border: 1px solid #09e989;
@@ -224,7 +224,7 @@ body {
     font-size: 1.2em;
 }
 
-.cerrar-modal:hover {
+.cerrar-popup:hover {
     background-color: #09e989;
     color: #13161c;
     border: none;

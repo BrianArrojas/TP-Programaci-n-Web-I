@@ -3,9 +3,9 @@ import { GiftCard } from './js/giftcard.js';
 import { Inscripcion } from "./js/inscripcion.js";
 import { Inicio } from './js/index.js';
 import { Usuario } from './js/usuario.js';
+import { Contacto } from './js/contacto.js';
 
 const cursoDetalle = new CursoDetalle();
-
 cursoDetalle.init();
 
 if (document.querySelector('.formulario_persona')) {
@@ -22,4 +22,9 @@ usuario.init();
 if (document.querySelector('.giftcard')) {
   const giftcard = new GiftCard();
   giftcard.init();
+}
+
+if (document.querySelector('.contacto')) {
+  const contacto = new Contacto();
+  contacto.init();  
 }

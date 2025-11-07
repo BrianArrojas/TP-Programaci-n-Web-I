@@ -124,10 +124,10 @@ export class Inscripcion {
 
         if (hayCamposVacios) return;
 
-        const modal = document.createElement("div");
-        modal.classList.add("modal");
-        modal.innerHTML = `
-            <div class="modal-content">
+        const popup = document.createElement("div");
+        popup.classList.add("popup");
+        popup.innerHTML = `
+            <div class="popup-content">
                 <h2>Resumen de Inscripción</h2>
                 <p><strong>Curso seleccionado:</strong> ${curso}</p>
                 <hr>
@@ -142,11 +142,11 @@ export class Inscripcion {
                 </ul>
                 <p><strong>Total:</strong> U$D ${this.personas.length * this.precioPorPersona}</p>
                 <div class="boton-centro">
-                    <button class="cerrar-modal">Cerrar</button>
+                    <button class="cerrar-popup">Cerrar</button>
                 </div>
             </div>`;
-        document.body.appendChild(modal);
-        modal.querySelector(".cerrar-modal").addEventListener("click", () => modal.remove());
+        document.body.appendChild(popup);
+        popup.querySelector(".cerrar-popup").addEventListener("click", () => popup.remove());
     }
 
     render() {
