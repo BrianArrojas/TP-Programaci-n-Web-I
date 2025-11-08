@@ -20,6 +20,12 @@ export class Header {
         window.location.href = '../index.html';
     }
 
+    obtenerCantidadCarrito() {
+        const logueado = JSON.parse(localStorage.getItem('logueado'));
+        if (!logueado || !logueado.carrito) return 0;
+        return logueado.carrito.length;
+    }
+
     render() {
         const header = document.querySelector('#header');
 
@@ -61,7 +67,7 @@ export class Header {
             <div class="header_carrito">
                 <a href="/pages/carrito.html"><img src="/imagenes/carrito-blanco.svg" alt="Carrito de compras" /></a>
                 <div>
-                <p>4</p>
+                    <p id="cantidad-carrito">0</p>
                 </div>
             </div>
         </div>
@@ -85,6 +91,7 @@ export class Header {
         // búsqueda de cursos
         const btnBusqueda = document.querySelector('#btn-busqueda');
         const inputBusqueda = document.querySelector('#busqueda-input');
+        
 
         btnBusqueda.addEventListener('click', (e) => {
             e.preventDefault();
@@ -98,6 +105,7 @@ export class Header {
         // autenticación de usuario en el header
         const botonesIngreso = document.querySelector('#botones-ingreso');
         const opcionesUsuario = document.querySelector('#opciones-usuario');
+        const cantidadCarrito = document.querySelector('#cantidad-carrito');
 
         if (this.verificarSiHayUsuarioLogueado()) {
             botonesIngreso.style.display = 'none';
@@ -106,6 +114,8 @@ export class Header {
             const nombreUsuario = document.querySelector('#nombre-usuario');
             const logueado = JSON.parse(localStorage.getItem('logueado'));
             nombreUsuario.textContent = logueado.usuario;
+
+            cantidadCarrito.textContent = this.obtenerCantidadCarrito();
 
             const cerrarSesionBtn = document.querySelector('#cerrar-sesion');
             cerrarSesionBtn.addEventListener('click', (e) => {

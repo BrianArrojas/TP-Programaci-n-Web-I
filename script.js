@@ -8,6 +8,7 @@ import { Header } from './js/header.js';
 import { Footer } from './js/footer.js';
 import { Calendario } from './js/calendario.js';
 import { Busqueda } from './js/busqueda.js';
+import { CarritoVista } from './js/carrito-vista.js';
 
 const busqueda = new Busqueda();
 busqueda.init();
@@ -26,6 +27,7 @@ if (document.querySelector('.formulario_persona')) {
   inscripcion.init();
 }
 
+
 const inicio = new Inicio();
 inicio.init();
 
@@ -42,9 +44,13 @@ if (document.querySelector('.contacto')) {
   contacto.init();  
 }
 
-
-
 if (document.querySelector('.calendario')) {
   const calendario = new Calendario();
   calendario.init();
 }
+
+if (document.querySelector('.carrito')) {
+  const carrito = new CarritoVista();
+  carrito.init();
+}
+

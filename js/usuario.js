@@ -1,10 +1,11 @@
 export class Usuario {
-    constructor(nombreCompleto, usuario, contraseña, email, telefono) {
+    constructor(nombreCompleto, usuario, contraseña, email, telefono, carrito=[]) {
         this.nombreCompleto = nombreCompleto;
         this.usuario = usuario;
         this.contraseña = contraseña;
         this.email = email;
         this.telefono = telefono;
+        this.carrito = carrito;
     }
 
     init() {

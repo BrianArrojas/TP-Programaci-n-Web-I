@@ -12,7 +12,7 @@
 .cursos_album {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
     gap: 2em;
     width: 100%;

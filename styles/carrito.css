@@ -1,4 +1,4 @@
-.cursos {
+.carrito {
     background-color: #13161c;
     padding: 1em 16em;
     display: flex;
@@ -9,10 +9,10 @@
     color: #f1f1f1;
 }
 
-.cursos_album {
+.carrito_album {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
     gap: 2em;
     width: 100%;
@@ -93,7 +93,7 @@
     border: none;
 }
 
-.cursos > a {
+.carrito > a {
     background-color: #13161c;
     outline: none;
     border: 1px solid #09e989;
@@ -108,18 +108,17 @@
     align-items: center;
 }
 
-.cursos > a:hover {
+.carrito > a:hover {
     background-color: #09e989;
     color: #13161c;
-    border: none;
 }
 
 @media (max-width: 64em) {
-  .cursos {
+  .carrito {
     padding: 4em 6em;
   }
 
-  .cursos_album {
+  .carrito_album {
     grid-template-columns: repeat(2, 1fr);
     gap: 2em;
   }
@@ -130,11 +129,11 @@
 }
 
 @media (max-width: 48em) {
-  .cursos {
+  .carrito {
     padding: 3em 2em;
   }
 
-  .cursos_album {
+  .carrito_album {
     grid-template-columns: 1fr;
     gap: 2em;
   }
@@ -143,7 +142,7 @@
     width: 100%;
   }
 
-  .cursos h2 {
+  .carrito h2 {
     font-size: 1.6rem;
   }
 

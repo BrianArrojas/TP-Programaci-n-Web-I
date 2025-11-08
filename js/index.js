@@ -1,7 +1,10 @@
 import { CURSOS } from './cursos.js';
+import { Carrito } from './carrito.js';
 
 export class Inicio {
-    constuctor() { }
+    constructor() {
+        this.carrito = new Carrito();
+    }
 
     init() {
         if (window.location.pathname.endsWith('index.html')) {
@@ -36,9 +39,10 @@ export class Inicio {
             detalleLink.textContent = 'Ver detalle';
 
             const comprarLink = document.createElement('a');
-            comprarLink.href = './pages/Inicio-sesion.html';
+            comprarLink.href = './pages/carrito.html';
             const comprarButton = document.createElement('button');
-            comprarButton.textContent = 'Comprar';
+            comprarButton.textContent = 'Agregar al carrito';
+            comprarButton.addEventListener('click', () => this.carrito.agregarCurso(curso));
             comprarLink.appendChild(comprarButton);
 
             cursoCard.appendChild(precio);
