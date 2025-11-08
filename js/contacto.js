@@ -71,7 +71,7 @@ export class Contacto {
         const popup = document.createElement("div");
         popup.classList.add("popup");
         popup.innerHTML = `
-            <div class="popup-content">
+            <div class="popup-contenido">
                 <h2>Consulta enviada</h2>
                 <div class="boton-centro">
                 <button class="aceptar-popup">Aceptar</button>

@@ -6,6 +6,7 @@ import { Usuario } from './js/usuario.js';
 import { Contacto } from './js/contacto.js';
 import { Header } from './js/header.js';
 import { Footer } from './js/footer.js';
+import { Calendario } from './js/calendario.js';
 
 const footer = new Footer();
 footer.init();
@@ -35,4 +36,11 @@ if (document.querySelector('.giftcard')) {
 if (document.querySelector('.contacto')) {
   const contacto = new Contacto();
   contacto.init();  
+}
+
+
+
+if (document.querySelector('.calendario')) {
+  const calendario = new Calendario();
+  calendario.init();
 }
