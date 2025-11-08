@@ -9,21 +9,6 @@ export class Inicio {
         }
     }
 
-    verificarSiHayUsuarioLogueado() {
-        const logueado = JSON.parse(localStorage.getItem('logueado'));
-        if(logueado) {
-            console.log('hay usuario logueado: ' + logueado.usuario);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    cerrarSesion() {
-        localStorage.removeItem('logueado');
-        window.location.href = '../index.html';
-    }
-
     render() {
         const cursosDestacadosContainer = document.querySelector('#cursos-destacados');
 
@@ -64,26 +49,5 @@ export class Inicio {
 
             cursosDestacadosContainer.appendChild(cursoCard);
         });
-
-        const botonesIngreso = document.querySelector('#botones-ingreso');
-        const opcionesUsuario = document.querySelector('#opciones-usuario');
-
-        if (this.verificarSiHayUsuarioLogueado()) {
-            botonesIngreso.style.display = 'none';
-            opcionesUsuario.style.display = 'flex';
-
-            const nombreUsuario = document.querySelector('#nombre-usuario');
-            const logueado = JSON.parse(localStorage.getItem('logueado'));
-            nombreUsuario.textContent = logueado.usuario;
-
-            const cerrarSesionBtn = document.querySelector('#cerrar-sesion');
-            cerrarSesionBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                this.cerrarSesion();
-            });
-        } else {
-            botonesIngreso.style.display = 'flex';
-            opcionesUsuario.style.display = 'none';
-        }
     }
 }

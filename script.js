@@ -4,6 +4,14 @@ import { Inscripcion } from "./js/inscripcion.js";
 import { Inicio } from './js/index.js';
 import { Usuario } from './js/usuario.js';
 import { Contacto } from './js/contacto.js';
+import { Header } from './js/header.js';
+import { Footer } from './js/footer.js';
+
+const footer = new Footer();
+footer.init();
+
+const header = new Header();
+header.init();
 
 const cursoDetalle = new CursoDetalle();
 cursoDetalle.init();

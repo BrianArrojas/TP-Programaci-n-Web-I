@@ -13,6 +13,11 @@ export class Usuario {
             this.verificarSiHayUsuarioLogueado();
             this.registrar();
         }
+
+        if (window.location.pathname.endsWith('inicio-sesion.html')) {
+            this.verificarSiHayUsuarioLogueado();
+            this.iniciarSesion();
+        }
     }
 
     nombreCompletoValido(str) {
@@ -37,14 +42,13 @@ export class Usuario {
 
     verificarSiUsuarioYaExiste(usuario) {
         const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
-        return usuarios.some(u => u.usuario === usuario.usuario || u.email === usuario.email); // true si ya existe
+         // devolver el usuario si existe, sino undefined
+        return usuarios.find(u => u.usuario === usuario.usuario || u.email === usuario.email);
     }
 
     verificarSiHayUsuarioLogueado() {
         // redirigir al index si ya hay un usuario logueado
-        const logueado = JSON.parse(localStorage.getItem('logueado'));
-        if (logueado) {
+        if (JSON.parse(localStorage.getItem('logueado'))) {
             window.location.href = '../index.html';
         }
     }
@@ -71,7 +75,7 @@ export class Usuario {
                 usuarioDatos['telefono']
             );
 
-            if (this.validarDatosRegistro(usuario) && !this.verificarSiUsuarioYaExiste(usuario)) {
+            if (this.validarDatosRegistro(usuario) && this.verificarSiUsuarioYaExiste(usuario) == undefined) {
                 let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
                 usuarios.push(usuario);
                 localStorage.setItem('usuarios', JSON.stringify(usuarios));
@@ -80,5 +84,44 @@ export class Usuario {
                 window.location.href = '../index.html';
             }
         });
+    }
+
+    iniciarSesion() {
+        const camposInicioSesion = document.querySelectorAll('.campo-inicio-sesion');
+
+        const btnInicioSesion = document.querySelector('#btn-inicio-sesion');
+
+        btnInicioSesion.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const usuarioDatos = {};
+
+            camposInicioSesion.forEach(campo => {
+                usuarioDatos[campo.name] = campo.value;
+            });
+
+            const usuario = new Usuario(
+                null,
+                usuarioDatos['usuario'],
+                usuarioDatos['contraseña'],
+                null,
+                null
+            );
+
+            const usuarioExistente = this.verificarSiUsuarioYaExiste(usuario);
+
+            if (usuarioExistente !== undefined) {
+                if (usuarioExistente.contraseña === usuario.contraseña) {
+                    localStorage.setItem('logueado', JSON.stringify(usuarioExistente));
+                    alert(`¡Bienvenido de nuevo, ${usuarioExistente.nombreCompleto}!`);
+                    window.location.href = '../index.html';
+                } else {
+                    alert('Contraseña incorrecta. Por favor, inténtalo de nuevo.');
+                    console.log('Contraseña ingresada: ' + usuario.contraseña + ", Contraseña correcta: " + usuarioExistente.contraseña);
+                }
+            } else {
+                alert('El usuario no existe. Por favor, regístrate primero.');
+            }
+        })
     }
 }
