@@ -30,8 +30,8 @@ export class Header {
             </a>
 
             <div class="header_busqueda">
-                <a href="/pages/cursos.html"><img src="/imagenes/lupa-blanca.svg" alt="Lupa" class="lupa-icon" /></a>
-                <input list="browsers" placeholder="Buscar cursos..." />
+                <a href="/pages/cursos.html" id="btn-busqueda"><img src="/imagenes/lupa-blanca.svg" alt="Lupa" class="lupa-icon" /></a>
+                <input list="browsers" placeholder="Buscar cursos..." id="busqueda-input" />
                 <datalist id="browsers" name="myBrowser">
                 <option value="Introducción a HTML5, CSS y JavaScript"></option>
                 <option value="Curso de JavaScript para Principiantes"></option>
@@ -82,6 +82,20 @@ export class Header {
 
         header.innerHTML = template;
 
+        // búsqueda de cursos
+        const btnBusqueda = document.querySelector('#btn-busqueda');
+        const inputBusqueda = document.querySelector('#busqueda-input');
+
+        btnBusqueda.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const query = inputBusqueda.value.trim();
+
+            const searchParams = new URLSearchParams({ name: query });
+            window.location.href = `/pages/cursos.html?${searchParams.toString()}`;
+        });
+
+        // autenticación de usuario en el header
         const botonesIngreso = document.querySelector('#botones-ingreso');
         const opcionesUsuario = document.querySelector('#opciones-usuario');
 

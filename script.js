@@ -7,6 +7,10 @@ import { Contacto } from './js/contacto.js';
 import { Header } from './js/header.js';
 import { Footer } from './js/footer.js';
 import { Calendario } from './js/calendario.js';
+import { Busqueda } from './js/busqueda.js';
+
+const busqueda = new Busqueda();
+busqueda.init();
 
 const footer = new Footer();
 footer.init();
