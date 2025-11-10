@@ -9,11 +9,6 @@ import { Footer } from './js/footer.js';
 import { Calendario } from './js/calendario.js';
 import { Busqueda } from './js/busqueda.js';
 import { CarritoVista } from './js/carrito-vista.js';
-import {Carrusel} from './js/carrusel.js';
-
-
-const miCarrusel = new Carrusel('.js-carrusel-container'); 
-miCarrusel.iniciar();
 
 const busqueda = new Busqueda();
 busqueda.init();
