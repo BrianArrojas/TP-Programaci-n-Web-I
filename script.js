@@ -6,7 +6,7 @@ import { Usuario } from './js/usuario.js';
 import { Contacto } from './js/contacto.js';
 import { Header } from './js/header.js';
 import { Footer } from './js/footer.js';
-import { Calendario } from './js/calendario.js';
+import { CalendarioDinamico } from './js/calendario-dinamico.js';
 import { Busqueda } from './js/busqueda.js';
 import { CarritoVista } from './js/carrito-vista.js';
 import {Carrusel} from './js/carrusel.js';
@@ -20,6 +20,11 @@ busqueda.init();
 
 const carrusel = new CarruselMediosPago();
 carrusel.init();
+
+document.addEventListener('DOMContentLoaded', () => {  
+    const miCalendario = new CalendarioDinamico(); 
+    miCalendario.init(); 
+});
 
 const footer = new Footer();
 footer.init();
@@ -52,10 +57,10 @@ if (document.querySelector('.contacto')) {
   contacto.init();  
 }
 
-if (document.querySelector('.calendario')) {
-  const calendario = new Calendario();
-  calendario.init();
-}
+// if (document.querySelector('.calendario')) {
+//   const calendario = new Calendario();
+//   calendario.init();
+// }
 
 if (document.querySelector('.carrito')) {
   const carrito = new CarritoVista();
