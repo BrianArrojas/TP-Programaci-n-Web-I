@@ -1,0 +1,27 @@
+.dialog-form{
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    gap: 2em;
+    width: 20em;
+    height: 10em;
+    background-color: #000000;
+    border: 2px solid #09e989;
+    border-radius: 20px;
+}
+
+.btn_dialog{
+    display: block; 
+    margin: 0 auto; 
+    width: 6em; 
+    height: 3em;
+    background-color: #09e989;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.dialog-form p{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
