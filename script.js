@@ -11,6 +11,12 @@ import { Busqueda } from './js/busqueda.js';
 import { CarritoVista } from './js/carrito-vista.js';
 import {Carrusel} from './js/carrusel.js';
 import { CarruselMediosPago } from './js/carrusel-medio-pago.js';
+import { inicializarPago } from './js/realizar-pago.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    inicializarPago(); 
+});
 
 if (document.querySelector('.js-carrusel-container')) {
 const miCarrusel = new Carrusel('.js-carrusel-container'); 

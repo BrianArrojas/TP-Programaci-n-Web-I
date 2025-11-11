@@ -1,73 +1,188 @@
-section {
-  background-color: #13161c;
-  color: #f1f1f1;
-  padding: 2em 16em;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #13161c; 
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.contenedor-formularios{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2em;
-  height: 70vh;
+  width: 50%;
+}
+
+section {
+    background-color: #13161c; 
+    color: #f1f1f1; 
+    padding: 2em 1em; 
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+    gap: 2em;
+    width: 100%; 
+    max-width: 800px; 
+    min-height: auto; 
+
+    margin: 0 auto; 
+}
+
+h1 {
+    font-size: 1.5em;
+    color: #09e989; 
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+.opciones-pago {
+    display: flex;
+    width: 50%;
+    gap: 10px;
+}
+
+.opciones-pago__boton {
+    background-color: #13161c;
+    color: #f1f1f1;
+    border: 1px solid #383838; 
+    padding: 12px 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+    flex-grow: 1;
+    font-weight: bold;
+    text-align: center;
+    font-size: 0.9em; 
+}
+
+.opciones-pago__boton:hover {
+    border-color: #09e989; 
+}
+
+.opciones-pago__boton.activa { 
+    background-color: #09e989; 
+    color: #13161c;
+    border-color: #09e989; 
+}
+
+
+.formulario-pago {
+    width: 100%;
+    padding: 0;
 }
 
 .formulario {
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  gap: 2em;
-  width: 100%;
-  max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 2em;
+    width: 100%;
 }
 
 .formulario_campo {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
 }
 
 .formulario_campo label {
-  background-color: #13161c;
-  color: #666666;
-  position: absolute;
-  top: -0.7em;
-  left: 0.5em;
-  font-size: 0.9em;
-  padding: 0 0.5em;
+    background-color: #13161c;
+    color: #666666;
+    position: absolute;
+    top: -0.7em;
+    left: 0.5em;
+    font-size: 0.9em;
+    padding: 0 0.5em;
+    z-index: 10;
 }
 
 .formulario_campo input {
-  font-size: 1em;
-  height: 2.5em;
-  border-radius: 8px;
-  border: 1px solid #383838;
-  padding-left: 0.7em;
-  background-color: #13161c;
-  color: white;
+    font-size: 1em;
+    height: 3em;
+    border-radius: 8px;
+    border: 1px solid #383838;
+    padding-left: 0.7em;
+    background-color: #13161c;
+    color: #f1f1f1;
+    z-index: 5;
+    width: 100%; 
+    box-sizing: border-box;
 }
 
 .formulario_campo input:focus,
 .formulario_campo input:hover {
-  border-color: #09e989;
-  outline: none;
+    border-color: #09e989;
+    outline: none;
+}
+
+.formulario button,
+.redireccion-pago button { 
+    background-color: transparent;
+    color: #f1f1f1;
+    border: 1px solid #09e989;
+    height: 2.5em; 
+    padding: 0 1.5em;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em; 
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
 }
 
 .formulario button {
-  background-color: transparent;
-  color: #f1f1f1;
-  border: 1px solid #09e989;
-  height: 2em;
-  width: 8em;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1.2em;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 8em; 
+    height: 2em; 
+    font-size: 1.2em; 
 }
 
-.formulario button:hover {
-  background-color: #09e989;
-  color: #13161c;
+.redireccion-pago button {
+    width: 100%;
+    max-width: 300px;
+    font-size: 1em;
+}
+
+.formulario button:hover,
+.redireccion-pago button:hover {
+    background-color: #09e989;
+    color: #13161c;
+}
+
+.redireccion-pago {
+    text-align: center;
+    padding: 30px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.redireccion-pago p {
+    color: #666666; 
+    font-size: 0.95em;
+    margin: 0;
+}
+
+@media (max-width: 450px) {
+    .opciones-pago {
+        flex-direction: column;
+    }
+    .opciones-pago__boton {
+        font-size: 1em;
+    }
+    section {
+        margin: 20px auto; 
+    }
+}
+
+.oculto {
+    display: none !important;
+}
+
+.visible {
+    display: block !important;
 }

@@ -65,34 +65,61 @@
       </nav>
     </div>
   </header>
+    <section>
+        <h1>SELECCIONA TU MÉTODO DE PAGO</h1>
+        <div class="opciones-pago">
+            <button type="button" class="opciones-pago__boton js-opcion-pago activa" data-opcion="tarjeta">
+                Tarjeta
+            </button>
+            <button type="button" class="opciones-pago__boton js-opcion-pago" data-opcion="paypal">
+                PayPal
+            </button>
+            <button type="button" class="opciones-pago__boton js-opcion-pago" data-opcion="mercadopago">
+                Mercado Pago
+            </button>
+        </div>
 
-  <section>
-    <h1>REALIZAR PAGO</h1>
-
-    <form action="../pages/curso_comprado.html" method="get" class="formulario">
-      <div class="formulario_campo">
-        <label for="nombre">Numero de tarjeta:</label>
-        <input type="tel" id="number" name="number" required />
-      </div>
-
-      <div class="formulario_campo">
-        <label for="usuario">Nombre del titular:</label>
-        <input type="text" id="titular" name="titular" required />
-      </div>
-
-      <div class="formulario_campo">
-        <label for="password">Fecha de vencimiento:</label>
-        <input type="month" id="date" name="date" required />
-      </div>
-
-      <div class="formulario_campo">
-        <label for="password">Cod.Seguridad:</label>
-        <input type="password" id="password" name="password" required />
-      </div>
-        
-      <button type="submit">PAGAR</button>
-    </form>
-  </section>
+        <div class="contenedor-formularios">
+            
+            <div id="formulario-tarjeta" class="formulario-pago js-formulario-pago visible" data-nombre="tarjeta">
+                <form action="/procesar-tarjeta" method="POST" class="formulario">
+                    <div class="formulario_campo">
+                        <label for="number">Número de tarjeta</label>
+                        <input type="tel" id="number" name="number" required />
+                    </div>
+                    <div class="formulario_campo">
+                        <label for="titular">Nombre del titular</label>
+                        <input type="text" id="titular" name="titular" required />
+                    </div>
+                    <div class="formulario_campo">
+                        <label for="date">Fecha de vencimiento</label>
+                        <input type="month" id="date" name="date" required />
+                    </div>
+                    <div class="formulario_campo">
+                        <label for="cvv">Cód. Seguridad (CVV)</label>
+                        <input type="password" id="cvv" name="cvv" required />
+                    </div>
+                    <button type="submit">PAGAR</button>
+                </form>
+            </div>
+            <div id="formulario-paypal" class="formulario-pago js-formulario-pago oculto" data-nombre="paypal">
+                <div class="redireccion-pago">
+                    <p>Serás redirigido a la página de **PayPal** para iniciar sesión y confirmar la compra.</p>
+                    <button type="button" data-url="https://www.paypal.com/signin" class="js-redireccion-btn">
+                        Ir a PayPal
+                    </button>
+                </div>
+            </div>
+            <div id="formulario-mercadopago" class="formulario-pago js-formulario-pago oculto" data-nombre="mercadopago">
+                <div class="redireccion-pago">
+                    <p>Serás redirigido a la página de **Mercado Pago** para ingresar con tu cuenta y finalizar la transacción.</p>
+                    <button type="button" data-url="https://www.mercadopago.com.ar/login" class="js-redireccion-btn">
+                        Ir a Mercado Pago
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
 
   <footer class="footer">
     <a href="./index-logueado.html"><img src="../imagenes/platzi.png" alt="Logo de la empresa" /></a>
