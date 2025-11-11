@@ -9,7 +9,7 @@ export class Usuario {
     }
 
     init() {
-        // Si estamos en la página de registro, configurar el registro
+   
         if (window.location.pathname.endsWith('registro.html')) {
             this.verificarSiHayUsuarioLogueado();
             this.registrar();
@@ -21,6 +21,42 @@ export class Usuario {
         }
     }
 
+
+    mostrarDialog(mensaje, callback = () => {}) {
+
+        const dialog = document.createElement('dialog');
+        dialog.id = 'customDialog';
+        dialog.style.padding = '20px';
+        dialog.style.borderRadius = '8px';
+        dialog.style.border = '1px solid #09e989';
+        dialog.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)'; 
+        dialog.style.backgroundColor = '#000000ff';
+        dialog.style.zIndex = '1000'; 
+        dialog.style.position = 'fixed';
+        dialog.style.top = '50%';
+        dialog.style.left = '50%';
+        dialog.style.transform = 'translate(-50%, -50%)';
+        dialog.style.textAlign = 'center';
+
+        dialog.innerHTML = `
+            <p style="margin-bottom: 15px; font-size: 1.1em; color: white">${mensaje}</p>
+            <button id="cerrarDialog" style="padding: 8px 15px; cursor: pointer; border: none; background-color: #09e989; color: black; border-radius: 4px; font-size: 1em;">Aceptar</button>
+        `;
+
+   
+        document.body.appendChild(dialog);
+        dialog.showModal(); 
+
+
+        const botonCerrar = dialog.querySelector('#cerrarDialog');
+        botonCerrar.addEventListener('click', () => {
+            dialog.close();
+            dialog.remove(); 
+            callback(); 
+        });
+    }
+
+
     nombreCompletoValido(str) {
         const regex = /^[A-Za-z\s]+$/;
         return regex.test(str);
@@ -28,13 +64,13 @@ export class Usuario {
 
     validarDatosRegistro(usuario) {
         if (!usuario.nombreCompleto || !usuario.usuario || !usuario.contraseña || !usuario.email || !usuario.telefono) {
-            alert('Todos los campos son obligatorios');
+            this.mostrarDialog('Todos los campos son obligatorios');
             return false;
         } else if (this.nombreCompletoValido(usuario.nombreCompleto) === false) {
-            alert('El nombre completo debe ser solo letras y espacios');
+            this.mostrarDialog('El nombre completo debe ser solo letras y espacios');
             return false;
         } else if (usuario.email.indexOf('@') === -1 || usuario.email.indexOf('.') === -1) {
-            alert('El email debe contener "@" y "."');
+            this.mostrarDialog('El email debe contener "@" y "."'); 
             return false;
         }
 
@@ -43,12 +79,12 @@ export class Usuario {
 
     verificarSiUsuarioYaExiste(usuario) {
         const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-         // devolver el usuario si existe, sino undefined
+
         return usuarios.find(u => u.usuario === usuario.usuario || u.email === usuario.email);
     }
 
     verificarSiHayUsuarioLogueado() {
-        // redirigir al index si ya hay un usuario logueado
+
         if (JSON.parse(localStorage.getItem('logueado'))) {
             window.location.href = '../index.html';
         }
@@ -56,7 +92,6 @@ export class Usuario {
 
     registrar() {
         const camposRegistro = document.querySelectorAll('.campo-registro');
-
         const btnRegistro = document.querySelector('#btn-registro');
 
         btnRegistro.addEventListener('click', (e) => {
@@ -76,20 +111,28 @@ export class Usuario {
                 usuarioDatos['telefono']
             );
 
-            if (this.validarDatosRegistro(usuario) && this.verificarSiUsuarioYaExiste(usuario) == undefined) {
+            const usuarioExistente = this.verificarSiUsuarioYaExiste(usuario);
+
+            if (usuarioExistente) {
+                this.mostrarDialog('El nombre de usuario o email ya están registrados.');
+                return;
+            }
+
+            if (this.validarDatosRegistro(usuario)) {
                 let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
                 usuarios.push(usuario);
                 localStorage.setItem('usuarios', JSON.stringify(usuarios));
                 localStorage.setItem('logueado', JSON.stringify(usuario));
-                alert(`Registro exitoso. ¡Bienvenido, ${usuario.nombreCompleto}!`);
-                window.location.href = '../index.html';
+                
+                this.mostrarDialog(`Registro exitoso. ¡Bienvenido, ${usuario.nombreCompleto}!`, () => {
+                    window.location.href = '../index.html'; 
+                });
             }
         });
     }
 
     iniciarSesion() {
         const camposInicioSesion = document.querySelectorAll('.campo-inicio-sesion');
-
         const btnInicioSesion = document.querySelector('#btn-inicio-sesion');
 
         btnInicioSesion.addEventListener('click', (e) => {
@@ -114,14 +157,17 @@ export class Usuario {
             if (usuarioExistente !== undefined) {
                 if (usuarioExistente.contraseña === usuario.contraseña) {
                     localStorage.setItem('logueado', JSON.stringify(usuarioExistente));
-                    alert(`¡Bienvenido de nuevo, ${usuarioExistente.nombreCompleto}!`);
-                    window.location.href = '../index.html';
+                    
+                    this.mostrarDialog(`¡Bienvenido de nuevo, ${usuarioExistente.nombreCompleto}!`, () => {
+                        window.location.href = '../index.html';
+                    });
+
                 } else {
-                    alert('Contraseña incorrecta. Por favor, inténtalo de nuevo.');
+                    this.mostrarDialog('Contraseña incorrecta. Por favor, inténtalo de nuevo.');
                     console.log('Contraseña ingresada: ' + usuario.contraseña + ", Contraseña correcta: " + usuarioExistente.contraseña);
                 }
             } else {
-                alert('El usuario no existe. Por favor, regístrate primero.');
+                this.mostrarDialog('El usuario no existe. Por favor, regístrate primero.');
             }
         })
     }
