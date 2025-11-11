@@ -2,6 +2,8 @@ export const CURSOS = [
     {
         id: 1,
         precio: 22000,
+        nombre: "Conceptos de Amazon Web Services",
+        inicio: "2025-11-15",
         imagen: "../imagenes/amazon-web-services.png",
         duracion: "60hs",
         titulo: "Conceptos de Amazon Web Services",
@@ -33,6 +35,8 @@ export const CURSOS = [
     {
         id: 2,
         precio: 15000,
+        nombre: "Introducción a HTML5 y CSS",
+        inicio: "2025-11-02",
         imagen: "../imagenes/HTML5-and-CSS3.png",
         duracion: "40hs",
         titulo: "Introducción a HTML5 y CSS",
@@ -64,6 +68,8 @@ export const CURSOS = [
     {
         id: 3,
         precio: 22000,
+        nombre: "Curso de JavaScript para Principiantes",
+        inicio: "2025-11-05",
         imagen: "../imagenes/JavaScript-logo.png",
         duracion: "60hs",
         titulo: "Curso de JavaScript para Principiantes",
@@ -95,6 +101,8 @@ export const CURSOS = [
     {
         id: 4,
         precio: 25000,
+        nombre: "Curso de Python Nivel Avanzado",
+        inicio: "2025-11-11",
         imagen: "../imagenes/Python-Avanzado.png",
         duracion: "80hs",
         titulo: "Curso de Python Nivel Avanzado",
@@ -126,6 +134,8 @@ export const CURSOS = [
     {
         id: 5,
         precio: 20000,
+        nombre: "Curso de Python Nivel Intermedio",
+        inicio: "2025-11-25",
         imagen: "../imagenes/Python-Intermedio.png",
         duracion: "60hs",
         titulo: "Curso de Python Nivel Intermedio",
@@ -157,6 +167,8 @@ export const CURSOS = [
     {
         id: 6,
         precio: 30000,
+        nombre: "Introducción a Machine Learning",
+        inicio: "2025-11-20",
         imagen: "../imagenes/ml-curso.png",
         duracion: "70hs",
         titulo: "Introducción a Machine Learning",
