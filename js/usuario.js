@@ -9,7 +9,7 @@ export class Usuario {
     }
 
     init() {
-   
+    
         if (window.location.pathname.endsWith('registro.html')) {
             this.verificarSiHayUsuarioLogueado();
             this.registrar();
@@ -26,24 +26,12 @@ export class Usuario {
 
         const dialog = document.createElement('dialog');
         dialog.id = 'customDialog';
-        dialog.style.padding = '20px';
-        dialog.style.borderRadius = '8px';
-        dialog.style.border = '1px solid #09e989';
-        dialog.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)'; 
-        dialog.style.backgroundColor = '#000000ff';
-        dialog.style.zIndex = '1000'; 
-        dialog.style.position = 'fixed';
-        dialog.style.top = '50%';
-        dialog.style.left = '50%';
-        dialog.style.transform = 'translate(-50%, -50%)';
-        dialog.style.textAlign = 'center';
+        dialog.classList.add('custom-dialog');
 
         dialog.innerHTML = `
-            <p style="margin-bottom: 15px; font-size: 1.1em; color: white">${mensaje}</p>
-            <button id="cerrarDialog" style="padding: 8px 15px; cursor: pointer; border: none; background-color: #09e989; color: black; border-radius: 4px; font-size: 1em;">Aceptar</button>
+            <p class="dialog-mensaje">${mensaje}</p>
+            <button id="cerrarDialog" class="dialog-boton-aceptar">Aceptar</button>
         `;
-
-   
         document.body.appendChild(dialog);
         dialog.showModal(); 
 
@@ -79,12 +67,10 @@ export class Usuario {
 
     verificarSiUsuarioYaExiste(usuario) {
         const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
         return usuarios.find(u => u.usuario === usuario.usuario || u.email === usuario.email);
     }
 
     verificarSiHayUsuarioLogueado() {
-
         if (JSON.parse(localStorage.getItem('logueado'))) {
             window.location.href = '../index.html';
         }
