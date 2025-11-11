@@ -30,7 +30,7 @@ export class CarritoVista {
                     <p>${curso.duracion}</p>
                     <h3>${curso.titulo}</h3>
                 </div>
-                <a href="${curso.detalle}">Ver detalle</a>
+                <a href="/pages/detalle-curso.html?id=${curso.id}">Ver detalle</a>
                 <button class="btn-eliminar">Eliminar</button>
             </div>
         `).join('');

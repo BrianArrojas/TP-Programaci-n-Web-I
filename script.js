@@ -12,8 +12,10 @@ import { CarritoVista } from './js/carrito-vista.js';
 import {Carrusel} from './js/carrusel.js';
 import { CarruselMediosPago } from './js/carrusel-medio-pago.js';
 
+if (document.querySelector('.js-carrusel-container')) {
 const miCarrusel = new Carrusel('.js-carrusel-container'); 
 miCarrusel.iniciar();
+}
 
 const busqueda = new Busqueda();
 busqueda.init();
@@ -21,10 +23,10 @@ busqueda.init();
 const carrusel = new CarruselMediosPago();
 carrusel.init();
 
-document.addEventListener('DOMContentLoaded', () => {  
-    const miCalendario = new CalendarioDinamico(); 
-    miCalendario.init(); 
-});
+if (document.querySelector('.calendario-grid')) {
+  const miCalendario = new CalendarioDinamico(); 
+  miCalendario.init();
+}
 
 const footer = new Footer();
 footer.init();
