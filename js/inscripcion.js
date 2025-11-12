@@ -2,6 +2,7 @@ import { dialogGlobal } from "./dialog.js";
 
 export class Inscripcion {
     constructor() {
+
         this.precioPorPersona = 20000;
         this.lista = document.querySelector(".personas_inscriptas");
         this.btnAgregar = document.querySelector(".btn-agregar");
@@ -10,18 +11,21 @@ export class Inscripcion {
         this.inputCurso = document.querySelector('.cursos_empresas input[list="browsers"]');
         this.personas = [this.crearPersona(1)];
         this.cursoSeleccionado = "";
+
     }
 
     init() {
-        this.render();
-        this.btnAgregar.addEventListener("click", () => this.agregarPersona());
-        this.btnComprar.addEventListener("click", (e) => {
-            e.preventDefault();
-            this.mostrarResumen();
-        });
-        this.inputCurso.addEventListener("input", (e) => {
-            this.cursoSeleccionado = e.target.value;
-        });
+        if (document.querySelector('.formulario_persona')) {
+            this.render();
+            this.btnAgregar.addEventListener("click", () => this.agregarPersona());
+            this.btnComprar.addEventListener("click", (e) => {
+                e.preventDefault();
+                this.mostrarResumen();
+            });
+            this.inputCurso.addEventListener("input", (e) => {
+                this.cursoSeleccionado = e.target.value;
+            });
+        }
     }
 
     crearPersona(index) {
@@ -81,10 +85,6 @@ export class Inscripcion {
         this.totalElemento.textContent = `Total: $ ${total}`;
     }
 
-
-
-
-
     mostrarResumen() {
         const datos = [];
         const personas = this.lista.querySelectorAll(".formulario_persona");
@@ -139,12 +139,12 @@ export class Inscripcion {
                 <hr>
                 <ul>
                     ${datos
-                        .map(
-                            (p) =>
-                                `<li><strong>${p.nombre} ${p.apellido}</strong> — DNI: ${p.dni}, Email: ${p.email}, Tel: ${p.telefono}</li>`
-                        )
-                        .join("")
-                    }
+                .map(
+                    (p) =>
+                        `<li><strong>${p.nombre} ${p.apellido}</strong> — DNI: ${p.dni}, Email: ${p.email}, Tel: ${p.telefono}</li>`
+                )
+                .join("")
+            }
                 </ul>
                 <p><strong>Total:</strong> $ ${this.personas.length * this.precioPorPersona}</p>
                 <div class="boton-centro">

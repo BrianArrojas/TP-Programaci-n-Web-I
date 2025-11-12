@@ -6,12 +6,15 @@ export class CarritoVista {
     }
 
     init() {
-        if (!this.logueado) {
-            this.container.innerHTML = `<p class="no-login">Debes iniciar sesión para ver tu carrito.</p>`;
-            return;
-        }
+        if (document.querySelector('.carrito')) {
 
-        this.render();
+            if (!this.logueado) {
+                this.container.innerHTML = `<p class="no-login">Debes iniciar sesión para ver tu carrito.</p>`;
+                return;
+            }
+
+            this.render();
+        }
     }
 
     render() {
@@ -49,24 +52,24 @@ export class CarritoVista {
         });
     }
 
-eliminarCurso(index) {
-    this.logueado.carrito = this.logueado.carrito || [];
+    eliminarCurso(index) {
+        this.logueado.carrito = this.logueado.carrito || [];
 
-    this.logueado.carrito.splice(index, 1);
+        this.logueado.carrito.splice(index, 1);
 
-    const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-    const indexUsuario = usuarios.findIndex(u => u.usuario === this.logueado.usuario);
+        const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+        const indexUsuario = usuarios.findIndex(u => u.usuario === this.logueado.usuario);
 
-    if (indexUsuario !== -1) {
-        usuarios[indexUsuario] = this.logueado;
+        if (indexUsuario !== -1) {
+            usuarios[indexUsuario] = this.logueado;
+        }
+
+        localStorage.setItem('logueado', JSON.stringify(this.logueado));
+        localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+        this.render();
+
+        const cantidad = document.querySelector('#cantidad-carrito');
+        if (cantidad) cantidad.textContent = this.logueado.carrito.length;
     }
-
-    localStorage.setItem('logueado', JSON.stringify(this.logueado));
-    localStorage.setItem('usuarios', JSON.stringify(usuarios));
-
-    this.render();
-
-    const cantidad = document.querySelector('#cantidad-carrito');
-    if (cantidad) cantidad.textContent = this.logueado.carrito.length;
-}
 }

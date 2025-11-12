@@ -4,7 +4,9 @@ export class RealizarPago {
   constructor() { }
 
   init() {
-    this.render();
+    if (document.querySelector('.realizar-pago')) {
+      this.render();
+    }
   }
 
   obtenerIdCurso() {

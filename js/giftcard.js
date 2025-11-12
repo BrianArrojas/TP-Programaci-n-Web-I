@@ -2,7 +2,9 @@ export class GiftCard {
     constructor() { }
 
     init() {
-        this.render();
+        if (document.querySelector('.gift_card')) {
+            this.render();
+        }
     }
 
     actualizarNombre(input, vistaNombre) {

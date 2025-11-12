@@ -43,18 +43,8 @@ export class Carrito {
 
         localStorage.setItem('usuarios', JSON.stringify(this.usuarios));
         localStorage.setItem('logueado', JSON.stringify(this.usuarios[indice]));
-
         dialogGlobal.mostrar(`"${curso.titulo}" se agregó correctamente al carrito.`);
     }
 
-    mostrarPopup(mensaje, error = false) {
-        const popup = document.createElement('div');
-        popup.classList.add('popup');
-        popup.textContent = mensaje;
 
-        if (error) popup.classList.add('popup-error');
-
-        document.body.appendChild(popup);
-        setTimeout(() => popup.remove(), 2000);
-    }
 }

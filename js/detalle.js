@@ -4,21 +4,23 @@ export class CursoDetalle {
     constructor() { }
 
     init() {
-        this.render();
+        if (document.querySelector('.curso')) {
+            this.render();
+        }
     }
 
     obtenerIdCurso() {
-        const allParams = new URLSearchParams(window.location.search); 
-        const id = parseInt(allParams.get('id')); 
+        const allParams = new URLSearchParams(window.location.search);
+        const id = parseInt(allParams.get('id'));
         return id;
     }
 
     obtenerDatosCurso() {
-        return CURSOS.find(c => c.id === this.obtenerIdCurso()); 
+        return CURSOS.find(c => c.id === this.obtenerIdCurso());
     }
 
     obtenerCursosDestacadosMenosActual() {
-        return CURSOS.filter(c => c.id !== this.obtenerIdCurso()).sort(() => 0.5 - Math.random()).slice(0, 3); 
+        return CURSOS.filter(c => c.id !== this.obtenerIdCurso()).sort(() => 0.5 - Math.random()).slice(0, 3);
     }
 
     render() {
@@ -221,14 +223,14 @@ export class CursoDetalle {
             cursosDestacados.forEach(curso => {
                 const cursoCard = document.createElement('div');
                 cursoCard.classList.add('cursos_destacados_card');
-            
+
                 const precio = document.createElement('span');
                 precio.textContent = 'AR$ ' + curso.precio.toFixed(2).replace('.', ',');
-            
+
                 const imagen = document.createElement('img');
                 imagen.src = curso.imagen;
                 imagen.alt = curso.titulo;
-            
+
                 const infoDiv = document.createElement('div');
                 const duracion = document.createElement('p');
                 duracion.textContent = curso.duracion;
@@ -236,23 +238,23 @@ export class CursoDetalle {
                 const titulo = document.createElement('h3');
                 titulo.textContent = curso.titulo;
                 infoDiv.appendChild(titulo);
-            
+
                 const detalleLink = document.createElement('a');
                 detalleLink.href = `./detalle-curso.html?id=${curso.id}`;
                 detalleLink.textContent = 'Ver detalle';
-            
+
                 const comprarLink = document.createElement('a');
                 comprarLink.href = `./realizar-pago.html?id=${curso.id}`;
                 const comprarButton = document.createElement('button');
                 comprarButton.textContent = 'Comprar';
                 comprarLink.appendChild(comprarButton);
-            
+
                 cursoCard.appendChild(precio);
                 cursoCard.appendChild(imagen);
                 cursoCard.appendChild(infoDiv);
                 cursoCard.appendChild(detalleLink);
                 cursoCard.appendChild(comprarLink);
-            
+
                 cursosDestacadosContainer.appendChild(cursoCard);
             });
         }

@@ -3,37 +3,38 @@ import { CURSOS } from "./cursos.js";
 export class CalendarioDinamico {
     constructor() {
         this.fechaActual = new Date();
-        
-        
+
+
         this.tituloMes = document.getElementById('mes-actual');
-      
-        this.cuerpoCalendario = document.querySelector('.calendario-grid'); 
+
+        this.cuerpoCalendario = document.querySelector('.calendario-grid');
         this.btnAnterior = document.getElementById('btn-anterior');
         this.btnSiguiente = document.getElementById('btn-siguiente');
-        
-   
-        this.popup = null; 
-        this.nombresMeses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 
-                             'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+
+        this.popup = null;
+        this.nombresMeses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+            'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
         this.nombresDias = ['DOM', 'LUN', 'MAR', 'MIÉ', 'JUE', 'VIE', 'SÁB'];
         this.anchoLogo = 120;
     }
 
     init() {
-       
-        if (!this.cuerpoCalendario) {
-            console.error("El contenedor '.calendario-grid' no fue encontrado en el DOM. Asegúrese de que el HTML está cargado.");
-            return;
+        if (document.querySelector('.calendario-grid')) {
+            if (!this.cuerpoCalendario) {
+                console.error("El contenedor '.calendario-grid' no fue encontrado en el DOM. Asegúrese de que el HTML está cargado.");
+                return;
+            }
+
+
+            this.inicializarPopup();
+
+
+            this.agregarListenersNavegacion();
+
+
+            this.generarCalendario(this.fechaActual);
         }
-
-      
-        this.inicializarPopup();
-
-       
-        this.agregarListenersNavegacion();
-        
-        
-        this.generarCalendario(this.fechaActual);
     }
 
 
@@ -65,8 +66,8 @@ export class CalendarioDinamico {
     }
 
     mostrarPopup(curso) {
-        if (!curso) return; 
-        
+        if (!curso) return;
+
         this.popup.querySelector("#popup-titulo").textContent = curso.titulo;
         this.popup.querySelector("#popup-descripcion").textContent = curso.descripcion;
         this.popup.querySelector("#popup-duracion").textContent = curso.duracion;
@@ -80,7 +81,7 @@ export class CalendarioDinamico {
         this.popup.classList.add("hidden");
     }
 
-  
+
     agregarListenersNavegacion() {
         if (this.btnAnterior) {
             this.btnAnterior.addEventListener('click', () => this.navegarMes(-1));
@@ -91,59 +92,59 @@ export class CalendarioDinamico {
     }
 
     navegarMes(delta) {
-        
+
         this.fechaActual.setMonth(this.fechaActual.getMonth() + delta);
         this.generarCalendario(this.fechaActual);
     }
-    
 
-    
+
+
     generarCalendario(fecha) {
         const mes = fecha.getMonth();
         const año = fecha.getFullYear();
-        
+
         this.tituloMes.textContent = `${this.nombresMeses[mes]} ${año}`;
 
 
         const primerDiaDelMes = new Date(año, mes, 1);
-        const ultimoDiaDelMes = new Date(año, mes + 1, 0).getDate(); 
-  
-        const diaSemanaInicio = primerDiaDelMes.getDay(); 
+        const ultimoDiaDelMes = new Date(año, mes + 1, 0).getDate();
 
-        let html = ''; 
+        const diaSemanaInicio = primerDiaDelMes.getDay();
+
+        let html = '';
         let diasTotales = 0;
         let contadorDia = 1;
 
-    
+
         this.nombresDias.forEach(dia => {
             html += `<li class="dia-encabezado">${dia}</li>`;
             diasTotales++;
         });
-        
-       
+
+
         for (let i = 0; i < diaSemanaInicio; i++) {
             html += '<li class="dia-vacio"></li>';
             diasTotales++;
         }
 
-      
+
         while (contadorDia <= ultimoDiaDelMes) {
-           
+
             const fechaBusqueda = `${año}-${String(mes + 1).padStart(2, '0')}-${String(contadorDia).padStart(2, '0')}`;
-            
-          
+
+
             const cursoDelDia = CURSOS.find(c => c.inicio === fechaBusqueda);
-            
+
             let contenidoDia = `<p class="dia">${contadorDia}</p>`;
-            
+
             if (cursoDelDia) {
-             
+
                 contenidoDia += `<button class="btn-curso curso-${cursoDelDia.id}" data-curso-id="${cursoDelDia.id}">
                                     ${cursoDelDia.nombre}
                                  </button>`;
             }
-            
-           
+
+
             const esHoy = this.esFechaActual(año, mes, contadorDia);
             const claseHoy = esHoy ? 'fecha-actual' : '';
 
@@ -154,20 +155,20 @@ export class CalendarioDinamico {
             diasTotales++;
         }
 
-       
-       
+
+
         while (diasTotales % 7 !== 0) {
             html += '<li class="dia-vacio"></li>';
             diasTotales++;
         }
 
-      
+
         this.cuerpoCalendario.innerHTML = html;
-        
-      
+
+
         this.agregarListenersBotonesCurso();
     }
-    
+
     esFechaActual(año, mes, dia) {
         const hoy = new Date();
         return (
@@ -176,15 +177,15 @@ export class CalendarioDinamico {
             dia === hoy.getDate()
         );
     }
-    
+
     agregarListenersBotonesCurso() {
         const botones = this.cuerpoCalendario.querySelectorAll(".btn-curso");
         botones.forEach((btn) => {
             btn.addEventListener("click", () => {
-             
-                const cursoId = parseInt(btn.dataset.cursoId); 
+
+                const cursoId = parseInt(btn.dataset.cursoId);
                 let curso = this.buscarCursoPorId(cursoId);
-                
+
                 if (curso) this.mostrarPopup(curso);
             });
         });

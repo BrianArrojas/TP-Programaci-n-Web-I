@@ -2,12 +2,15 @@ import { dialogGlobal } from './dialog.js';
 
 export class Contacto {
     constructor() {
-        this.form = document.querySelector(".formulario");
-        this.nombre = document.getElementById("nombre");
-        this.email = document.getElementById("email");
-        this.telefono = document.getElementById("telefono");
-        this.mensaje = document.getElementById("mensaje");
-        this.maxChars = 1000;
+        if (document.querySelector('.contacto')) {
+            this.form = document.querySelector(".formulario");
+            this.nombre = document.getElementById("nombre");
+            this.email = document.getElementById("email");
+            this.telefono = document.getElementById("telefono");
+            this.mensaje = document.getElementById("mensaje");
+            this.maxChars = 1000;
+        }
+
     }
 
     init() {
