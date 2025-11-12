@@ -24,6 +24,10 @@ export class Usuario {
         }
     }
 
+    obtenerUsuarioLogueado() {
+        return JSON.parse(localStorage.getItem('logueado'));
+    }
+
     nombreCompletoValido(str) {
         const regex = /^[A-Za-z\s]+$/;
         return regex.test(str);

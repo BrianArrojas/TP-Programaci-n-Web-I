@@ -13,6 +13,7 @@ import { Carrusel } from './js/carrusel.js';
 import { CarruselMediosPago } from './js/carrusel-medio-pago.js';
 import { RealizarPago } from './js/realizar-pago.js';
 import { Carrito } from './js/carrito.js';
+import { Perfil } from './js/perfil.js';
 
 const carritoInstancia = new Carrito();
 
@@ -60,4 +61,6 @@ contacto.init();
 const carrito = new CarritoVista();
 carrito.init();
 
+const perfil = new Perfil(usuario.obtenerUsuarioLogueado());
+perfil.init();
 

@@ -60,13 +60,13 @@ export class Header {
             </article>
 
             <article class="usuario_logueado" id="opciones-usuario">
-                <div>
-                <img src="/imagenes/logueado.png" alt="usuario_logueado">
-                <p id="nombre-usuario"></p>
-                </div>
+                <a href="/pages/perfil.html" id="perfil-usuario">
+                    <img src="/imagenes/logueado.png" alt="usuario_logueado">
+                    <p id="nombre-usuario"></p>
+                </a>
                 <a href="/index.html" id="cerrar-sesion">
-                <img src="/imagenes/cerrar_sesion.png" alt="cerrar_sesion">
-                <p>Cerrar sesion</p>
+                    <img src="/imagenes/cerrar_sesion.png" alt="cerrar_sesion">
+                    <p>Cerrar sesion</p>
                 </a>
             </article>
 
