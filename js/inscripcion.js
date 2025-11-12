@@ -2,7 +2,6 @@ import { dialogGlobal } from "./dialog.js";
 
 export class Inscripcion {
     constructor() {
-
         this.precioPorPersona = 20000;
         this.lista = document.querySelector(".personas_inscriptas");
         this.btnAgregar = document.querySelector(".btn-agregar");
@@ -11,17 +10,24 @@ export class Inscripcion {
         this.inputCurso = document.querySelector('.cursos_empresas input[list="browsers"]');
         this.personas = [this.crearPersona(1)];
         this.cursoSeleccionado = "";
-
     }
 
     init() {
         if (document.querySelector('.formulario_persona')) {
             this.render();
+
             this.btnAgregar.addEventListener("click", () => this.agregarPersona());
             this.btnComprar.addEventListener("click", (e) => {
                 e.preventDefault();
-                this.mostrarResumen();
+
+                const logueado = JSON.parse(localStorage.getItem('logueado'));
+                if (logueado) {
+                    this.mostrarResumen();
+                } else {
+                    dialogGlobal.mostrar("Por favor, inicia sesión antes de continuar.");
+                }
             });
+
             this.inputCurso.addEventListener("input", (e) => {
                 this.cursoSeleccionado = e.target.value;
             });
@@ -139,21 +145,67 @@ export class Inscripcion {
                 <hr>
                 <ul>
                     ${datos
-                .map(
-                    (p) =>
-                        `<li><strong>${p.nombre} ${p.apellido}</strong> — DNI: ${p.dni}, Email: ${p.email}, Tel: ${p.telefono}</li>`
-                )
-                .join("")
-            }
+                        .map(
+                            (p) =>
+                                `<li><strong>${p.nombre} ${p.apellido}</strong> — DNI: ${p.dni}, Email: ${p.email}, Tel: ${p.telefono}</li>`
+                        )
+                        .join("")
+                    }
                 </ul>
                 <p><strong>Total:</strong> $ ${this.personas.length * this.precioPorPersona}</p>
                 <div class="boton-centro">
+                    <button class="confirmar-popup">Confirmar inscripción</button>
                     <button class="cerrar-popup">Cerrar</button>
                 </div>
             </div>`;
-        document.body.appendChild(popup);
-        popup.querySelector(".cerrar-popup").addEventListener("click", () => popup.remove());
 
+        document.body.appendChild(popup);
+
+        const cerrarBtn = popup.querySelector(".cerrar-popup");
+        cerrarBtn.addEventListener("click", () => popup.remove());
+
+        const confirmarBtn = popup.querySelector(".confirmar-popup");
+        confirmarBtn.addEventListener("click", () => {
+            this.guardarInscriptos(datos, curso);
+            popup.remove();
+            dialogGlobal.mostrar("Inscripción guardada correctamente");
+        });
+    }
+
+    guardarInscriptos(datos, curso) {
+        const logueado = JSON.parse(localStorage.getItem("logueado"));
+        const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+        logueado.empleadosInscriptos = [];
+
+        datos.forEach((p) => {
+            logueado.empleadosInscriptos.push({
+                dni: p.dni,
+                cursoId: this.obtenerIdCurso(curso),
+                cursoNombre: curso,
+            });
+        });
+
+        const indexUsuario = usuarios.findIndex(u => u.usuario === logueado.usuario);
+        if (indexUsuario !== -1) {
+            usuarios[indexUsuario] = logueado;
+        }
+
+        localStorage.setItem("logueado", JSON.stringify(logueado));
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    }
+
+    obtenerIdCurso(nombreCurso) {
+        const cursos = [
+            { id: 1, nombre: "Introducción a HTML5, CSS y JavaScript" },
+            { id: 2, nombre: "Curso de JavaScript para Principiantes" },
+            { id: 3, nombre: "Curso de Python Nivel Avanzado" },
+            { id: 4, nombre: "Curso de Python Nivel Intermedio" },
+            { id: 5, nombre: "Introducción a Machine Learning" },
+            { id: 6, nombre: "Conceptos de Amazon Web Services" },
+        ];
+        const curso = cursos.find(c => c.nombre === nombreCurso);
+        return curso ? curso.id : null;
     }
 
     render() {

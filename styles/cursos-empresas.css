@@ -167,7 +167,7 @@ body {
     height: 2.5em;
 }
 
-.btn-eliminar{
+.btn-eliminar {
     background-color: transparent;
     color: #f1f1f1;
     border: 1px solid #09e989;
@@ -194,6 +194,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 
 .popup-content {
@@ -201,7 +202,7 @@ body {
     padding: 1.3em;
     border-radius: 0.6em;
     max-width: 25em;
-    color:#f1f1f1
+    color: #f1f1f1
 }
 
 .popup-content ul {
@@ -213,7 +214,7 @@ body {
     margin-bottom: 1em;
 }
 
-.cerrar-popup {
+.boton-centro button {
     background-color: transparent;
     color: #f1f1f1;
     border: 1px solid #09e989;
@@ -224,16 +225,17 @@ body {
     font-size: 1.2em;
 }
 
-.cerrar-popup:hover {
+.boton-centro button:hover {
     background-color: #09e989;
     color: #13161c;
     border: none;
 }
 
 .boton-centro {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.5em;
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5em;
+    gap: 2em;
 }
 
 
