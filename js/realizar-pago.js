@@ -52,6 +52,7 @@ export class RealizarPago {
 
     if (url) {
       button.textContent = `Redirigiendo a ${url.includes('paypal') ? 'PayPal' : 'Mercado Pago'}...`;
+      window.location.href=url;
       setTimeout(() => {
         button.textContent = button.getAttribute('data-url').includes('paypal') ? 'Ir a PayPal' : 'Ir a Mercado Pago';
       }, 2000);
@@ -80,6 +81,11 @@ export class RealizarPago {
     if (!cursoComprado) {
       dialogGlobal.mostrar("Curso no encontrado.");
       return;
+    }
+
+    const formularioTarjeta = document.querySelector('#formulario-tarjeta');
+    if (formularioTarjeta.classList.contains('visible')) {
+      if (!this.validarFormularioTarjeta()) return;
     }
 
     if (!usuario.cursos) usuario.cursos = [];
@@ -121,6 +127,11 @@ export class RealizarPago {
       return;
     }
 
+    const formularioTarjeta = document.querySelector('#formulario-tarjeta');
+    if (formularioTarjeta.classList.contains('visible')) {
+      if (!this.validarFormularioTarjeta()) return;
+    }
+
     if (!usuario.cursos) usuario.cursos = [];
 
     let cursosAgregados = [];
@@ -144,15 +155,67 @@ export class RealizarPago {
       dialogGlobal.mostrar("Todos los cursos de tu carrito ya fueron comprados previamente.");
     }
 
-    if (typeof header !== 'undefined') {
-      header.actualizarCantidadCarrito();
+    header.actualizarCantidadCarrito();
+
+  }
+
+  validarFormularioTarjeta() {
+    const inputNumero = document.querySelector('#number');
+    const inputTitular = document.querySelector('#titular');
+    const inputFecha = document.querySelector('#date');
+    const inputCVV = document.querySelector('#cvv');
+
+    if (!inputNumero.value || !inputTitular.value || !inputFecha.value || !inputCVV.value) {
+      dialogGlobal.mostrar('Todos los campos son obligatorios.');
+      return false;
     }
+
+    if (inputNumero.value.length !== 16) {
+      dialogGlobal.mostrar('El número de tarjeta debe tener 16 dígitos.');
+      return false;
+    }
+
+    if (inputCVV.value.length !== 3) {
+      dialogGlobal.mostrar('El código de seguridad (CVV) debe tener 3 dígitos.');
+      return false;
+    }
+
+    return true;
   }
 
   render() {
     const botonesOpcion = document.querySelectorAll('.js-opcion-pago');
     const botonesRedireccion = document.querySelectorAll('.js-redireccion-btn');
     const botonFinalizarPago = document.querySelector('#btn-finalizar-pago');
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const pagarCarrito = urlParams.get('carrito');
+    const idCurso = urlParams.get('id');
+    const logueado = JSON.parse(localStorage.getItem('logueado'));
+
+    let total = 0;
+    let textoTotal = '';
+    const sidebar = document.querySelector('.realizar-pago .formulario');
+
+    if (pagarCarrito && logueado && logueado.carrito && logueado.carrito.length > 0) {
+      for (let i = 0; i < logueado.carrito.length; i++) {
+        total += logueado.carrito[i].precio;
+      }
+      textoTotal = `Total a pagar: AR$ ${total},00`;
+    } else if (!pagarCarrito && idCurso) {
+      const curso = (logueado.carrito || []).find(c => c.id == idCurso) || CURSOS.find(c => c.id == idCurso);
+      if (curso) {
+        total = curso.precio;
+        textoTotal = `Precio del curso: AR$ ${total},00`;
+      }
+    }
+
+    if (sidebar && textoTotal) {
+      const totalElement = document.createElement('p');
+      totalElement.id = 'total-carrito';
+      totalElement.textContent = textoTotal;
+      sidebar.insertBefore(totalElement, botonFinalizarPago);
+    }
 
     botonesOpcion.forEach(button => {
       button.addEventListener('click', () => {
@@ -168,21 +231,15 @@ export class RealizarPago {
     if (botonFinalizarPago) {
       botonFinalizarPago.addEventListener('click', (e) => {
         e.preventDefault();
-        const urlParams = new URLSearchParams(window.location.search);
-        const idCurso = urlParams.get('id');
-        const pagarCarrito = urlParams.get('carrito');
-
         if (pagarCarrito) {
           this.finalizarPagoCarrito();
         } else if (idCurso) {
           this.finalizarPago();
         }
-
       });
     }
 
     this.cambiarMetodoDePago('tarjeta');
-
   }
 
 
