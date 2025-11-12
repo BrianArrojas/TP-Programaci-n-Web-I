@@ -8,17 +8,19 @@ export class Carrusel {
     }
 
     init() {
-        this.contenedor = document.querySelector('.js-carrusel-container');
-        if (!this.contenedor) return;
+        if (document.querySelector('.js-carrusel-container')) {
+            this.contenedor = document.querySelector('.js-carrusel-container');
+            if (!this.contenedor) return;
 
-        this.diapositivas = this.contenedor.querySelectorAll(".js-carrusel-slide");
-        this.puntos = document.querySelectorAll(".js-PdP");
+            this.diapositivas = this.contenedor.querySelectorAll(".js-carrusel-slide");
+            this.puntos = document.querySelectorAll(".js-PdP");
 
-        if (this.diapositivas.length === 0) return;
+            if (this.diapositivas.length === 0) return;
 
-        this.vincularEventos();
-        this.mostrarDiapositiva(this.indiceActual);
-        this.iniciarAutoAvance();
+            this.vincularEventos();
+            this.mostrarDiapositiva(this.indiceActual);
+            this.iniciarAutoAvance();
+        }
     }
 
     mostrarDiapositiva(n) {

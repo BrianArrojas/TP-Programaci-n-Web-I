@@ -1,3 +1,5 @@
+import { carritoVistaGlobal } from './carrito-vista.js';
+
 export class Header {
     constructor() { }
 
@@ -7,12 +9,7 @@ export class Header {
 
     verificarSiHayUsuarioLogueado() {
         const logueado = JSON.parse(localStorage.getItem('logueado'));
-        if (logueado) {
-            console.log('hay usuario logueado: ' + logueado.usuario);
-            return true;
-        } else {
-            return false;
-        }
+        return !!logueado;
     }
 
     cerrarSesion() {
@@ -20,37 +17,41 @@ export class Header {
         window.location.href = '../index.html';
     }
 
-    obtenerCantidadCarrito() {
-        const logueado = JSON.parse(localStorage.getItem('logueado'));
-        if (!logueado || !logueado.carrito) return 0;
-        return logueado.carrito.length;
-    }
-
     actualizarCantidadCarrito() {
         const cantidadCarrito = document.querySelector('#cantidad-carrito');
         const logueado = JSON.parse(localStorage.getItem('logueado'));
-        cantidadCarrito.textContent = logueado?.carrito?.length || 0;
+        if (cantidadCarrito) cantidadCarrito.textContent = logueado?.carrito?.length || 0;
+    }
+
+    abrirSidebar() {
+        document.querySelector('#sidebar-carrito')?.classList.add('visible');
+        document.querySelector('#overlay-carrito')?.classList.add('visible');
+        carritoVistaGlobal.render();
+    }
+
+    cerrarSidebar() {
+        document.querySelector('#sidebar-carrito')?.classList.remove('visible');
+        document.querySelector('#overlay-carrito')?.classList.remove('visible');
     }
 
     render() {
         const header = document.querySelector('#header');
+        if (!header) return;
 
-        const template = `
+        header.innerHTML = `
         <div class="header_superior">
-            <a class="header_logo" href="/index.html">
-                <img src="/imagenes/platzi.png" alt="Logo" />
-            </a>
+            <a class="header_logo" href="/index.html"><img src="/imagenes/platzi.png" alt="Logo" /></a>
 
             <div class="header_busqueda">
                 <a href="/pages/cursos.html" id="btn-busqueda"><img src="/imagenes/lupa-blanca.svg" alt="Lupa" class="lupa-icon" /></a>
                 <input list="browsers" placeholder="Buscar cursos..." id="busqueda-input" />
-                <datalist id="browsers" name="myBrowser">
-                <option value="Introducción a HTML5, CSS y JavaScript"></option>
-                <option value="Curso de JavaScript para Principiantes"></option>
-                <option value="Curso de Python Nivel Avanzado"></option>
-                <option value="Curso de Python Nivel Intermedio"></option>
-                <option value="Introducción a Machine Learning"></option>
-                <option value="Conceptos de Amazon Web Services"></option>
+                <datalist id="browsers">
+                    <option value="Introducción a HTML5, CSS y JavaScript"></option>
+                    <option value="Curso de JavaScript para Principiantes"></option>
+                    <option value="Curso de Python Nivel Avanzado"></option>
+                    <option value="Curso de Python Nivel Intermedio"></option>
+                    <option value="Introducción a Machine Learning"></option>
+                    <option value="Conceptos de Amazon Web Services"></option>
                 </datalist>
             </div>
 
@@ -64,74 +65,70 @@ export class Header {
                     <img src="/imagenes/logueado.png" alt="usuario_logueado">
                     <p id="nombre-usuario"></p>
                 </a>
-                <a href="/index.html" id="cerrar-sesion">
+                <a href="#" id="cerrar-sesion">
                     <img src="/imagenes/cerrar_sesion.png" alt="cerrar_sesion">
-                    <p>Cerrar sesion</p>
+                    <p>Cerrar sesión</p>
                 </a>
             </article>
 
             <div class="header_carrito">
-                <a href="/pages/carrito.html"><img src="/imagenes/carrito-blanco.svg" alt="Carrito de compras" /></a>
-                <div>
-                    <p id="cantidad-carrito">0</p>
-                </div>
+                <a href="#" id="abrir-sidebar"><img src="/imagenes/carrito-blanco.svg" alt="Carrito de compras" /></a>
+                <div><p id="cantidad-carrito">0</p></div>
             </div>
         </div>
 
         <div class="header_menu">
             <nav>
                 <ul>
-                <li><a href="/index.html">Inicio</a></li>
-                <li><a href="/pages/calendario.html">Calendario</a></li>
-                <li><a href="/pages/regala-curso.html">Regalá un curso</a></li>
-                <li>
-                    <a href="/pages/cursos-empresas.html">Cursos para empresas</a>
-                </li>
-                <li><a href="/pages/contacto.html">Contactanos</a></li>
+                    <li><a href="/index.html">Inicio</a></li>
+                    <li><a href="/pages/calendario.html">Calendario</a></li>
+                    <li><a href="/pages/regala-curso.html">Regalá un curso</a></li>
+                    <li><a href="/pages/cursos-empresas.html">Cursos para empresas</a></li>
+                    <li><a href="/pages/contacto.html">Contactanos</a></li>
                 </ul>
             </nav>
-        </div>`;
+        </div>
 
-        header.innerHTML = template;
+        <div class="sidebar-carrito" id="sidebar-carrito">
+            <div class="sidebar-header">
+                <h2>Tu carrito</h2>
+                <button id="cerrar-sidebar">&times;</button>
+            </div>
+            <div class="sidebar-contenido" id="sidebar-contenido"></div>
+            <a href="/pages/realizar-pago.html?carrito=true" class="sidebar-comprar">Comprar cursos</a>
+        </div>
+        <div class="overlay" id="overlay-carrito"></div>
+        `;
 
-        // búsqueda de cursos
-        const btnBusqueda = document.querySelector('#btn-busqueda');
-        const inputBusqueda = document.querySelector('#busqueda-input');
-
-
-        btnBusqueda.addEventListener('click', (e) => {
+        document.querySelector('#btn-busqueda')?.addEventListener('click', (e) => {
             e.preventDefault();
-
-            const query = inputBusqueda.value.trim();
-
-            const searchParams = new URLSearchParams({ name: query });
-            window.location.href = `/pages/cursos.html?${searchParams.toString()}`;
+            const query = document.querySelector('#busqueda-input')?.value.trim();
+            if (query) {
+                const searchParams = new URLSearchParams({ name: query });
+                window.location.href = `/pages/cursos.html?${searchParams.toString()}`;
+            }
         });
 
-        // autenticación de usuario en el header
-        const botonesIngreso = document.querySelector('#botones-ingreso');
-        const opcionesUsuario = document.querySelector('#opciones-usuario');
-        const cantidadCarrito = document.querySelector('#cantidad-carrito');
-
         if (this.verificarSiHayUsuarioLogueado()) {
-            botonesIngreso.style.display = 'none';
-            opcionesUsuario.style.display = 'flex';
-
-            const nombreUsuario = document.querySelector('#nombre-usuario');
+            document.querySelector('#botones-ingreso').style.display = 'none';
+            document.querySelector('#opciones-usuario').style.display = 'flex';
             const logueado = JSON.parse(localStorage.getItem('logueado'));
-            nombreUsuario.textContent = logueado.usuario;
-
-            cantidadCarrito.textContent = this.obtenerCantidadCarrito();
-
-            const cerrarSesionBtn = document.querySelector('#cerrar-sesion');
-            cerrarSesionBtn.addEventListener('click', (e) => {
+            document.querySelector('#nombre-usuario').textContent = logueado.usuario;
+            document.querySelector('#cerrar-sesion')?.addEventListener('click', (e) => {
                 e.preventDefault();
                 this.cerrarSesion();
             });
         } else {
-            botonesIngreso.style.display = 'flex';
-            opcionesUsuario.style.display = 'none';
+            document.querySelector('#botones-ingreso').style.display = 'flex';
+            document.querySelector('#opciones-usuario').style.display = 'none';
         }
+
+        document.querySelector('#abrir-sidebar')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.abrirSidebar();
+        });
+        document.querySelector('#cerrar-sidebar')?.addEventListener('click', () => this.cerrarSidebar());
+        document.querySelector('#overlay-carrito')?.addEventListener('click', () => this.cerrarSidebar());
 
         this.actualizarCantidadCarrito();
     }

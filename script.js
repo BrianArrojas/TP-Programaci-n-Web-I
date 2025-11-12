@@ -20,19 +20,17 @@ const carritoInstancia = new Carrito();
 const pago = new RealizarPago();
 pago.init();
 
-if (document.querySelector('.js-carrusel-container')) {
-    const miCarrusel = new Carrusel();
-    miCarrusel.init();
-}
+const carrusel = new Carrusel();
+carrusel.init();
 
 const busqueda = new Busqueda();
 busqueda.init();
 
-const carrusel = new CarruselMediosPago();
-carrusel.init();
+const carruselMP = new CarruselMediosPago();
+carruselMP.init();
 
-const miCalendario = new CalendarioDinamico();
-miCalendario.init();
+const calendario = new CalendarioDinamico();
+calendario.init();
 
 const footer = new Footer();
 footer.init();
@@ -57,9 +55,6 @@ giftcard.init();
 
 const contacto = new Contacto();
 contacto.init();
-
-const carrito = new CarritoVista();
-carrito.init();
 
 const perfil = new Perfil(usuario.obtenerUsuarioLogueado());
 perfil.init();
