@@ -1,4 +1,5 @@
 import { dialogGlobal } from "./dialog.js";
+import { header } from './header.js';
 
 export class Carrito {
     constructor() {
@@ -44,6 +45,7 @@ export class Carrito {
         localStorage.setItem('usuarios', JSON.stringify(this.usuarios));
         localStorage.setItem('logueado', JSON.stringify(this.usuarios[indice]));
         dialogGlobal.mostrar(`"${curso.titulo}" se agregó correctamente al carrito.`);
+        header.actualizarCantidadCarrito();
     }
 
 
