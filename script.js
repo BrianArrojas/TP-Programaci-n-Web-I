@@ -21,8 +21,8 @@ const pago = new RealizarPago();
 pago.init();
 
 if (document.querySelector('.js-carrusel-container')) {
-    const miCarrusel = new Carrusel('.js-carrusel-container');
-    miCarrusel.iniciar();
+    const miCarrusel = new Carrusel();
+    miCarrusel.init();
 }
 
 const busqueda = new Busqueda();

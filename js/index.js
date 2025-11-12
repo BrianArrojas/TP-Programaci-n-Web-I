@@ -7,7 +7,7 @@ export class Inicio {
     }
 
     init() {
-        if (window.location.pathname.endsWith('index.html')) {
+        if (document.querySelector('.index-main')) {
             this.render();
         }
     }
