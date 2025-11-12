@@ -24,6 +24,13 @@ export class Perfil {
 
             const cursosPerfil = this.usuario.cursos || [];
 
+            if (cursosPerfil.length === 0) {
+                const mensaje = document.createElement('p');
+                mensaje.textContent = 'Aún no tienes cursos comprados.';
+                cursosUsuarioContainer.appendChild(mensaje);
+                return;
+            }
+
             cursosPerfil.forEach(curso => {
                 const cursoCard = document.createElement('div');
                 cursoCard.classList.add('cursos_card');
