@@ -1,4 +1,5 @@
 import { dialogGlobal } from "./dialog.js";
+import { CURSOS } from "./cursos.js";
 
 export class Inscripcion {
     constructor() {
@@ -30,6 +31,7 @@ export class Inscripcion {
 
             this.inputCurso.addEventListener("input", (e) => {
                 this.cursoSeleccionado = e.target.value;
+                this.actualizarTotal(); 
             });
         }
     }
@@ -87,7 +89,11 @@ export class Inscripcion {
     }
 
     actualizarTotal() {
-        const total = this.personas.length * this.precioPorPersona;
+        const cursoSeleccionado = this.cursoSeleccionado || this.inputCurso.value;
+        const cursoInfo = CURSOS.find(c => c.nombre === cursoSeleccionado);
+        const precioCurso = cursoInfo ? cursoInfo.precio : 0;
+
+        const total = precioCurso + (this.personas.length * this.precioPorPersona);
         this.totalElemento.textContent = `Total: $ ${total}`;
     }
 
@@ -145,12 +151,12 @@ export class Inscripcion {
                 <hr>
                 <ul>
                     ${datos
-                        .map(
-                            (p) =>
-                                `<li><strong>${p.nombre} ${p.apellido}</strong> — DNI: ${p.dni}, Email: ${p.email}, Tel: ${p.telefono}</li>`
-                        )
-                        .join("")
-                    }
+                .map(
+                    (p) =>
+                        `<li><strong>${p.nombre} ${p.apellido}</strong> — DNI: ${p.dni}, Email: ${p.email}, Tel: ${p.telefono}</li>`
+                )
+                .join("")
+            }
                 </ul>
                 <p><strong>Total:</strong> $ ${this.personas.length * this.precioPorPersona}</p>
                 <div class="boton-centro">

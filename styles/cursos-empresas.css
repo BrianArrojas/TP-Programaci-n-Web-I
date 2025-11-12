@@ -170,7 +170,7 @@ body {
 .btn-eliminar {
     background-color: transparent;
     color: #f1f1f1;
-    border: 1px solid #09e989;
+    border: 1px solid red;
     height: 2.5em;
     width: 10em;
     border-radius: 8px;
@@ -179,8 +179,7 @@ body {
 }
 
 .btn-eliminar:hover {
-    background-color: #09e989;
-    color: #13161c;
+    background-color: red;
     border: none;
 }
 
