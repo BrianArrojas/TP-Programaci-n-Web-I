@@ -5,7 +5,11 @@ export class RealizarPago {
 
   init() {
     if (document.querySelector('.realizar-pago')) {
-      this.render();
+      if (JSON.parse(localStorage.getItem('logueado'))) {
+        this.render();
+      } else {
+        window.location.href = `./registro.html`;
+      }
     }
   }
 

@@ -32,7 +32,6 @@ export class CursoDetalle {
             const imagenCurso = document.querySelector('#curso-imagen');
             imagenCurso.src = curso.imagen;
 
-
             const datosTemplate =
                 `<h2>${curso.titulo}</h2>
             <ul>
@@ -43,7 +42,7 @@ export class CursoDetalle {
                 </li>
                 <li>Requisitos previos: ${curso.requisitos}</li>
             </ul>
-            <section class="botones_curso">
+            <section class="botones_curso"> 
                 <a href="./realizar-pago.html?id=${curso.id}"><button>COMPRAR</button></a>
                 <a href="./carrito.html"><button>Agregar al carrito</button></a>
             </section>
