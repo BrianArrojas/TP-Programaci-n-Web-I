@@ -1,11 +1,25 @@
 import { CURSOS } from "./cursos.js";
+import { dialogGlobal } from "./dialog.js";
+import { Carrito } from "./carrito.js";
 
 export class CursoDetalle {
-    constructor() { }
+    constructor(carrito) {
+        this.carrito = carrito;
+     }
 
     init() {
         if (document.querySelector('.curso')) {
             this.render();
+        }
+    }
+
+    verificarSiHayUsuarioLogueado() {
+        const logueado = JSON.parse(localStorage.getItem('logueado'));
+        if (logueado) {
+            console.log('hay usuario logueado: ' + logueado.usuario);
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -43,12 +57,37 @@ export class CursoDetalle {
                 <li>Requisitos previos: ${curso.requisitos}</li>
             </ul>
             <section class="botones_curso"> 
-                <a href="./realizar-pago.html?id=${curso.id}"><button>COMPRAR</button></a>
-                <a href="./carrito.html"><button>Agregar al carrito</button></a>
+                <a id="btn-comprar"><button>COMPRAR</button></a>
+                <a id="btn-agregar-carrito"><button>Agregar al carrito</button></a>
             </section>
             `;
 
             datosContainer.innerHTML = datosTemplate;
+
+            const btnComprar = document.querySelector('#btn-comprar');
+            const btnAgregarCarrito = document.querySelector('#btn-agregar-carrito');
+
+            let callbackNoLogueado = () => {
+                window.location.href = '/pages/inicio-sesion.html';
+            };
+
+            btnComprar.addEventListener('click', (e) => {
+                if (!this.verificarSiHayUsuarioLogueado()) {
+                    e.preventDefault();
+                    dialogGlobal.mostrar('Debe ingresar para comprar un curso.', callbackNoLogueado);
+                } else {
+                    window.location.href = `./realizar-pago.html?id=${curso.id}`;
+                }
+            });
+
+            btnAgregarCarrito.addEventListener('click', (e) => {
+                if (!this.verificarSiHayUsuarioLogueado()) {
+                    e.preventDefault();
+                    dialogGlobal.mostrar('Debe ingresar para agregar un curso al carrito.', callbackNoLogueado);
+                } else {
+                    this.carrito.agregarCurso(curso);
+                }
+            });
 
             const contenidosContainer = document.querySelector('#contenidos-curso');
 

@@ -12,6 +12,9 @@ import { CarritoVista } from './js/carrito-vista.js';
 import { Carrusel } from './js/carrusel.js';
 import { CarruselMediosPago } from './js/carrusel-medio-pago.js';
 import { RealizarPago } from './js/realizar-pago.js';
+import { Carrito } from './js/carrito.js';
+
+const carritoInstancia = new Carrito();
 
 const pago = new RealizarPago();
 pago.init();
@@ -36,13 +39,13 @@ footer.init();
 const header = new Header();
 header.init();
 
-const cursoDetalle = new CursoDetalle();
+const cursoDetalle = new CursoDetalle(carritoInstancia);
 cursoDetalle.init();
 
 const inscripcion = new Inscripcion();
 inscripcion.init();
 
-const inicio = new Inicio();
+const inicio = new Inicio(carritoInstancia);
 inicio.init();
 
 const usuario = new Usuario();

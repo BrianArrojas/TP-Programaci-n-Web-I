@@ -47,6 +47,4 @@ export class Carrito {
         dialogGlobal.mostrar(`"${curso.titulo}" se agregó correctamente al carrito.`);
         header.actualizarCantidadCarrito();
     }
-
-
 }

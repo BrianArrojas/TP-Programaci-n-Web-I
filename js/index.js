@@ -2,8 +2,8 @@ import { CURSOS } from './cursos.js';
 import { Carrito } from './carrito.js';
 
 export class Inicio {
-    constructor() {
-        this.carrito = new Carrito();
+    constructor(carrito) {
+        this.carrito = carrito;
     }
 
     init() {
