@@ -1,4 +1,6 @@
 import { CURSOS } from "./cursos.js";
+import { dialogGlobal } from "./dialog.js";
+import { header } from './header.js'
 
 export class RealizarPago {
   constructor() { }
@@ -62,13 +64,13 @@ export class RealizarPago {
     const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
     if (!logueado) {
-      alert("Debes iniciar sesión para comprar un curso.");
+      dialogGlobal.mostrar("Debes iniciar sesión para comprar un curso.");
       return;
     }
 
     const indexUsuario = usuarios.findIndex(u => u.usuario === logueado.usuario);
     if (indexUsuario === -1) {
-      alert("Usuario no encontrado.");
+      dialogGlobal.mostrar("Usuario no encontrado.");
       return;
     }
 
@@ -76,7 +78,7 @@ export class RealizarPago {
 
     const cursoComprado = CURSOS.find(c => c.id === idCurso);
     if (!cursoComprado) {
-      alert("Curso no encontrado.");
+      dialogGlobal.mostrar("Curso no encontrado.");
       return;
     }
 
@@ -84,7 +86,7 @@ export class RealizarPago {
 
     const yaComprado = usuario.cursos.some(c => c.id === idCurso);
     if (yaComprado) {
-      alert("Ya has comprado este curso.");
+      dialogGlobal.mostrar("Ya has comprado este curso.");
       return;
     }
 
@@ -94,7 +96,57 @@ export class RealizarPago {
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
     localStorage.setItem("logueado", JSON.stringify(usuario));
 
-    alert(`¡Pago exitoso! Has comprado el curso "${cursoComprado.titulo}".`);
+    dialogGlobal.mostrar(`¡Pago exitoso! Has comprado el curso "${cursoComprado.titulo}".`);
+  }
+
+  finalizarPagoCarrito() {
+    const logueado = JSON.parse(localStorage.getItem("logueado"));
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+    if (!logueado) {
+      dialogGlobal.mostrar("Debes iniciar sesión para comprar cursos.");
+      return;
+    }
+
+    const indexUsuario = usuarios.findIndex(u => u.usuario === logueado.usuario);
+    if (indexUsuario === -1) {
+      dialogGlobal.mostrar("Usuario no encontrado.");
+      return;
+    }
+
+    const usuario = usuarios[indexUsuario];
+
+    if (!usuario.carrito || usuario.carrito.length === 0) {
+      dialogGlobal.mostrar("No tienes cursos en el carrito.");
+      return;
+    }
+
+    if (!usuario.cursos) usuario.cursos = [];
+
+    let cursosAgregados = [];
+    usuario.carrito.forEach(curso => {
+      const yaComprado = usuario.cursos.some(c => c.id === curso.id);
+      if (!yaComprado) {
+        usuario.cursos.push(curso);
+        cursosAgregados.push(curso.titulo);
+      }
+    });
+
+    usuario.carrito = [];
+
+    usuarios[indexUsuario] = usuario;
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    localStorage.setItem("logueado", JSON.stringify(usuario));
+
+    if (cursosAgregados.length > 0) {
+      dialogGlobal.mostrar(`¡Pago exitoso! Has comprado los cursos: ${cursosAgregados.join(', ')}.`);
+    } else {
+      dialogGlobal.mostrar("Todos los cursos de tu carrito ya fueron comprados previamente.");
+    }
+
+    if (typeof header !== 'undefined') {
+      header.actualizarCantidadCarrito();
+    }
   }
 
   render() {
@@ -116,7 +168,16 @@ export class RealizarPago {
     if (botonFinalizarPago) {
       botonFinalizarPago.addEventListener('click', (e) => {
         e.preventDefault();
-        this.finalizarPago();
+        const urlParams = new URLSearchParams(window.location.search);
+        const idCurso = urlParams.get('id');
+        const pagarCarrito = urlParams.get('carrito');
+
+        if (pagarCarrito) {
+          this.finalizarPagoCarrito();
+        } else if (idCurso) {
+          this.finalizarPago();
+        }
+
       });
     }
 
