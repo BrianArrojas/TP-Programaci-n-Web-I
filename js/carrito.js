@@ -19,8 +19,12 @@ export class Carrito {
     agregarCurso(curso) {
         this.actualizarDatos();
 
+        const callbackNoLogueado = () => {
+            window.location.href = '/pages/inicio-sesion.html';
+        }
+
         if (!this.hayUsuarioLogueado()) {
-            dialogGlobal.mostrar('Debes iniciar sesión para agregar cursos al carrito.');
+            dialogGlobal.mostrar('Debes iniciar sesión para agregar cursos al carrito.', callbackNoLogueado);
             return;
         }
 

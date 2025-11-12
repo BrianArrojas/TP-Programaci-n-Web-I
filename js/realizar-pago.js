@@ -102,28 +102,44 @@ export class RealizarPago {
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
     localStorage.setItem("logueado", JSON.stringify(usuario));
 
-    dialogGlobal.mostrar(`¡Pago exitoso! Has comprado el curso "${cursoComprado.titulo}".`);
+    const callback = () => {
+      window.location.href = '/pages/perfil.html';
+    }
+
+    dialogGlobal.mostrar(`¡Pago exitoso! Has comprado el curso "${cursoComprado.titulo}".`, callback);
   }
 
   finalizarPagoCarrito() {
     const logueado = JSON.parse(localStorage.getItem("logueado"));
     const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
+    const callbackError = () => {
+      window.location.href = '/index.html';
+    }
+
+    const callbackNoLogueado = () => {
+      window.location.href = '/pages/registro.html';
+    }
+
+    const callbackExito = () => {
+        window.location.href = '/pages/perfil.html';
+      }
+
     if (!logueado) {
-      dialogGlobal.mostrar("Debes iniciar sesión para comprar cursos.");
+      dialogGlobal.mostrar("Debes iniciar sesión para comprar cursos.", callbackNoLogueado);
       return;
     }
 
     const indexUsuario = usuarios.findIndex(u => u.usuario === logueado.usuario);
     if (indexUsuario === -1) {
-      dialogGlobal.mostrar("Usuario no encontrado.");
+      dialogGlobal.mostrar("Usuario no encontrado.", callbackError);
       return;
     }
 
     const usuario = usuarios[indexUsuario];
 
     if (!usuario.carrito || usuario.carrito.length === 0) {
-      dialogGlobal.mostrar("No tienes cursos en el carrito.");
+      dialogGlobal.mostrar("No tienes cursos en el carrito.", callbackError);
       return;
     }
 
@@ -150,13 +166,12 @@ export class RealizarPago {
     localStorage.setItem("logueado", JSON.stringify(usuario));
 
     if (cursosAgregados.length > 0) {
-      dialogGlobal.mostrar(`¡Pago exitoso! Has comprado los cursos: ${cursosAgregados.join(', ')}.`);
+      dialogGlobal.mostrar(`¡Pago exitoso! Has comprado los cursos: ${cursosAgregados.join(', ')}.`, callbackExito);
     } else {
-      dialogGlobal.mostrar("Todos los cursos de tu carrito ya fueron comprados previamente.");
+      dialogGlobal.mostrar("Todos los cursos de tu carrito ya fueron comprados previamente.", callbackExito);
     }
 
     header.actualizarCantidadCarrito();
-
   }
 
   validarFormularioTarjeta() {
@@ -172,6 +187,16 @@ export class RealizarPago {
 
     if (inputNumero.value.length !== 16) {
       dialogGlobal.mostrar('El número de tarjeta debe tener 16 dígitos.');
+      return false;
+    }
+
+    let anio = inputFecha.value.split('-')[0];
+    let mes = inputFecha.value.split('-')[1];
+    let fechaActual = new Date();
+    let anioActual = fechaActual.getFullYear();
+    let mesActual = fechaActual.getMonth() + 1;
+    if (anio < anioActual || (anio == anioActual && mes < mesActual)) {
+      dialogGlobal.mostrar('La tarjeta ingresada está vencida.');
       return false;
     }
 
