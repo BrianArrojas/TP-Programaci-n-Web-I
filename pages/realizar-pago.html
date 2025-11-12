@@ -33,11 +33,11 @@
                 <form action="/procesar-tarjeta" method="POST" class="formulario">
                     <div class="formulario_campo">
                         <label for="number">Número de tarjeta</label>
-                        <input type="tel" id="number" name="number" required maxlength="16"/>
+                        <input type="tel" id="number" name="number" required maxlength="16" placeholder="xxxx xxxx xxxx xxxx"/>
                     </div>
                     <div class="formulario_campo">
                         <label for="titular">Nombre del titular</label>
-                        <input type="text" id="titular" name="titular" required />
+                        <input type="text" id="titular" name="titular" required placeholder="Nombre completo" />
                     </div>
                     <div class="formulario_campo">
                         <label for="date">Fecha de vencimiento</label>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="formulario_campo">
                         <label for="cvv">Cód. Seguridad (CVV)</label>
-                        <input type="password" id="cvv" name="cvv" required maxlength="3"/>
+                        <input type="password" id="cvv" name="cvv" required maxlength="3" placeholder="xxx"/>
                     </div>
                     <button type="submit" id="btn-finalizar-pago" class="btn-pago">PAGAR</button>
                 </form>

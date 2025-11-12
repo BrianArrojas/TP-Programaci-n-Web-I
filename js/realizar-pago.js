@@ -176,15 +176,21 @@ export class RealizarPago {
 
   finalizarPagoGiftCard(monto) {
     const logueado = JSON.parse(localStorage.getItem("logueado"));
-    if (!logueado) {
-        dialogGlobal.mostrar("Debes iniciar sesión para usar la GiftCard.");
-        return;
+
+    const callbackNoLogueado = () => {
+      window.location.href = '/pages/inicio-sesion.html';
     }
 
-    dialogGlobal.mostrar(`¡Pago exitoso! Se ha comprado una GiftCard por AR$ ${monto},00.`, () => {
-        window.location.href = '/pages/perfil.html';
-    });
-}
+    if (!logueado) {
+      dialogGlobal.mostrar("Debes iniciar sesión para usar la GiftCard.", callbackNoLogueado);
+    } else {
+      if (!this.validarFormularioTarjeta()) return;
+      
+      dialogGlobal.mostrar(`¡Pago exitoso! Se ha comprado una GiftCard por AR$ ${monto},00. La imagen y el código de la GiftCard serán enviados por correo.`, () => {
+        window.location.href = '/index.html';
+      });
+    }
+  }
 
   validarFormularioTarjeta() {
     const inputNumero = document.querySelector('#number');
@@ -214,6 +220,11 @@ export class RealizarPago {
 
     if (inputCVV.value.length !== 3) {
       dialogGlobal.mostrar('El código de seguridad (CVV) debe tener 3 dígitos.');
+      return false;
+    }
+
+    if(/\D/.test(inputCVV.value)) {
+      dialogGlobal.mostrar('El código de seguridad (CVV) debe ser numérico.');
       return false;
     }
 
@@ -288,6 +299,4 @@ export class RealizarPago {
 
     this.cambiarMetodoDePago('tarjeta');
   }
-
-
 }
