@@ -24,30 +24,6 @@ export class Usuario {
         }
     }
 
-
-    mostrarDialog(mensaje, callback = () => {}) {
-
-        const dialog = document.createElement('dialog');
-        dialog.id = 'customDialog';
-        dialog.classList.add('custom-dialog');
-
-        dialog.innerHTML = `
-            <p class="dialog-mensaje">${mensaje}</p>
-            <button id="cerrarDialog" class="dialog-boton-aceptar">Aceptar</button>
-        `;
-        document.body.appendChild(dialog);
-        dialog.showModal(); 
-
-
-        const botonCerrar = dialog.querySelector('#cerrarDialog');
-        botonCerrar.addEventListener('click', () => {
-            dialog.close();
-            dialog.remove(); 
-            callback(); 
-        });
-    }
-
-
     nombreCompletoValido(str) {
         const regex = /^[A-Za-z\s]+$/;
         return regex.test(str);
@@ -113,9 +89,11 @@ export class Usuario {
                 localStorage.setItem('usuarios', JSON.stringify(usuarios));
                 localStorage.setItem('logueado', JSON.stringify(usuario));
                 
-                dialogGlobal.mostrar(`Registro exitoso. ¡Bienvenido, ${usuario.nombreCompleto}!`, () => {
-                    window.location.href = '../index.html'; 
-                });
+                let callback = function() {
+                    window.location.href = '/index.html';
+                }
+
+                dialogGlobal.mostrar(`Registro exitoso. ¡Bienvenido, ${usuario.nombreCompleto}!`, callback);
             }
         });
     }
@@ -147,9 +125,11 @@ export class Usuario {
                 if (usuarioExistente.contraseña === usuario.contraseña) {
                     localStorage.setItem('logueado', JSON.stringify(usuarioExistente));
                     
-                    dialogGlobal.mostrar(`¡Bienvenido de nuevo, ${usuarioExistente.nombreCompleto}!`, () => {
-                        window.location.href = '../index.html';
-                    });
+                    let callback = function() {
+                        window.location.href = '/index.html';
+                    }
+
+                    dialogGlobal.mostrar(`¡Bienvenido de nuevo, ${usuarioExistente.nombreCompleto}!`, callback);
 
                 } else {
                     dialogGlobal.mostrar('Contraseña incorrecta. Por favor, inténtalo de nuevo.');

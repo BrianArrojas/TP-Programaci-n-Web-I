@@ -6,7 +6,7 @@ export class Dialog {
         document.body.appendChild(this.dialog);
     }
 
-    mostrar (mensaje) {
+    mostrar (mensaje, callback = () => {}) {
         this.dialog.innerHTML = `
             <p class="dialog-mensaje">${mensaje}</p>
             <button id="cerrarDialog" class="dialog-boton-aceptar">Aceptar</button>
@@ -15,12 +15,15 @@ export class Dialog {
         this.dialog.showModal();
 
         const btnCerrar = this.dialog.querySelector('#cerrarDialog');
+
         btnCerrar.addEventListener('click', () => {
             this.dialog.close();
-
+            
+            if (typeof callback === 'function') {
+                callback();
+            }
         });
     }
 }
-
 
 export const dialogGlobal = new Dialog();
