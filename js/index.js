@@ -38,18 +38,18 @@ export class Inicio {
             detalleLink.href = `./pages/detalle-curso.html?id=${curso.id}`;
             detalleLink.textContent = 'Ver detalle';
 
-            const comprarLink = document.createElement('a');
-            comprarLink.href = './pages/carrito.html';
+            // const comprarLink = document.createElement('a');
+            // comprarLink.href = '';
             const comprarButton = document.createElement('button');
             comprarButton.textContent = 'Agregar al carrito';
             comprarButton.addEventListener('click', () => this.carrito.agregarCurso(curso));
-            comprarLink.appendChild(comprarButton);
+            // comprarLink.appendChild(comprarButton);
 
             cursoCard.appendChild(precio);
             cursoCard.appendChild(imagen);
             cursoCard.appendChild(infoDiv);
             cursoCard.appendChild(detalleLink);
-            cursoCard.appendChild(comprarLink);
+            cursoCard.appendChild(comprarButton);
 
             cursosDestacadosContainer.appendChild(cursoCard);
         });

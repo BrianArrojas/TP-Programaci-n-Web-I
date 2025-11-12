@@ -8,17 +8,16 @@ export class CursoDetalle {
     }
 
     obtenerIdCurso() {
-        const allParams = new URLSearchParams(window.location.search); // get all URL params
-        const id = parseInt(allParams.get('id')); // get the 'id' param and convert to integer
+        const allParams = new URLSearchParams(window.location.search); 
+        const id = parseInt(allParams.get('id')); 
         return id;
     }
 
     obtenerDatosCurso() {
-        return CURSOS.find(c => c.id === this.obtenerIdCurso()); // find the course with the matching id
+        return CURSOS.find(c => c.id === this.obtenerIdCurso()); 
     }
 
     obtenerCursosDestacadosMenosActual() {
-        // get 3 random courses excluding the current one
         return CURSOS.filter(c => c.id !== this.obtenerIdCurso()).sort(() => 0.5 - Math.random()).slice(0, 3); 
     }
 
@@ -41,7 +40,12 @@ export class CursoDetalle {
                     Descripción del curso: ${curso.descripcion}
                 </li>
                 <li>Requisitos previos: ${curso.requisitos}</li>
-            </ul>`;
+            </ul>
+            <section class="botones_curso">
+                <a href="./realizar-pago.html?id=${curso.id}"><button>COMPRAR</button></a>
+                <a href="./carrito.html"><button>Agregar al carrito</button></a>
+            </section>
+            `;
 
             datosContainer.innerHTML = datosTemplate;
 
@@ -238,7 +242,7 @@ export class CursoDetalle {
                 detalleLink.textContent = 'Ver detalle';
             
                 const comprarLink = document.createElement('a');
-                comprarLink.href = './pages/Inicio-sesion.html';
+                comprarLink.href = `./realizar-pago.html?id=${curso.id}`;
                 const comprarButton = document.createElement('button');
                 comprarButton.textContent = 'Comprar';
                 comprarLink.appendChild(comprarButton);

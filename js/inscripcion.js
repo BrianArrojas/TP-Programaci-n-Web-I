@@ -1,3 +1,5 @@
+import { dialogGlobal } from "./dialog.js";
+
 export class Inscripcion {
     constructor() {
         this.precioPorPersona = 20000;
@@ -79,6 +81,10 @@ export class Inscripcion {
         this.totalElemento.textContent = `Total: $ ${total}`;
     }
 
+
+
+
+
     mostrarResumen() {
         const datos = [];
         const personas = this.lista.querySelectorAll(".formulario_persona");
@@ -92,23 +98,23 @@ export class Inscripcion {
             const telefono = persona.querySelector(`[name="telefono[]"]`).value.trim();
 
             if (!nombre || !apellido || !dni || !email || !telefono) {
-                alert("Por favor, completa todos los campos antes de continuar.");
+                dialogGlobal.mostrar("Por favor, completa todos los campos antes de continuar.");
                 hayCamposVacios = true;
                 return;
             }
 
             if (!/^\d{8}$/.test(dni)) {
-                alert(`El DNI de ${nombre} ${apellido} debe contener solo números y 8 dígitos.`);
+                dialogGlobal.mostrar(`El DNI de ${nombre} ${apellido} debe contener solo números y 8 dígitos.`);
                 hayCamposVacios = true;
             }
 
             if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                alert(`El email de ${nombre} ${apellido} no es válido.`);
+                dialogGlobal.mostrar(`El email de ${nombre} ${apellido} no es válido.`);
                 hayCamposVacios = true;
             }
 
             if (!/^\d+$/.test(telefono)) {
-                alert(`El teléfono de ${nombre} ${apellido} debe contener solo números.`);
+                dialogGlobal.mostrar(`El teléfono de ${nombre} ${apellido} debe contener solo números.`);
                 hayCamposVacios = true;
             }
 
@@ -118,7 +124,7 @@ export class Inscripcion {
         const curso = this.cursoSeleccionado || this.inputCurso.value || "";
 
         if (!curso) {
-            alert("Por favor, seleccioná un curso antes de comprar.");
+            dialogGlobal.mostrar("Por favor, seleccioná un curso antes de comprar.");
             return;
         }
 
@@ -133,20 +139,21 @@ export class Inscripcion {
                 <hr>
                 <ul>
                     ${datos
-                .map(
-                    (p) =>
-                        `<li><strong>${p.nombre} ${p.apellido}</strong> — DNI: ${p.dni}, Email: ${p.email}, Tel: ${p.telefono}</li>`
-                )
-                .join("")
-            }
+                        .map(
+                            (p) =>
+                                `<li><strong>${p.nombre} ${p.apellido}</strong> — DNI: ${p.dni}, Email: ${p.email}, Tel: ${p.telefono}</li>`
+                        )
+                        .join("")
+                    }
                 </ul>
-                <p><strong>Total:</strong> U$D ${this.personas.length * this.precioPorPersona}</p>
+                <p><strong>Total:</strong> $ ${this.personas.length * this.precioPorPersona}</p>
                 <div class="boton-centro">
                     <button class="cerrar-popup">Cerrar</button>
                 </div>
             </div>`;
         document.body.appendChild(popup);
         popup.querySelector(".cerrar-popup").addEventListener("click", () => popup.remove());
+
     }
 
     render() {

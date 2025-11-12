@@ -1,32 +1,26 @@
 export class Dialog {
-
-    constructor(openButtonElement, dialogElement, closeButtonElement) {
-        
-        this.botonAbrir = openButtonElement;
-        this.ventanaDialogo = dialogElement;
-        this.botonCerrar = closeButtonElement;
-
-        this.manejarApertura = this.manejarApertura.bind(this);
-        this.manejarCierre = this.manejarCierre.bind(this);
+    constructor() {
+        this.dialog = document.createElement('dialog');
+        this.dialog.id = 'customDialog';
+        this.dialog.classList.add('custom-dialog');
+        document.body.appendChild(this.dialog);
     }
 
+    mostrar (mensaje) {
+        this.dialog.innerHTML = `
+            <p class="dialog-mensaje">${mensaje}</p>
+            <button id="cerrarDialog" class="dialog-boton-aceptar">Aceptar</button>
+        `;
 
-    manejarApertura(evento) {
-        evento.preventDefault();
-        this.ventanaDialogo.showModal(); 
-    }
+        this.dialog.showModal();
 
-    manejarCierre(evento) {
-        evento.preventDefault();
-        this.ventanaDialogo.close(); 
-    }
+        const btnCerrar = this.dialog.querySelector('#cerrarDialog');
+        btnCerrar.addEventListener('click', () => {
+            this.dialog.close();
 
-    render() {
-        if (this.botonAbrir) {
-            this.botonAbrir.addEventListener("click", this.manejarApertura);
-        }
-        if (this.botonCerrar) {
-            this.botonCerrar.addEventListener("click", this.manejarCierre);
-        }
+        });
     }
 }
+
+
+export const dialogGlobal = new Dialog();

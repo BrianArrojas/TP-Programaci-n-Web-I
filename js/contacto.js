@@ -1,3 +1,5 @@
+import { dialogGlobal } from './dialog.js';
+
 export class Contacto {
     constructor() {
         this.form = document.querySelector(".formulario");
@@ -9,7 +11,7 @@ export class Contacto {
     }
 
     init() {
-        if (!this.form || !this.mensaje) return; 
+        if (!this.form || !this.mensaje) return;
         this.render();
     }
 
@@ -43,22 +45,22 @@ export class Contacto {
             e.preventDefault();
 
             if (!this.nombre.value.trim()) {
-                alert("El nombre no puede estar vacío");
+                dialogGlobal.mostrar("El nombre no puede estar vacío");
                 return;
             }
 
             if (!this.validarEmail(this.email.value.trim())) {
-                alert("El email no es válido");
+                dialogGlobal.mostrar("El email no es válido");
                 return;
             }
 
             if (this.telefono.value.trim() && !this.validarTelefono(this.telefono.value.trim())) {
-                alert("El teléfono debe tener 8 dígitos y opcionalmente un guion medio (XXXX-XXXX)");
+                dialogGlobal.mostrar("El teléfono debe tener 8 dígitos y opcionalmente un guion medio (XXXX-XXXX)");
                 return;
             }
 
             if (!this.mensaje.value.trim()) {
-                alert("El mensaje no puede estar vacío");
+                dialogGlobal.mostrar("El mensaje no puede estar vacío");
                 return;
             }
             this.mostrarPopup();

@@ -12,7 +12,7 @@
 
 <body>
 <header class="header" id="header"></header>
-    <section>
+    <section class="realizar-pago">
         <h1>SELECCIONA TU MÉTODO DE PAGO</h1>
         <div class="opciones-pago">
             <button type="button" class="opciones-pago__boton js-opcion-pago activa" data-opcion="tarjeta">
@@ -46,12 +46,12 @@
                         <label for="cvv">Cód. Seguridad (CVV)</label>
                         <input type="password" id="cvv" name="cvv" required />
                     </div>
-                    <button type="submit">PAGAR</button>
+                    <button type="submit" id="btn-finalizar-pago" class="btn-pago">PAGAR</button>
                 </form>
             </div>
             <div id="formulario-paypal" class="formulario-pago js-formulario-pago oculto" data-nombre="paypal">
                 <div class="redireccion-pago">
-                    <p>Serás redirigido a la página de **PayPal** para iniciar sesión y confirmar la compra.</p>
+                    <p>Serás redirigido a la página de PayPal para iniciar sesión y confirmar la compra.</p>
                     <button type="button" data-url="https://www.paypal.com/signin" class="js-redireccion-btn">
                         Ir a PayPal
                     </button>
@@ -59,7 +59,7 @@
             </div>
             <div id="formulario-mercadopago" class="formulario-pago js-formulario-pago oculto" data-nombre="mercadopago">
                 <div class="redireccion-pago">
-                    <p>Serás redirigido a la página de **Mercado Pago** para ingresar con tu cuenta y finalizar la transacción.</p>
+                    <p>Serás redirigido a la página de Mercado Pago para ingresar con tu cuenta y finalizar la transacción.</p>
                     <button type="button" data-url="https://www.mercadopago.com.ar/login" class="js-redireccion-btn">
                         Ir a Mercado Pago
                     </button>

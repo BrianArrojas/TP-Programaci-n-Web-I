@@ -260,6 +260,41 @@ main {
     cursor: pointer;
 }
 
+.custom-dialog {
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #09e989; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #000000ff; 
+    z-index: 1000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.dialog-mensaje {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: white; 
+}
+
+.dialog-boton-aceptar {
+    padding: 8px 15px;
+    cursor: pointer;
+    border: none;
+    background-color: #09e989; 
+    color: black;
+    border-radius: 4px;
+    font-size: 1em;
+    display: inline-block;
+}
+
+.custom-dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 @media (max-width: 64em) {
     .footer {
         padding: 2em 4em;

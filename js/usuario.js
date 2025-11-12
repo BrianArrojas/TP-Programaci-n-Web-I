@@ -1,11 +1,14 @@
+import { dialogGlobal } from './dialog.js';
+
 export class Usuario {
-    constructor(nombreCompleto, usuario, contraseña, email, telefono, carrito=[]) {
+    constructor(nombreCompleto, usuario, contraseña, email, telefono, carrito=[], cursos=[]) {
         this.nombreCompleto = nombreCompleto;
         this.usuario = usuario;
         this.contraseña = contraseña;
         this.email = email;
         this.telefono = telefono;
         this.carrito = carrito;
+        this.cursos=cursos;
     }
 
     init() {
@@ -52,13 +55,13 @@ export class Usuario {
 
     validarDatosRegistro(usuario) {
         if (!usuario.nombreCompleto || !usuario.usuario || !usuario.contraseña || !usuario.email || !usuario.telefono) {
-            this.mostrarDialog('Todos los campos son obligatorios');
+            dialogGlobal.mostrar('Todos los campos son obligatorios');
             return false;
         } else if (this.nombreCompletoValido(usuario.nombreCompleto) === false) {
-            this.mostrarDialog('El nombre completo debe ser solo letras y espacios');
+            dialogGlobal.mostrar('El nombre completo debe ser solo letras y espacios');
             return false;
         } else if (usuario.email.indexOf('@') === -1 || usuario.email.indexOf('.') === -1) {
-            this.mostrarDialog('El email debe contener "@" y "."'); 
+            dialogGlobal.mostrar('El email debe contener "@" y "."'); 
             return false;
         }
 
@@ -100,7 +103,7 @@ export class Usuario {
             const usuarioExistente = this.verificarSiUsuarioYaExiste(usuario);
 
             if (usuarioExistente) {
-                this.mostrarDialog('El nombre de usuario o email ya están registrados.');
+                dialogGlobal.mostrar('El nombre de usuario o email ya están registrados.');
                 return;
             }
 
@@ -110,7 +113,7 @@ export class Usuario {
                 localStorage.setItem('usuarios', JSON.stringify(usuarios));
                 localStorage.setItem('logueado', JSON.stringify(usuario));
                 
-                this.mostrarDialog(`Registro exitoso. ¡Bienvenido, ${usuario.nombreCompleto}!`, () => {
+                dialogGlobal.mostrar(`Registro exitoso. ¡Bienvenido, ${usuario.nombreCompleto}!`, () => {
                     window.location.href = '../index.html'; 
                 });
             }
@@ -144,16 +147,16 @@ export class Usuario {
                 if (usuarioExistente.contraseña === usuario.contraseña) {
                     localStorage.setItem('logueado', JSON.stringify(usuarioExistente));
                     
-                    this.mostrarDialog(`¡Bienvenido de nuevo, ${usuarioExistente.nombreCompleto}!`, () => {
+                    dialogGlobal.mostrar(`¡Bienvenido de nuevo, ${usuarioExistente.nombreCompleto}!`, () => {
                         window.location.href = '../index.html';
                     });
 
                 } else {
-                    this.mostrarDialog('Contraseña incorrecta. Por favor, inténtalo de nuevo.');
+                    dialogGlobal.mostrar('Contraseña incorrecta. Por favor, inténtalo de nuevo.');
                     console.log('Contraseña ingresada: ' + usuario.contraseña + ", Contraseña correcta: " + usuarioExistente.contraseña);
                 }
             } else {
-                this.mostrarDialog('El usuario no existe. Por favor, regístrate primero.');
+                dialogGlobal.mostrar('El usuario no existe. Por favor, regístrate primero.');
             }
         })
     }

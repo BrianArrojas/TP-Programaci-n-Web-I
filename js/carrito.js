@@ -1,3 +1,5 @@
+import { dialogGlobal } from "./dialog.js";
+
 export class Carrito {
     constructor() {
         this.usuarioLogueado = JSON.parse(localStorage.getItem('logueado'));
@@ -17,8 +19,7 @@ export class Carrito {
         this.actualizarDatos();
 
         if (!this.hayUsuarioLogueado()) {
-            alert('Debes iniciar sesión para agregar cursos al carrito.');
-            window.location.href = './pages/inicio-sesion.html';
+            dialogGlobal.mostrar('Debes iniciar sesión para agregar cursos al carrito.');
             return;
         }
 
@@ -33,7 +34,7 @@ export class Carrito {
         const yaExiste = carrito.some(c => c.id === curso.id);
 
         if (yaExiste) {
-            this.mostrarPopup(`"${curso.titulo}" ya está en tu carrito.`, true);
+            dialogGlobal.mostrar(`"${curso.titulo}" ya está en tu carrito.`, true);
             return;
         }
 
@@ -43,7 +44,7 @@ export class Carrito {
         localStorage.setItem('usuarios', JSON.stringify(this.usuarios));
         localStorage.setItem('logueado', JSON.stringify(this.usuarios[indice]));
 
-        this.mostrarPopup(`"${curso.titulo}" se agregó correctamente al carrito.`);
+        dialogGlobal.mostrar(`"${curso.titulo}" se agregó correctamente al carrito.`);
     }
 
     mostrarPopup(mensaje, error = false) {
