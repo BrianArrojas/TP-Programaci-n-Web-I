@@ -1,3 +1,5 @@
+import { dialogGlobal } from "./dialog.js";
+
 export class GiftCard {
     constructor() { }
 
@@ -9,62 +11,46 @@ export class GiftCard {
 
     actualizarNombre(input, vistaNombre) {
         input.addEventListener("input", () => {
-            if (input.value.length > 20) {
-                input.value = input.value.slice(0, 20);
-            }
+            if (input.value.length > 20) input.value = input.value.slice(0, 20);
             vistaNombre.textContent = input.value || "Destinatario";
         });
     }
 
     actualizarColor(radios, vistaNombre) {
-        const colores = {
-            rojo: "red",
-            verde: "green",
-            azul: "blue",
-            amarillo: "gold",
-            violeta: "violet"
-        };
-
-        radios.forEach((radio) => {
-            radio.addEventListener("change", () => {
-                vistaNombre.style.color = colores[radio.value];
-            });
-        });
+        const colores = { rojo:"red", verde:"green", azul:"blue", amarillo:"gold", violeta:"violet" };
+        radios.forEach(r => r.addEventListener("change", () => {
+            vistaNombre.style.color = colores[r.value];
+        }));
     }
 
     actualizarTamanio(radios, vistaNombre) {
-        radios.forEach((radio) => {
-            radio.addEventListener("change", () => {
-                vistaNombre.style.fontSize = radio.value;
-            });
-        });
+        radios.forEach(r => r.addEventListener("change", () => {
+            vistaNombre.style.fontSize = r.value;
+        }));
     }
 
     actualizarMonto(input, vistaMonto) {
         input.addEventListener("input", () => {
-            if (input.value > 100000) {
-                input.value = 100000;
-            }
-            vistaMonto.textContent = input.value
-                ? `$${input.value}.-`
-                : "$0000.-";
+            if (input.value > 100000) input.value = 100000;
+            vistaMonto.textContent = input.value ? `$${input.value}.-` : "$0000.-";
         });
     }
 
     actualizarFondo(radios, vistaPrevia) {
-        const fondos = {
-            rojo: "#ffcccc",
-            verde: "#ccffcc",
-            azul: "#cce5ff",
-            amarillo: "#fff9c4",
-            violeta: "#e1bee7"
-        };
+        const fondos = { rojo:"#ffcccc", verde:"#ccffcc", azul:"#cce5ff", amarillo:"#fff9c4", violeta:"#e1bee7" };
+        radios.forEach(r => r.addEventListener("change", () => {
+            vistaPrevia.style.backgroundColor = fondos[r.value];
+        }));
+    }
 
-        radios.forEach((radio) => {
-            radio.addEventListener("change", () => {
-                vistaPrevia.style.backgroundColor = fondos[radio.value];
-            });
-        });
+    pagarConGiftCard() {
+        const inputMonto = document.querySelector('input[name="monto"]');
+        const monto = parseInt(inputMonto.value);
+        if (!monto || monto <= 0) {
+            dialogGlobal.mostrar("Por favor, ingresa un monto válido para la GiftCard.");
+            return;
+        }
+        window.location.href = `./realizar-pago.html?giftcard=${monto}&tipo=giftcard`;
     }
 
     render() {
@@ -83,5 +69,11 @@ export class GiftCard {
         this.actualizarTamanio(radiosFuente, vistaNombre);
         this.actualizarMonto(inputMonto, vistaMonto);
         this.actualizarFondo(radiosFondo, vistaPrevia);
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            this.pagarConGiftCard();
+        });
     }
 }

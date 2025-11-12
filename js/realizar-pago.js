@@ -52,7 +52,7 @@ export class RealizarPago {
 
     if (url) {
       button.textContent = `Redirigiendo a ${url.includes('paypal') ? 'PayPal' : 'Mercado Pago'}...`;
-      window.location.href=url;
+      window.location.href = url;
       setTimeout(() => {
         button.textContent = button.getAttribute('data-url').includes('paypal') ? 'Ir a PayPal' : 'Ir a Mercado Pago';
       }, 2000);
@@ -122,8 +122,8 @@ export class RealizarPago {
     }
 
     const callbackExito = () => {
-        window.location.href = '/pages/perfil.html';
-      }
+      window.location.href = '/pages/perfil.html';
+    }
 
     if (!logueado) {
       dialogGlobal.mostrar("Debes iniciar sesión para comprar cursos.", callbackNoLogueado);
@@ -174,6 +174,18 @@ export class RealizarPago {
     header.actualizarCantidadCarrito();
   }
 
+  finalizarPagoGiftCard(monto) {
+    const logueado = JSON.parse(localStorage.getItem("logueado"));
+    if (!logueado) {
+        dialogGlobal.mostrar("Debes iniciar sesión para usar la GiftCard.");
+        return;
+    }
+
+    dialogGlobal.mostrar(`¡Pago exitoso! Se ha comprado una GiftCard por AR$ ${monto},00.`, () => {
+        window.location.href = '/pages/perfil.html';
+    });
+}
+
   validarFormularioTarjeta() {
     const inputNumero = document.querySelector('#number');
     const inputTitular = document.querySelector('#titular');
@@ -214,18 +226,26 @@ export class RealizarPago {
     const botonFinalizarPago = document.querySelector('#btn-finalizar-pago');
 
     const urlParams = new URLSearchParams(window.location.search);
+
     const pagarCarrito = urlParams.get('carrito');
+
     const idCurso = urlParams.get('id');
+
     const logueado = JSON.parse(localStorage.getItem('logueado'));
+
+    const tipo = urlParams.get('tipo');
+    const giftcardMonto = urlParams.get('giftcard');
 
     let total = 0;
     let textoTotal = '';
     const sidebar = document.querySelector('.realizar-pago .formulario');
 
-    if (pagarCarrito && logueado && logueado.carrito && logueado.carrito.length > 0) {
-      for (let i = 0; i < logueado.carrito.length; i++) {
-        total += logueado.carrito[i].precio;
-      }
+    if (tipo === 'giftcard' && giftcardMonto) {
+      total = parseInt(giftcardMonto);
+      textoTotal = `Compra con GiftCard: AR$ ${total},00`;
+
+    } else if (pagarCarrito && logueado && logueado.carrito && logueado.carrito.length > 0) {
+      total = logueado.carrito.reduce((sum, c) => sum + c.precio, 0);
       textoTotal = `Total a pagar: AR$ ${total},00`;
     } else if (!pagarCarrito && idCurso) {
       const curso = (logueado.carrito || []).find(c => c.id == idCurso) || CURSOS.find(c => c.id == idCurso);
@@ -256,7 +276,9 @@ export class RealizarPago {
     if (botonFinalizarPago) {
       botonFinalizarPago.addEventListener('click', (e) => {
         e.preventDefault();
-        if (pagarCarrito) {
+        if (tipo === 'giftcard') {
+          this.finalizarPagoGiftCard(total);
+        } else if (pagarCarrito) {
           this.finalizarPagoCarrito();
         } else if (idCurso) {
           this.finalizarPago();
