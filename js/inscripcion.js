@@ -16,8 +16,13 @@ export class Inscripcion {
     init() {
         if (document.querySelector('.formulario_persona')) {
             this.render();
+            
+            const callback = () => {
+                window.location.href = '/pages/inicio-sesion.html';
+            }
 
             this.btnAgregar.addEventListener("click", () => this.agregarPersona());
+
             this.btnComprar.addEventListener("click", (e) => {
                 e.preventDefault();
 
@@ -25,7 +30,7 @@ export class Inscripcion {
                 if (logueado) {
                     this.mostrarResumen();
                 } else {
-                    dialogGlobal.mostrar("Por favor, inicia sesión antes de continuar.");
+                    dialogGlobal.mostrar("Por favor, inicia sesión antes de continuar.", callback);
                 }
             });
 
