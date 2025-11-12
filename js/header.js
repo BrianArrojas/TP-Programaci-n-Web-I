@@ -26,6 +26,12 @@ export class Header {
         return logueado.carrito.length;
     }
 
+    actualizarCantidadCarrito() {
+        const cantidadCarrito = document.querySelector('#cantidad-carrito');
+        const logueado = JSON.parse(localStorage.getItem('logueado'));
+        cantidadCarrito.textContent = logueado?.carrito?.length || 0;
+    }
+
     render() {
         const header = document.querySelector('#header');
 
@@ -91,7 +97,7 @@ export class Header {
         // búsqueda de cursos
         const btnBusqueda = document.querySelector('#btn-busqueda');
         const inputBusqueda = document.querySelector('#busqueda-input');
-        
+
 
         btnBusqueda.addEventListener('click', (e) => {
             e.preventDefault();
@@ -126,5 +132,9 @@ export class Header {
             botonesIngreso.style.display = 'flex';
             opcionesUsuario.style.display = 'none';
         }
+
+        this.actualizarCantidadCarrito();
     }
 }
+
+export const header = new Header();
