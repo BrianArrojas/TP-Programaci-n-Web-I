@@ -1,18 +1,18 @@
 import { dialogGlobal } from './dialog.js';
 
 export class Usuario {
-    constructor(nombreCompleto, usuario, contraseña, email, telefono, carrito=[], cursos=[]) {
+    constructor(nombreCompleto, usuario, contraseña, email, telefono, carrito = [], cursos = []) {
         this.nombreCompleto = nombreCompleto;
         this.usuario = usuario;
         this.contraseña = contraseña;
         this.email = email;
         this.telefono = telefono;
         this.carrito = carrito;
-        this.cursos=cursos;
+        this.cursos = cursos;
     }
 
     init() {
-    
+
         if (window.location.pathname.endsWith('registro.html')) {
             this.verificarSiHayUsuarioLogueado();
             this.registrar();
@@ -28,20 +28,41 @@ export class Usuario {
         return JSON.parse(localStorage.getItem('logueado'));
     }
 
-    nombreCompletoValido(str) {
+    esAlfabetico(str) {
         const regex = /^[A-Za-z\s]+$/;
         return regex.test(str);
     }
 
+    esNumerico(str) {
+        const regex = /^[0-9]+$/;
+        return regex.test(str);
+    }
+
+    validarTelefono(telefono) {
+        return /^\d{4}-?\d{4}$/.test(telefono);
+    }
+
     validarDatosRegistro(usuario) {
         if (!usuario.nombreCompleto || !usuario.usuario || !usuario.contraseña || !usuario.email || !usuario.telefono) {
-            dialogGlobal.mostrar('Todos los campos son obligatorios');
+            dialogGlobal.mostrar('Todos los campos son obligatorios.');
             return false;
-        } else if (this.nombreCompletoValido(usuario.nombreCompleto) === false) {
-            dialogGlobal.mostrar('El nombre completo debe ser solo letras y espacios');
+        } else if (this.esAlfabetico(usuario.nombreCompleto) === false) {
+            dialogGlobal.mostrar('El nombre completo debe ser solo letras y espacios.');
             return false;
-        } else if (usuario.email.indexOf('@') === -1 || usuario.email.indexOf('.') === -1) {
-            dialogGlobal.mostrar('El email debe contener "@" y "."'); 
+        } else if (usuario.email.indexOf('@') === -1 || usuario.email.indexOf('.') === -1 || usuario.email.length < 5) {
+            dialogGlobal.mostrar('El email debe contener "@" y "." y tener al menos 5 caracteres (example@mail.com).');
+            return false;
+        } else if (usuario.contraseña.length < 6) {
+            dialogGlobal.mostrar('La contraseña debe tener al menos 6 caracteres');
+            return false;
+        } else if (this.esAlfabetico(usuario.contraseña) || this.esNumerico(usuario.contraseña)) {
+            dialogGlobal.mostrar('La contraseña debe ser alfanumérica (letras y números).');
+            return false;
+        } else if (!this.esNumerico(usuario.telefono)) {
+            dialogGlobal.mostrar('El número de teléfono debe contener solo números.');
+            return false;
+        } else if (!this.validarTelefono(usuario.telefono)) {
+            dialogGlobal.mostrar('El número de teléfono debe tener 8 dígitos y opcionalmente un guion medio (1234-5678).');
             return false;
         }
 
@@ -92,8 +113,8 @@ export class Usuario {
                 usuarios.push(usuario);
                 localStorage.setItem('usuarios', JSON.stringify(usuarios));
                 localStorage.setItem('logueado', JSON.stringify(usuario));
-                
-                let callback = function() {
+
+                let callback = function () {
                     window.location.href = '/index.html';
                 }
 
@@ -128,8 +149,8 @@ export class Usuario {
             if (usuarioExistente !== undefined) {
                 if (usuarioExistente.contraseña === usuario.contraseña) {
                     localStorage.setItem('logueado', JSON.stringify(usuarioExistente));
-                    
-                    let callback = function() {
+
+                    let callback = function () {
                         window.location.href = '/index.html';
                     }
 

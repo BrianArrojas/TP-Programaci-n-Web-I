@@ -185,11 +185,21 @@ export class RealizarPago {
       dialogGlobal.mostrar("Debes iniciar sesión para usar la GiftCard.", callbackNoLogueado);
     } else {
       if (!this.validarFormularioTarjeta()) return;
-      
+
       dialogGlobal.mostrar(`¡Pago exitoso! Se ha comprado una GiftCard por AR$ ${monto},00. La imagen y el código de la GiftCard serán enviados por correo.`, () => {
         window.location.href = '/index.html';
       });
     }
+  }
+
+  esAlfabetico(str) {
+    const regex = /^[A-Za-z\s]+$/;
+    return regex.test(str);
+  }
+
+  esNumerico(str) {
+    const regex = /^[0-9]+$/;
+    return regex.test(str);
   }
 
   validarFormularioTarjeta() {
@@ -208,6 +218,16 @@ export class RealizarPago {
       return false;
     }
 
+    if (!this.esNumerico(inputNumero.value)) {
+      dialogGlobal.mostrar('El número de tarjeta debe ser numérico.');
+      return false;
+    }
+
+    if (!this.esAlfabetico(inputTitular.value)) {
+      dialogGlobal.mostrar('El nombre del titular debe contener solo letras y espacios.');
+      return false;
+    }
+
     let anio = inputFecha.value.split('-')[0];
     let mes = inputFecha.value.split('-')[1];
     let fechaActual = new Date();
@@ -223,7 +243,7 @@ export class RealizarPago {
       return false;
     }
 
-    if(/\D/.test(inputCVV.value)) {
+    if (!this.esNumerico(inputCVV.value)) {
       dialogGlobal.mostrar('El código de seguridad (CVV) debe ser numérico.');
       return false;
     }
@@ -274,14 +294,19 @@ export class RealizarPago {
     }
 
     botonesOpcion.forEach(button => {
-      button.addEventListener('click', () => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+
         const selectedOption = button.getAttribute('data-opcion');
         this.cambiarMetodoDePago(selectedOption);
       });
     });
 
     botonesRedireccion.forEach(button => {
-      button.addEventListener('click', (event) => this.manejarRedireccion(event));
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.manejarRedireccion(e);
+      });
     });
 
     if (botonFinalizarPago) {

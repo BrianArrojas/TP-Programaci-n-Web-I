@@ -8,9 +8,9 @@ export class Contacto {
             this.email = document.getElementById("email");
             this.telefono = document.getElementById("telefono");
             this.mensaje = document.getElementById("mensaje");
+            this.btnEnviar = document.getElementById("btn-enviar");
             this.maxChars = 1000;
         }
-
     }
 
     init() {
@@ -19,11 +19,39 @@ export class Contacto {
     }
 
     validarEmail(email) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        return email.indexOf('@') === -1 || email.indexOf('.') === -1 || email.length < 5;
     }
 
     validarTelefono(telefono) {
         return /^\d{4}-?\d{4}$/.test(telefono);
+    }
+
+    esAlfabetico(str) {
+        const regex = /^[A-Za-z\s]+$/;
+        return regex.test(str);
+    }
+
+    esNumerico(str) {
+        const regex = /^[0-9]+$/;
+        return regex.test(str);
+    }
+
+    validarDatos() {
+        if (!this.nombre.value.trim() || !this.email.value.trim() || !this.telefono.value.trim() || !this.mensaje.value.trim()) {
+            dialogGlobal.mostrar('Todos los campos son obligatorios.');
+            return false;
+        } else if (!this.esAlfabetico(this.nombre.value.trim())) {
+            dialogGlobal.mostrar('El nombre debe contener solo letras y espacios.');
+            return false;
+        } else if (this.validarEmail(this.email.value.trim())) {
+            dialogGlobal.mostrar('El email debe contener "@" y "." y tener al menos 5 caracteres (example@mail.com).');
+            return false;
+        } else if (!this.validarTelefono(this.telefono.value.trim())) {
+            dialogGlobal.mostrar('El teléfono debe tener 8 dígitos numéricos y opcionalmente un guion medio (XXXX-XXXX).');
+            return false;
+        }
+
+        return true;
     }
 
     render() {
@@ -37,56 +65,25 @@ export class Contacto {
         }
         counter.textContent = `0 / ${this.maxChars} caracteres`;
 
-        this.mensaje.addEventListener("input", () => {
+        this.mensaje.addEventListener("input", (e) => {
+            e.preventDefault();
+
             if (this.mensaje.value.length > this.maxChars) {
                 this.mensaje.value = this.mensaje.value.slice(0, this.maxChars);
             }
             counter.textContent = `${this.mensaje.value.length} / ${this.maxChars} caracteres`;
         });
 
-        this.form.addEventListener("submit", (e) => {
+        this.btnEnviar.addEventListener("click", (e) => {
             e.preventDefault();
 
-            if (!this.nombre.value.trim()) {
-                dialogGlobal.mostrar("El nombre no puede estar vacío");
+            if (!this.validarDatos()) {
                 return;
             }
-
-            if (!this.validarEmail(this.email.value.trim())) {
-                dialogGlobal.mostrar("El email no es válido");
-                return;
-            }
-
-            if (this.telefono.value.trim() && !this.validarTelefono(this.telefono.value.trim())) {
-                dialogGlobal.mostrar("El teléfono debe tener 8 dígitos y opcionalmente un guion medio (XXXX-XXXX)");
-                return;
-            }
-
-            if (!this.mensaje.value.trim()) {
-                dialogGlobal.mostrar("El mensaje no puede estar vacío");
-                return;
-            }
-            this.mostrarPopup();
+            
+            dialogGlobal.mostrar("Su consulta ha sido enviada con éxito. En breve será respondida.");
             this.form.reset();
             counter.textContent = `0 / ${this.maxChars} caracteres`;
-        });
-    }
-
-    mostrarPopup() {
-        const popup = document.createElement("div");
-        popup.classList.add("popup");
-        popup.innerHTML = `
-            <div class="popup-contenido">
-                <h2>Consulta enviada</h2>
-                <div class="boton-centro">
-                <button class="aceptar-popup">Aceptar</button>
-                </div>
-            </div>
-            `;
-        document.body.appendChild(popup);
-
-        popup.querySelector(".aceptar-popup").addEventListener("click", () => {
-            window.location.href = "../index.html";
         });
     }
 }
