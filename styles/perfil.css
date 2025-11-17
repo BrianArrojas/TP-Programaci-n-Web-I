@@ -1,110 +1,144 @@
 .perfil {
-    background-color: #13161c;
-    padding: 5em 16em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
-    color: #f1f1f1;
+  background-color: #13161c;
+  padding: 1em 16em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  color: #f1f1f1;
 }
 
-.perfil-datos {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-    text-align: center;
+#perfil-form {
+  width: 60%;
+  background-color: #1f2228;
+  border: 1px solid #666666;
+  border-radius: 10px;
+  padding: 2.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
 }
 
-.perfil-datos li {
-    font-size: 1.4em;
-    color: #d7d7d7;
+#perfil-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1em;
+  color: #d7d7d7;
+  gap: 0.5em;
 }
 
-.cursos-album {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2em;
-    width: 100%;
+#perfil-form input {
+  background-color: #13161c;
+  border: 1px solid #555555;
+  border-radius: 8px;
+  padding: 0.7em 1em;
+  color: #f1f1f1;
 }
 
-.cursos_card {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    justify-content: space-between;
-    width: 25%;
-    height: 20em;
-    background-color: #1f2228;
-    border: 1px solid #666666;
-    border-radius: 8px;
-    gap: 0.5em;
-    padding: 1em;
-    position: relative;
+#perfil-form input:focus {
+  border-color: #09e989;
+  outline: none;
 }
 
-.cursos_card span {
-    position: absolute;
-    top: 1em;
-    left: 1em;
-    background-color: #09e989;
-    color: #13161c;
-    font-weight: bold;
-    padding: 0.3em 0.6em;
-    border-radius: 4px;
-    font-size: 1.1em;
+#perfil-form button {
+  margin-top: 1em;
+  background-color: transparent;
+  border: 2px solid #09e989;
+  color: #f1f1f1;
+  font-size: 1em;
+  border-radius: 10px;
+  padding: 0.6em 1em;
+  cursor: pointer;
 }
 
-.cursos_card img {
-    width: 100%;
-    height: 60%;
-    border-radius: 8px;
-    object-fit: cover;
+#perfil-form button:hover {
+  background-color: #09e989;
+  color: #13161c;
 }
 
-.cursos_card div {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: top;
-    text-align: end;
+.perfil .cursos-album {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2em;
+  width: 100%;
 }
 
-.cursos_card div p {
-    font-size: 1.6em;
-    font-weight: bold;
-    color: #999999;
+.perfil .cursos_card {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-between;
+  width: 25%;
+  height: 20em;
+  background-color: #1f2228;
+  border: 1px solid #666666;
+  border-radius: 8px;
+  gap: 0.5em;
+  padding: 1em;
+  position: relative;
 }
 
-.cursos_card a {
-    margin-top: -0.7em;
-    color: #d7d7d7;
-    text-decoration: none;
+.perfil .cursos_card span {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  background-color: #09e989;
+  color: #13161c;
+  font-weight: bold;
+  padding: 0.3em 0.6em;
+  border-radius: 4px;
+  font-size: 1.1em;
 }
 
-.cursos_card a:hover {
-    color: #09e989;
+.perfil .cursos_card img {
+  width: 100%;
+  height: 60%;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
-.cursos_card button {
-    background-color: transparent;
-    border: 1px solid #09e989;
-    color: #f1f1f1;
-    height: 2em;
-    width: 8em;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.2em;
+.perfil .cursos_card div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  text-align: end;
 }
 
-.cursos_card button:hover {
-    background-color: #09e989;
-    color: #13161c;
-    border: none;
+.perfil .cursos_card div p {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #999999;
+}
+
+.perfil .cursos_card a {
+  margin-top: -0.7em;
+  color: #d7d7d7;
+  text-decoration: none;
+}
+
+.perfil .cursos_card a:hover {
+  color: #09e989;
+}
+
+.perfil .cursos_card button {
+  background-color: transparent;
+  border: 1px solid #09e989;
+  color: #f1f1f1;
+  height: 2em;
+  width: 8em;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+.perfil .cursos_card button:hover {
+  background-color: #09e989;
+  color: #13161c;
+  border: none;
 }
 
 @media (max-width: 64em) {

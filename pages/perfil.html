@@ -14,17 +14,39 @@
 
     <main>
         <section class="perfil">
-            <h2 id="nombre"></h2>
-            <ul class="perfil-datos">
-                <li id="usuario"></li>
-                <li id="email"></li>
-                <li id="telefono"></li>
-            </ul>
+            <h1>PERFIL</h1>
+            <form id="perfil-form">
+                <label for="nombre">
+                    <span>Nombre completo</span>
+                    <input type="text" id="nombre" placeholder="Nombre">
+                </label>
+                <label for="usuario">
+                    <span>Usuario</span>
+                    <input type="text" id="usuario" placeholder="Usuario">
+                </label>
+                <label for="email">
+                    <span>Email</span>
+                    <input type="email" id="email" placeholder="Email">
+                </label>
+                <label for="telefono">
+                    <span>Teléfono</span>
+                    <input type="num" id="telefono" placeholder="Teléfono">
+                </label>
+                <label for="password">
+                    <span>Contraseña actual</span>
+                    <input type="password" id="password" placeholder="Contraseña">
+                </label>
+                <label for="pass-nueva">
+                    <span>Nueva contraseña</span>
+                    <input type="password" id="pass-nueva" placeholder="Nueva contraseña">
+                </label>
+                <button type="submit">Guardar</button>
+            </form>
 
             <h2>MIS CURSOS</h2>
 
             <div class="cursos-album" id="perfil-cursos">
-                
+
             </div>
         </section>
     </main>
@@ -33,4 +55,5 @@
 
     <script src="../script.js" type="module"></script>
 </body>
+
 </html>
