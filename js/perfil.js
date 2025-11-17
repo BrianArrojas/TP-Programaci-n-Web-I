@@ -15,7 +15,6 @@ export class Perfil {
     init() {
         if (document.querySelector('.perfil')) {
             this.render();
-
         }
     }
 
@@ -44,11 +43,6 @@ export class Perfil {
         const telefono = this.inputTelefono.value.trim();
         const passActualIngresada = this.inputPassActual.value.trim();
         const passNueva = this.inputPassNueva.value.trim();
-
-        if (!nombre || !usuarioNuevo || !email || !telefono || !passActualIngresada) {
-            dialogGlobal.mostrar("Todos los campos son obligatorios.");
-            return;
-        }
 
         if (!this.esAlfabetico(nombre)) {
             dialogGlobal.mostrar("El nombre completo debe contener solo letras y espacios.");
@@ -105,10 +99,13 @@ export class Perfil {
         localStorage.setItem("usuarios", JSON.stringify(usuarios));
         localStorage.setItem("logueado", JSON.stringify(usuarios[indice]));
 
-        dialogGlobal.mostrar("Datos actualizados correctamente.");
-
         this.usuario = usuarios[indice];
-        this.render();
+
+        const callback = () => {
+            window.location.reload();
+        };
+
+        dialogGlobal.mostrar("Datos actualizados correctamente.", callback);
     }
 
     render() {
